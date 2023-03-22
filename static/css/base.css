@@ -1,0 +1,203 @@
+html {
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: url('/media/photography.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: calc(100vh);
+    color: #000;
+    font-family: 'Lato';
+}
+
+/* link style */
+
+a:hover {
+    color: grey !important;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.dropdown-item a {
+    color:black !important;
+}
+
+/* navbar */
+
+.fixed-top {
+    background-color: #000;
+}
+
+/* header */
+
+.header-white {
+    text-transform: uppercase;
+    color:white;
+}
+
+.header-black {
+    text-transform: uppercase;
+    color:black;
+}
+
+/* container styles */
+
+.bg-black {
+    background-color:black;
+}
+
+.content-border {
+    border: solid 1px black;
+    padding: 30px;
+    text-align: center;
+}
+
+.border-black {
+    border: 1px solid black !important;
+}
+
+.overlay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: white;
+	z-index: -1;
+}
+
+/* button styles */
+
+.btn-black {
+    background: black;
+    color: white;
+}
+
+.centered-button {
+    background: black;
+    color: white !important;
+    max-width: 260px;
+    margin: 0 auto;
+    display: block;
+}
+
+.btn-outline-black {
+    background: white;
+    color: black !important; /* use important to override link colors for <a> elements */
+    border: 1px solid black;
+    border-radius: 0%;
+}
+
+.btn-outline-black:hover,
+.btn-outline-black:active,
+.btn-outline-black:focus {
+    background: black;
+    color: white !important;
+}
+
+.quote-button {
+    background: black;
+    color: white !important;
+    min-width: 260px;
+}
+
+.quote-button:hover,
+.quote-button:active,
+.quote-button:focus,
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: #222;
+    color: white;
+}
+
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btt-link,
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
+/* footer */
+
+.footer {
+    padding: 80px;
+}
+
+.footer-bg-black {
+    background-color: #000 !important;
+}
+
+.footer-bg-black a {
+    color: #FFF !important;
+}
+
+.footer a {
+    color: black;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: grey !important;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+@media (max-width: 900px) {
+    .footer {
+        padding: 20px;
+    }
+}
+
+/* social */
+
+#social i {
+    font-size:xx-large;
+    letter-spacing: 20px;
+}
+
+@media (max-width: 900px) {
+    #social {
+        padding-bottom: 40px;
+    }
+}
+
+@media (max-width: 500px) {
+    #social {
+        padding-bottom: 40px;
+    }
+}
+
+/* Form */
+
+.form a {
+    color: black !important;
+}
+
+.signup-form {
+    color:black;
+}
+
+.text-input {
+    width: 100%;
+    border-radius: 0;
+    border-style: 1px solid;
+    border: 1px solid grey;
+}
+
+#thankyou {
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding-left:50px;
+    padding-top: 50px;
+}
