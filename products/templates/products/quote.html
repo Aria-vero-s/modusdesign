@@ -3,10 +3,18 @@
 
 {% block content %}
 
-<div class="overlay"></div>
-    <div class="container mt-5 py-5">
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row mt-5">
+            <div class="col mt-5"></div>
+        </div>
+    </div>
+{% endblock %}
 
-        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+    <div class="overlay"></div>
+    <div class="container mb-2">
+
+        <div class="pricing-header mx-auto text-center">
             <h1 class="display-4 fw-normal text-black">Get a quote</h1>
             <p class="fs-5 text-muted">Quickly find out the total cost of your project by filling the form below.</p>
         </div>
@@ -400,13 +408,21 @@
         
         </div>
 
-        <div style="display:none" id="quote">
 
-            <h2 class="display-6 text-center my-5">Your quote is ${{ total|floatformat:2 }}</h2>
+
+            <h2 class="display-6 text-center my-5">Your quote is
+                <p>
+                    {% if grand_total %}
+                        ${{ grand_total|floatformat:2 }}
+                    {% else %}
+                        $0.00
+                    {% endif %}
+                </p>
+            </h2>
             <p class="fs-5 text-muted text-center">How does the pricing work? <a href="#">Click here</a> to find out more</p>
             <h3 class="display-6 text-center mb-4">Would you like to continue?</h3>
             <div class="row justify-content-center">
-                <a href="#" class="btn btn-lg btn-outline-black mb-3">Yes, continue to checkout</a>
+                <a href="{% url 'view_bag' %}" class="btn btn-lg btn-outline-black mb-3">Yes, continue to checkout</a>
             </div>
             <div class="row justify-content-center">
                 <button type="button" class="btn btn-lg btn-outline-black mb-3">Not yet, save this quote and get in touch</button>
