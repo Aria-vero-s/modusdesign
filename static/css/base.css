@@ -126,6 +126,16 @@ a:hover {
     cursor: pointer;
 }
 
+/* quote */
+
+.card-service {
+    min-height: 150px;
+}
+
+.text-align-left {
+    text-align: left !important;
+}
+
 /* about */
 
 #about img {
