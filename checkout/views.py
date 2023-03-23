@@ -5,7 +5,7 @@ from django.conf import settings
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 from products.models import Product
-from bag.contexts import bag_contents
+# from bag.contexts import bag_contents
 
 import stripe
 
@@ -67,7 +67,7 @@ def checkout(request):
         bag = request.session.get('bag', {})
         if not bag:
             messages.error(request, "There's nothing in your bag at the moment")
-            return redirect(reverse('products'))
+            return redirect(reverse('quote'))
 
         current_bag = bag_contents(request)
         total = current_bag['grand_total']
