@@ -1,0 +1,211 @@
+<div class="row mb-3">
+    <div class="col">
+        <div class="card mb-4 rounded-0 ">
+            <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">What do you need?</h4>
+                <h5 class="fs-5 text-muted">You may select more than one</h5>
+            </div>
+
+            <div class="card-body">
+                    <label for="logo">
+                        <input type="checkbox" name="logo" id="logo" onchange="brandingCheckbox(event)">
+                        <span class="checkmark"></span>
+                        <span>Logo design</span>
+                    </label>
+                    <br>
+                    <label for="promo">
+                        <input type="checkbox" name="promo" id="promo" onchange="brandingCheckbox(event)">
+                        <span class="checkmark"></span>
+                        <span>Promotional design (e.g., brochures, flyers, social media banners)</span>
+                    </label>
+                    <br>
+                    <label class="stationary">
+                        <input type="checkbox" name="stationary" id="stationary" onchange="brandingCheckbox(event)">
+                        <span class="checkmark"></span>
+                        <span>Stationary design (e.g., letterheads, business cards, envelopes)</span>
+                    </label>
+                    <br>
+                    <label class="packaging">
+                        <input type="checkbox" name="packaging" id="packaging" onchange="brandingCheckbox(event)">
+                        <span class="checkmark"></span>
+                        <span>Packaging design (e.g., shipping boxes, paper bags, wrapping paper)</span>
+                    </label>
+                    <p class="fs-5 mb-3 text-muted">*If the type of product you're looking for is not here, <a href="{% url 'home' %}#contact">get in touch</a></p>
+
+                    <p>Would you like your product to be printed and delivered to your address?:</p>
+                    <input type="radio" id="html" name="fav_language" value="HTML">
+                    <label for="html">Yes</label><br>
+                    <input type="radio" id="css" name="fav_language" value="CSS">
+                    <label for="css">No</label><br>
+                    <p class="fs-5 mb-3 text-muted">*Please note, the printing and shipping service cost is not included in the quote. This service is offered by <a href="https://www.helloprint.co.uk/">helloprint</a>. Please visit their website for more.</p>
+                    <br>
+
+                <button type="button" package="branding2" class="btn btn-lg btn-outline-black">Select this package</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div style="display:none" id="website2">
+<h2 class="display-6 text-center mb-4">Select a package</h2>
+<div class="row mb-3">
+    <div class="col">
+        <div class="card mb-4 rounded-0 ">
+            <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">What do you need?</h4>
+                <h5 class="fs-5 text-muted">You may select more than one</h5>
+            </div>
+            <div class="card-body">
+                <form action="#">
+                    <label for="logo">
+                        <input type="checkbox" name="logo" id="logo" onchange="brandingCheckbox(event)">
+                        <span class="checkmark"></span>
+                        <span>Portfolio website</span>
+                    </label>
+                    <br>
+                    <label for="promo">
+                        <input type="checkbox" name="promo" id="promo" onchange="brandingCheckbox(event)">
+                        <span class="checkmark"></span>
+                        <span>Blog website</span>
+                    </label>
+                    <br>
+                    <label class="stationary">
+                        <input type="checkbox" name="stationary" id="stationary" onchange="brandingCheckbox(event)">
+                        <span class="checkmark"></span>
+                        <span>Small business website</span>
+                    </label>
+                    <br>
+                    <label class="packaging">
+                        <input type="checkbox" name="packaging" id="packaging" onchange="brandingCheckbox(event)">
+                        <span class="checkmark"></span>
+                        <span>E-commerce website</span>
+                    </label>
+                    <p class="fs-5 mb-3 text-muted">*If the type of website you're looking for is not here, <a href="{% url 'home' %}#contact">get in touch</a></p>
+
+                    <p class="mb-1">Would you like the initial cost of domain and hosting to be included in the quote?</p>
+                    <p class="fs-5 mb-3 text-muted">*Note: the quote is an estimate and will not include any monthly cost. This will depend on the website address you choose.</p>
+                    <input type="radio" id="html" name="fav_language" value="HTML">
+                    <label for="html">Yes</label><br>
+                    <input type="radio" id="css" name="fav_language" value="CSS">
+                    <label for="css">No</label><br>
+                    <br>
+                </form>
+
+                <button type="button" package="website2" class="btn btn-lg btn-outline-black">Select this package</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div style="display:none" id="illustration2">
+<h2 class="display-6 text-center mb-4">Select a package</h2>
+<div class="row mb-3">
+    <div class="col">
+        <div class="card mb-4 rounded-0 ">
+            <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">What do you need?</h4>
+                <h5 class="fs-5 text-muted">You may select more than one</h5>
+            </div>
+            <div class="card-body">
+                <form action="#">
+                    <label for="logo">
+                        <input type="checkbox" name="logo" id="logo" onchange="brandingCheckbox(event)">
+                        <span class="checkmark"></span>
+                        <span>Single illustration (e.g., book cover, album cover, poster)</span>
+                    </label>
+                    <br>
+                    <label for="promo">
+                        <input type="checkbox" name="promo" id="promo" onchange="brandingCheckbox(event)">
+                        <span class="checkmark"></span>
+                        <span>Multiple illustrations under a given theme (e.g., magazine, newspaper, blog) <i>*Note: the quote will be an estimate for 3 illustrations</i></span>
+                    </label>
+                    <br>
+                    <label class="stationary">
+                        <input type="checkbox" name="stationary" id="stationary" onchange="brandingCheckbox(event)">
+                        <span class="checkmark"></span>
+                        <span>Single nonfiction illustration (e.g., graph, instruction, pictogram)</span>
+                    </label>
+                    <br>
+                    <label class="packaging">
+                        <input type="checkbox" name="packaging" id="packaging" onchange="brandingCheckbox(event)">
+                        <span class="checkmark"></span>
+                        <span>Multiple illustrations inside a single layout (e.g., storybook, comic page)</span>
+                    </label>
+                    <p class="fs-5 mb-3 text-muted">*If the type of product you're looking for is not here, <a href="{% url 'home' %}#contact">get in touch</a></p>
+
+                    <p>Would you like the illustration to be printed and delivered to your address?:</p>
+                    <input type="radio" id="html" name="fav_language" value="HTML">
+                    <label for="html">Yes</label><br>
+                    <input type="radio" id="css" name="fav_language" value="CSS">
+                    <label for="css">No</label><br>
+                    <p class="fs-5 mb-3 text-muted">*Please note, the printing and shipping service cost is not included in the quote. This service is offered by <a href="https://www.helloprint.co.uk/">helloprint</a>. Please visit their website for more.</p>
+                    <br>
+                </form>
+
+                <button type="button" package="illustration2" class="btn btn-lg btn-outline-black">Select this package</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div style="display:none" id="fullpackage2">
+    <h2 class="display-6 text-center mb-4">Select a package</h2>
+    <div class="row mb-3">
+        <div class="col">
+            <div class="card mb-4 rounded-0 ">
+                <div class="card-header py-3">
+                    <h4 class="my-0 fw-normal">What do you need?</h4>
+                    <h5 class="fs-5 text-muted">You may select more than one</h5>
+                </div>
+                <div class="card-body">
+                    <form action="#">
+                        <label for="logo">
+                            <input type="checkbox" name="logo" id="logo" onchange="brandingCheckbox(event)">
+                            <span class="checkmark"></span>
+                            <span>Logo</span>
+                        </label>
+                        <br>
+                        <label for="promo">
+                            <input type="checkbox" name="promo" id="promo" onchange="brandingCheckbox(event)">
+                            <span class="checkmark"></span>
+                            <span>Branding designs (i.e., for promotional use, stationary items and packaging)</span>
+                        </label>
+                        <br>
+                        <label class="stationary">
+                            <input type="checkbox" name="stationary" id="stationary" onchange="brandingCheckbox(event)">
+                            <span class="checkmark"></span>
+                            <span>Website</span>
+                        </label>
+                        <br>
+                        <label class="packaging">
+                            <input type="checkbox" name="packaging" id="packaging" onchange="brandingCheckbox(event)">
+                            <span class="checkmark"></span>
+                            <span>Illustration designs (i.e., for articles, presentations, or other)</span>
+                        </label>
+                        <p class="fs-5 mb-3 text-muted">*Can't find what you're looking for? <a href="{% url 'home' %}#contact">get in touch</a></p>
+
+                        <p class="mb-1">Would you like the initial cost of domain and hosting to be included in the quote?</p>
+                        <p class="fs-5 mb-3 text-muted">*Note: the quote is an estimate and will not include any monthly cost. This will depend on the website address you choose.</p>
+                        <input type="radio" id="html" name="fav_language" value="HTML">
+                        <label for="html">Yes</label><br>
+                        <input type="radio" id="css" name="fav_language" value="CSS">
+                        <label for="css">No</label><br>
+                        <br>
+                        <p>Would you like your product to be printed and delivered to your address?:</p>
+                        <input type="radio" id="html" name="fav_language" value="HTML">
+                        <label for="html">Yes</label><br>
+                        <input type="radio" id="css" name="fav_language" value="CSS">
+                        <label for="css">No</label><br>
+                        <p class="fs-5 mb-3 text-muted">*Please note, the printing and shipping service cost is not included in the quote. This service is offered by <a href="https://www.helloprint.co.uk/">helloprint</a>. Please visit their website for more.</p>
+                        <br>
+                    </form>
+
+                    <button type="button" package="fullpackage2" class="btn btn-lg btn-outline-black">Select this package</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

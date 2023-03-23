@@ -28,3 +28,4 @@ def quote(request):
     }
 
     return render(request, 'products/quote.html', context)
+

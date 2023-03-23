@@ -21,309 +21,19 @@
 
         <h2 class="display-6 text-center mb-4">Select a service</h2>
 
-        <div class="row mb-3 text-center">
-            <div class="col-sm-12 col-md-6 col-lg-3">
-                <div class="card mb-4 rounded-0 ">
-                    <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">Branding design</h4>
-                    </div>
-                    <div class="card-body">
-                        <h1 class="card-title pricing-card-title"><i class="fa-regular fa-address-card"></i></h1>
-                        <div class="card-service">
-                            Crafting a strong brand identity isn't easy! Designers have the important task of finding the perfect visual identity to represent a company or product.
-                        </div>
-                        <ul class="text-align-left mt-3 mb-4">
-                            <li>Logo</li>
-                            <li>Business cards</li>
-                            <li>Promotional flyers...</li>
-                        </ul>
-                        
-                        <button type="button" service="branding" class="w-100 btn btn-lg btn-outline-black">Select this service</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-12 col-md-6 col-lg-3">
-                <div class="card mb-4 rounded-0 ">
-                    <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">Website</h4>
-                    </div>
-                    <div class="card-body">
-                        <h1 class="card-title pricing-card-title"><i class="fa-sharp fa-solid fa-desktop"></i></h1>
-                        <div class="card-service">
-                            Web designers use their creative powers to make sure your digital experiences are seamless and enjoyable while tying in the client's unique branding.
-                        </div>
-                        <ul class="text-align-left mt-3 mb-4">
-                            <li>Website</li>
-                            <li>Blog</li>
-                            <li>Online portfolio...</li>
-                        </ul>
-
-                        <button type="button" service="website" class="w-100 btn btn-lg btn-outline-black">Select this service</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-12 col-md-6 col-lg-3">
-                <div class="card mb-4 rounded-0">
-                    <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">Illustration design</h4>
-                    </div>
-                    <div class="card-body">
-                        <h1 class="card-title pricing-card-title"><i class="fa-solid fa-book"></i></h1>
-                        <div class="card-service">
-                            Illustrations capture the attention of your target market with beautiful book and magazine covers, plus creative page layouts.
-                        </div>
-                        <ul class="text-align-left mt-3 mb-4">
-                            <li>Album cover</li>
-                            <li>Magazine images</li>
-                            <li>Storybook...</li>
-                        </ul>
-
-                        <button type="button" service="illustration" class="w-100 btn btn-lg btn-outline-black">Select this service</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-12 col-md-6 col-lg-3">
-                <div class="card mb-4 rounded-0">
-                    <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">Full-package</h4>
-                    </div>
-                    <div class="card-body">
-                        <h1 class="card-title pricing-card-title"><i class="fa-solid fa-laptop-file"></i></h1>
-                        <div class="card-service">
-                            Launching a business? This design package has it all - a one-of-a-kind website, plus a business logo, printed materials and packaging.
-                        </div>
-                        <ul class="text-align-left mt-3 mb-4">
-                            <li>Website</li>
-                            <li>Branding products</li>
-                            <li>...and more!</li>
-                        </ul>
-
-                        <button type="button" service="fullpackage" class="w-100 btn btn-lg btn-outline-black">Select this service</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% include 'products/includes/service.html' %}
+        
 
         <div style="display:none" id="branding2">
             <h2 class="display-6 text-center mb-4">Select a package</h2>
-            <div class="row mb-3">
-                <div class="col">
-                    <div class="card mb-4 rounded-0 ">
-                        <div class="card-header py-3">
-                            <h4 class="my-0 fw-normal">What do you need?</h4>
-                            <h5 class="fs-5 text-muted">You may select more than one</h5>
-                        </div>
+            
+            {% include 'products/includes/package.html' %}
 
-                        <div class="card-body">
-                                <label for="logo">
-                                    <input type="checkbox" name="logo" id="logo" onchange="brandingCheckbox(event)">
-                                    <span class="checkmark"></span>
-                                    <span>Logo design</span>
-                                </label>
-                                <br>
-                                <label for="promo">
-                                    <input type="checkbox" name="promo" id="promo" onchange="brandingCheckbox(event)">
-                                    <span class="checkmark"></span>
-                                    <span>Promotional design (e.g., brochures, flyers, social media banners)</span>
-                                </label>
-                                <br>
-                                <label class="stationary">
-                                    <input type="checkbox" name="stationary" id="stationary" onchange="brandingCheckbox(event)">
-                                    <span class="checkmark"></span>
-                                    <span>Stationary design (e.g., letterheads, business cards, envelopes)</span>
-                                </label>
-                                <br>
-                                <label class="packaging">
-                                    <input type="checkbox" name="packaging" id="packaging" onchange="brandingCheckbox(event)">
-                                    <span class="checkmark"></span>
-                                    <span>Packaging design (e.g., shipping boxes, paper bags, wrapping paper)</span>
-                                </label>
-                                <p class="fs-5 mb-3 text-muted">*If the type of product you're looking for is not here, <a href="{% url 'home' %}#contact">get in touch</a></p>
-
-                                <p>Would you like your product to be printed and delivered to your address?:</p>
-                                <input type="radio" id="html" name="fav_language" value="HTML">
-                                <label for="html">Yes</label><br>
-                                <input type="radio" id="css" name="fav_language" value="CSS">
-                                <label for="css">No</label><br>
-                                <p class="fs-5 mb-3 text-muted">*Please note, the printing and shipping service cost is not included in the quote. This service is offered by <a href="https://www.helloprint.co.uk/">helloprint</a>. Please visit their website for more.</p>
-                                <br>
-
-                            <button type="button" package="branding2" class="btn btn-lg btn-outline-black">Select this package</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div style="display:none" id="website2">
-            <h2 class="display-6 text-center mb-4">Select a package</h2>
-            <div class="row mb-3">
-                <div class="col">
-                    <div class="card mb-4 rounded-0 ">
-                        <div class="card-header py-3">
-                            <h4 class="my-0 fw-normal">What do you need?</h4>
-                            <h5 class="fs-5 text-muted">You may select more than one</h5>
-                        </div>
-                        <div class="card-body">
-                            <form action="#">
-                                <label for="logo">
-                                    <input type="checkbox" name="logo" id="logo" onchange="brandingCheckbox(event)">
-                                    <span class="checkmark"></span>
-                                    <span>Portfolio website</span>
-                                </label>
-                                <br>
-                                <label for="promo">
-                                    <input type="checkbox" name="promo" id="promo" onchange="brandingCheckbox(event)">
-                                    <span class="checkmark"></span>
-                                    <span>Blog website</span>
-                                </label>
-                                <br>
-                                <label class="stationary">
-                                    <input type="checkbox" name="stationary" id="stationary" onchange="brandingCheckbox(event)">
-                                    <span class="checkmark"></span>
-                                    <span>Small business website</span>
-                                </label>
-                                <br>
-                                <label class="packaging">
-                                    <input type="checkbox" name="packaging" id="packaging" onchange="brandingCheckbox(event)">
-                                    <span class="checkmark"></span>
-                                    <span>E-commerce website</span>
-                                </label>
-                                <p class="fs-5 mb-3 text-muted">*If the type of website you're looking for is not here, <a href="{% url 'home' %}#contact">get in touch</a></p>
-    
-                                <p class="mb-1">Would you like the initial cost of domain and hosting to be included in the quote?</p>
-                                <p class="fs-5 mb-3 text-muted">*Note: the quote is an estimate and will not include any monthly cost. This will depend on the website address you choose.</p>
-                                <input type="radio" id="html" name="fav_language" value="HTML">
-                                <label for="html">Yes</label><br>
-                                <input type="radio" id="css" name="fav_language" value="CSS">
-                                <label for="css">No</label><br>
-                                <br>
-                            </form>
-
-                            <button type="button" package="website2" class="btn btn-lg btn-outline-black">Select this package</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div style="display:none" id="illustration2">
-            <h2 class="display-6 text-center mb-4">Select a package</h2>
-            <div class="row mb-3">
-                <div class="col">
-                    <div class="card mb-4 rounded-0 ">
-                        <div class="card-header py-3">
-                            <h4 class="my-0 fw-normal">What do you need?</h4>
-                            <h5 class="fs-5 text-muted">You may select more than one</h5>
-                        </div>
-                        <div class="card-body">
-                            <form action="#">
-                                <label for="logo">
-                                    <input type="checkbox" name="logo" id="logo" onchange="brandingCheckbox(event)">
-                                    <span class="checkmark"></span>
-                                    <span>Single illustration (e.g., book cover, album cover, poster)</span>
-                                </label>
-                                <br>
-                                <label for="promo">
-                                    <input type="checkbox" name="promo" id="promo" onchange="brandingCheckbox(event)">
-                                    <span class="checkmark"></span>
-                                    <span>Multiple illustrations under a given theme (e.g., magazine, newspaper, blog) <i>*Note: the quote will be an estimate for 3 illustrations</i></span>
-                                </label>
-                                <br>
-                                <label class="stationary">
-                                    <input type="checkbox" name="stationary" id="stationary" onchange="brandingCheckbox(event)">
-                                    <span class="checkmark"></span>
-                                    <span>Single nonfiction illustration (e.g., graph, instruction, pictogram)</span>
-                                </label>
-                                <br>
-                                <label class="packaging">
-                                    <input type="checkbox" name="packaging" id="packaging" onchange="brandingCheckbox(event)">
-                                    <span class="checkmark"></span>
-                                    <span>Multiple illustrations inside a single layout (e.g., storybook, comic page)</span>
-                                </label>
-                                <p class="fs-5 mb-3 text-muted">*If the type of product you're looking for is not here, <a href="{% url 'home' %}#contact">get in touch</a></p>
-
-                                <p>Would you like the illustration to be printed and delivered to your address?:</p>
-                                <input type="radio" id="html" name="fav_language" value="HTML">
-                                <label for="html">Yes</label><br>
-                                <input type="radio" id="css" name="fav_language" value="CSS">
-                                <label for="css">No</label><br>
-                                <p class="fs-5 mb-3 text-muted">*Please note, the printing and shipping service cost is not included in the quote. This service is offered by <a href="https://www.helloprint.co.uk/">helloprint</a>. Please visit their website for more.</p>
-                                <br>
-                            </form>
-
-                            <button type="button" package="illustration2" class="btn btn-lg btn-outline-black">Select this package</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div style="display:none" id="fullpackage2">
-            <h2 class="display-6 text-center mb-4">Select a package</h2>
-            <div class="row mb-3">
-                <div class="col">
-                    <div class="card mb-4 rounded-0 ">
-                        <div class="card-header py-3">
-                            <h4 class="my-0 fw-normal">What do you need?</h4>
-                            <h5 class="fs-5 text-muted">You may select more than one</h5>
-                        </div>
-                        <div class="card-body">
-                            <form action="#">
-                                <label for="logo">
-                                    <input type="checkbox" name="logo" id="logo" onchange="brandingCheckbox(event)">
-                                    <span class="checkmark"></span>
-                                    <span>Logo</span>
-                                </label>
-                                <br>
-                                <label for="promo">
-                                    <input type="checkbox" name="promo" id="promo" onchange="brandingCheckbox(event)">
-                                    <span class="checkmark"></span>
-                                    <span>Branding designs (i.e., for promotional use, stationary items and packaging)</span>
-                                </label>
-                                <br>
-                                <label class="stationary">
-                                    <input type="checkbox" name="stationary" id="stationary" onchange="brandingCheckbox(event)">
-                                    <span class="checkmark"></span>
-                                    <span>Website</span>
-                                </label>
-                                <br>
-                                <label class="packaging">
-                                    <input type="checkbox" name="packaging" id="packaging" onchange="brandingCheckbox(event)">
-                                    <span class="checkmark"></span>
-                                    <span>Illustration designs (i.e., for articles, presentations, or other)</span>
-                                </label>
-                                <p class="fs-5 mb-3 text-muted">*Can't find what you're looking for? <a href="{% url 'home' %}#contact">get in touch</a></p>
-    
-                                <p class="mb-1">Would you like the initial cost of domain and hosting to be included in the quote?</p>
-                                <p class="fs-5 mb-3 text-muted">*Note: the quote is an estimate and will not include any monthly cost. This will depend on the website address you choose.</p>
-                                <input type="radio" id="html" name="fav_language" value="HTML">
-                                <label for="html">Yes</label><br>
-                                <input type="radio" id="css" name="fav_language" value="CSS">
-                                <label for="css">No</label><br>
-                                <br>
-                                <p>Would you like your product to be printed and delivered to your address?:</p>
-                                <input type="radio" id="html" name="fav_language" value="HTML">
-                                <label for="html">Yes</label><br>
-                                <input type="radio" id="css" name="fav_language" value="CSS">
-                                <label for="css">No</label><br>
-                                <p class="fs-5 mb-3 text-muted">*Please note, the printing and shipping service cost is not included in the quote. This service is offered by <a href="https://www.helloprint.co.uk/">helloprint</a>. Please visit their website for more.</p>
-                                <br>
-                            </form>
-
-                            <button type="button" package="fullpackage2" class="btn btn-lg btn-outline-black">Select this package</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         
         <div id="plan" style="display:none">
             <h2 class="display-6 text-center mb-4">Select a plan</h2>
         </div>
+
         <div class="row mb-3">
             <div class="col-sm-12 col-md-6 col-lg" style="display:none" id="bronze">
                 <div class="card mb-4 rounded-0 ">
@@ -383,7 +93,7 @@
                 <div class="card mb-4 rounded-0 ">
                     {% for product in products %}
                         {% if product.name == "Gold plan" %}
-                            <form class="form" action="#" method="POST">
+                            <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                                 {% csrf_token %}
                                 <div class="card-header py-3">
                                     <h4 class="my-0 fw-normal">
@@ -398,7 +108,10 @@
                                         <li>Final product Money Back Guarantee</li>
                                         <li>Copyright Ownership of 1 Design</li>
                                     </ul>
-                                    <input type="submit" class="w-100 btn btn-lg btn-outline-black" value="Select this plan" plan="gold">
+                                    <div class="input-group">
+                                        <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                    </div>
+                                    <input type="submit" class="w-100 btn btn-lg btn-outline-black" value="Select this product" min="1" max="1" data-item_id="{{ product.id }}" id="{{ product.id }}" plan="gold">
                                 </div>
                             </form>
                         {% endif %}
