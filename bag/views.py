@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from products.models import Product
 # Create your views here.
 
@@ -30,4 +30,16 @@ def add_to_bag(request, **kwargs):
     return redirect(reverse('products/quote.html'))
 
 
+def bag_contents(request):
+    bag_items = []
+    total = 0
+    product_count = 0
+		bag = request.session.get('bag', {})
 
+    for item_id in bag.items():
+        product = get_object_or_404(Product, pk=item_id)
+        total += plan * product.price
+        bag_items.append({
+            'item_id': item_id,
+            'product': product,
+        })
