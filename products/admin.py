@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, Category, Quote, OrderItem, Order
+from .models import Product, Category, OrderItem, Order
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = (

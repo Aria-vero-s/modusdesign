@@ -60,7 +60,7 @@ class OrderItem(models.Model):
 
 class Order(models.Model):
     ref_code = models.CharField(max_length=15)
-    owner = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True)
+    # owner = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True)
     is_ordered = models.BooleanField(default=False)
     items = models.ManyToManyField(OrderItem)
     date_ordered = models.DateTimeField(auto_now=True)
