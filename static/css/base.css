@@ -7,17 +7,23 @@ body {
     background: url('/media/photography.jpg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh);
-    color: #000;
+    color: #grey;
     font-family: 'Lato';
 }
 
 /* link style */
 
-a:hover {
-    color: grey !important;
-    text-decoration: none;
-    transition: 0.3s;
-}
+a {
+    color: grey;
+    transition: color .3s ease-in-out;
+  }
+
+a:hover,
+a:active,
+a:focus {
+    color:lightgrey;
+    text-decoration:none;
+  }
 
 .dropdown-item a {
     color:black !important;
@@ -87,6 +93,8 @@ a:hover {
     color: black !important; /* use important to override link colors for <a> elements */
     border: 1px solid black;
     border-radius: 0%;
+    min-width:100px;
+    transition: .3s ease-in-out;
 }
 
 .btn-outline-black:hover,
