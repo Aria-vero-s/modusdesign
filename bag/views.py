@@ -1,5 +1,6 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
 from products.models import Product
+from django.contrib import messages
 # Create your views here.
 
 def view_bag(request):
@@ -16,7 +17,7 @@ def add_to_bag(request, **kwargs):
 
     # create orderItem of the selected product
     order_item, status = OrderItem.objects.get_or_create(product=product)
-    
+
     # create order associated with the user
     user_order, status = Order.objects.get_or_create(owner=user_profile, is_ordered=False)
     user_order.items.add(order_item)
@@ -26,7 +27,7 @@ def add_to_bag(request, **kwargs):
         user_order.save()
 
     # show confirmation message and redirect back to the same page
-    messages.info(request, "item added to cart")
+    messages.success(request, f'Added {product.name} to your bag')
     return redirect(reverse('products/quote.html'))
 
 
@@ -34,7 +35,7 @@ def bag_contents(request):
     bag_items = []
     total = 0
     product_count = 0
-		bag = request.session.get('bag', {})
+        bag = request.session.get('bag', {})
 
     for item_id in bag.items():
         product = get_object_or_404(Product, pk=item_id)

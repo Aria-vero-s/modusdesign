@@ -209,6 +209,67 @@ a:hover {
     padding:30px;
 }
 
+/* Form */
+
+.form a {
+    color: black !important;
+}
+
+.signup-form {
+    color:black;
+}
+
+.text-input {
+    width: 100%;
+    border-radius: 0;
+    border-style: 1px solid;
+    border: 1px solid grey;
+}
+
+#thankyou {
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding-left:50px;
+    padding-top: 50px;
+}
+
+
+/* bootstrap toasts */
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
+.arrow-up {
+    width: 0; 
+    height: 0; 
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent; 
+    border-bottom: 10px solid black;
+    position: absolute;
+    top: -10px;
+    right: 36px;
+}
+
+.bag-notification-wrapper {
+    height: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 /* footer */
 
 .footer {
@@ -259,32 +320,6 @@ a:hover {
     }
 }
 
-/* Form */
-
-.form a {
-    color: black !important;
-}
-
-.signup-form {
-    color:black;
-}
-
-.text-input {
-    width: 100%;
-    border-radius: 0;
-    border-style: 1px solid;
-    border: 1px solid grey;
-}
-
-#thankyou {
-    height: 400px;
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    padding-left:50px;
-    padding-top: 50px;
-}
-
 /* search */
 
 .btt-button {
@@ -298,3 +333,4 @@ a:hover {
 .btt-link {
     cursor: pointer;
 }
+
