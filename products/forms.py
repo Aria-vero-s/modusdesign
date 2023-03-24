@@ -1,5 +1,5 @@
 from django import forms
-from .models import Product, Category
+from .models import Product, Category, Quote
 
 
 class ProductForm(forms.ModelForm):
@@ -16,3 +16,11 @@ class ProductForm(forms.ModelForm):
         self.fields['category'].choices = friendly_names
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-0'
+
+
+class QuoteForm(forms.ModelForm):
+    name = forms.CharField(required=True)
+
+    class Meta:
+        model=Quote
+        fields = '__all__'

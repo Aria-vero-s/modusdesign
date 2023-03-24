@@ -1,5 +1,8 @@
 from django.contrib import admin
-from .models import Product, Category, OrderItem, Order
+from .models import Product, Category
+
+# Register your models here.
+
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
@@ -13,6 +16,7 @@ class ProductAdmin(admin.ModelAdmin):
 
     ordering = ('sku',)
 
+
 class CategoryAdmin(admin.ModelAdmin):
     list_display = (
         'friendly_name',
@@ -20,8 +24,5 @@ class CategoryAdmin(admin.ModelAdmin):
     )
 
 
-admin.site.register(Product)
-admin.site.register(Category)
-admin.site.register(OrderItem)
-admin.site.register(Order)
-
+admin.site.register(Product, ProductAdmin)
+admin.site.register(Category, CategoryAdmin)
