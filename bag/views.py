@@ -4,7 +4,8 @@ from django.shortcuts import (
 from django.contrib import messages
 
 from products.models import Product
-from products.forms import QuoteForm
+from products.forms import ProductForm
+from checkout.forms import QuoteForm
 
 
 def view_bag(request):
@@ -12,22 +13,32 @@ def view_bag(request):
 
     return render(request, 'bag/bag.html')
 
+def quote(request):
+    products = Product.objects.all()
+    context = {
+        'products': products,
+    }
+
+    return render(request, 'bag/quote.html', context)
+
 
 def add_to_bag(request, item_id):
     if request.method == 'POST':  # this means the form has data
-        form = QuoteForm(request.POST)  # get the form and it data
-        if form.is_valid():  # check if it is valid
-            name = form.cleaned_data.get('name')  # clean the data
-            form.save()  # save the data to the model
-            messages.success(request, 'Your product has been added!')
-            return redirect('\quote')
-        else:  # form not valid so display message and retain the data entered
-            form = QuoteForm(request.POST)
-            messages.info(request, 'Error in creating your product, the form is not valid!')
-            return render(request, 'products/quote.html', {'form': form})
-    else:  # the form has no data
-        form = QuoteForm()  # produce a blank form
-        return render(request, 'products/quote.html', {'form': form})
+        quote = request.session.get('quote', {})  # grab data from quote template form
+        form_data = {
+            'name': request.POST['plan'],  # send the name of the product to somewhere
+        }
+        quoteform = QuoteForm(form_data)  # Send it where? Tho this form! (back in the admin panel)
+        if quoteform.is_valid():
+            product = Product.objects.get(id=item_id)  # get the id for each product
+            request.session['save_info'] = 'save-info' in request.POST  # Not sure how this one works
+            messages.success(request, ('Success! Your form was submitted'))
+            return redirect('quote')
+        else:
+            messages.info(request, ('Warning! Your form was not validated'))
+    else:
+        messages.info(request, ('Error! Your form was not submitted'))
+    return render(request, 'bag/quote.html')
 
 
 def adjust_bag(request, item_id):

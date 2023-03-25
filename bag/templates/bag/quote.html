@@ -93,7 +93,7 @@
             <div class="col-sm-12 col-md-6 col-lg" style="display:none" id="gold">
                 <div class="card mb-4 rounded-0 ">
                     {% for product in products %}
-                        {% if product.name == "Gold plan" %}
+                        {% if product.name == "Gold-plan" %}
                             <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                                 {% csrf_token %}
                                 <div class="card-header py-3">
@@ -109,9 +109,8 @@
                                         <li>Final product Money Back Guarantee</li>
                                         <li>Copyright Ownership of 1 Design</li>
                                     </ul>
-
                                 
-                                    <input type="submit" class="w-100 btn btn-lg btn-outline-black" value="Add to Bag">
+                                    <button type="submit" name="Gold-plan" class="w-100 btn btn-lg btn-outline-black" value="Gold">Add to bag</button>
                                 </div>
                             </form>
                         {% endif %}

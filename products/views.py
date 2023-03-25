@@ -58,7 +58,7 @@ def quote(request):
         'current_sorting': current_sorting,
     }
 
-    return render(request, 'products/quote.html', context)
+    return render(request, 'bag/quote.html', context)
 
 
 def product_detail(request, product_id):
