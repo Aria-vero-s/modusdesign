@@ -55,7 +55,8 @@
                                         <li>Final product Money Back Guarantee</li>
                                         <li>Copyright Ownership of 1 Design</li>
                                     </ul>
-                                    <input type="submit" class="w-100 btn btn-lg btn-outline-black" value="Select this plan" plan="bronze">
+                                    <input type="hidden" name="plan" value="Bronze-plan" />
+                                    <input type="submit" value="Add To Bag" class="w-100 btn btn-lg btn-outline-black" />
                                 </div>
                             </form>
                         {% endif %}
@@ -82,7 +83,8 @@
                                         <li>Final product Money Back Guarantee</li>
                                         <li>Copyright Ownership of 1 Design</li>
                                     </ul>
-                                    <input type="submit" class="w-100 btn btn-lg btn-outline-black" value="Select this plan" plan="silver">
+                                    <input type="hidden" name="plan" value="Silver-plan" />
+                                    <input type="submit" value="Add To Bag" class="w-100 btn btn-lg btn-outline-black" />
                                 </div>
                             </form>
                         {% endif %}
@@ -94,7 +96,7 @@
                 <div class="card mb-4 rounded-0 ">
                     {% for product in products %}
                         {% if product.name == "Gold-plan" %}
-                            <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
+                            <form class="form" action="{% url 'add_to_quote' product.id %}" method="POST">
                                 {% csrf_token %}
                                 <div class="card-header py-3">
                                     <h4 class="my-0 fw-normal">
@@ -109,8 +111,8 @@
                                         <li>Final product Money Back Guarantee</li>
                                         <li>Copyright Ownership of 1 Design</li>
                                     </ul>
-                                
-                                    <button type="submit" name="Gold-plan" class="w-100 btn btn-lg btn-outline-black" value="Gold">Add to bag</button>
+                                    <input type="hidden" name="plan" value="Gold-plan" />
+                                    <input type="submit" value="Add To Bag" class="w-100 btn btn-lg btn-outline-black" />
                                 </div>
                             </form>
                         {% endif %}

@@ -22,23 +22,31 @@ def quote(request):
     return render(request, 'bag/quote.html', context)
 
 
-def add_to_bag(request, item_id):
+def add_to_quote(request, item_id):
     if request.method == 'POST':  # this means the form has data
-        quote = request.session.get('quote', {})  # grab data from quote template form
-        form_data = {
-            'name': request.POST['plan'],  # send the name of the product to somewhere
-        }
-        quoteform = QuoteForm(form_data)  # Send it where? Tho this form! (back in the admin panel)
-        if quoteform.is_valid():
-            product = Product.objects.get(id=item_id)  # get the id for each product
-            request.session['save_info'] = 'save-info' in request.POST  # Not sure how this one works
-            messages.success(request, ('Success! Your form was submitted'))
-            return redirect('quote')
-        else:
-            messages.info(request, ('Warning! Your form was not validated'))
+
+        # get the session dictionary from the browser request or create one
+        quote = request.session.get('quote', {})
+
+        # look up the Product, search for it based on the post request "plan" value
+        product = Product.objects.get(name=request.POST["plan"])
+        # add the product id to the "quote" session dictionary
+        # it will look like this:
+        # {
+        #     "quote": {
+        #         "plan": 1
+        #     }
+        # }
+
+        quote["plan"] = product.id
+        # reassign the session quote dictionary back to the browser for when the page refreshes
+        request.session["quote"] = quote
+        # send a success message
+        messages.success(request, ('Success! Your form was submitted'))
+        return redirect('quote')
     else:
         messages.info(request, ('Error! Your form was not submitted'))
-    return render(request, 'bag/quote.html')
+    return render(request, 'quote/quote.html')
 
 
 def adjust_bag(request, item_id):
