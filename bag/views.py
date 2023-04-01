@@ -23,16 +23,28 @@ def quote(request):
 
 
 def add_to_bag(request, item_id):
+    quote_items = []
+    grand_total = 0
+    product_count = 0
+
+    context = {
+        'quote_items': quote_items,
+        'total': total,
+        'product_count': product_count,
+        'grand_total': grand_total,
+    }
+
     if request.method == 'POST':  # this means the form has data
         quote = request.session.get('quote', {})  # grab data from quote template form
         form_data = {
             'name': request.POST['plan'],  # send the name of the product to somewhere
         }
-        quoteform = QuoteForm(form_data)  # Send it where? Tho this form! (back in the admin panel)
+        quoteform = QuoteForm(form_data)
         if quoteform.is_valid():
             product = Product.objects.get(id=item_id)  # get the id for each product
             request.session['save_info'] = 'save-info' in request.POST  # Not sure how this one works
             messages.success(request, ('Success! Your form was submitted'))
+            return context
             return redirect('quote')
         else:
             messages.info(request, ('Warning! Your form was not validated'))
