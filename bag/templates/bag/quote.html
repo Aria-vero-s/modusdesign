@@ -35,25 +35,27 @@
 
             <div class="card-deck">
                 {% for product in products %}
-                <div class="card">
-                    <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">
-                            {{ product.name }}
-                        </h4>
+                    <div class="card rounded-0">
+                        <div class="card-header py-3">
+                            <h4 class="my-0 fw-normal">
+                                {{ product.name }}
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">{{ product.description }}</p>
+                            <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST" id="form">
+                                    {% csrf_token %}
+                                <input class="form-control qty_input" type="hidden" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                <input type="submit" class="btn btn-lg btn-outline-black" value="Select this plan" onclick="quoteDisplay()">
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                            </form>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <p class="card-text">{{ product.description }}</p>
-
-                        <input class="form-control qty_input" type="hidden" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
-                        <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="GET A QUOTE" onclick="quoteDisplay()">
-                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                    </div>
-                </div>
                 {% endfor %}
             </div>
-        </div>
 
-        <div id="quote" style="display:none;">
+
+        <div id="quote" >
             <h2 class="display-6 text-center my-5">Your quote is</h2>
             <div class="text-center">
                 <h2 class="my-0">
@@ -74,7 +76,7 @@
                 <button type="button" class="btn btn-lg btn-outline-black mb-3">Not yet, save this quote and get in touch</button>
             </div>
             <div class="row justify-content-center">
-                <button type="button" value="Refresh" onClick="refresh(this)" class="btn btn-lg btn-outline-black mb-3">No, start over</button>
+                <button type="button" value="Refresh" onClick="window.location.reload();" class="btn btn-lg btn-outline-black mb-3">No, start over</button>
             </div>
         </div>
     </div>
