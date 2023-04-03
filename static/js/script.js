@@ -38,62 +38,37 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+function quoteDisplay() {
+    var x = document.getElementById("quote");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+
 document.addEventListener("DOMContentLoaded", function() {
     let buttons = document.getElementsByTagName("button");
     let plan = document.getElementById('plan');
-    let bronze = document.getElementById('bronze');
-    let silver = document.getElementById('silver');
-    let gold = document.getElementById('gold');
 
     for (let button of buttons) {
         button.addEventListener("click", function() {
             if (this.getAttribute("package") === "branding2") {
                 plan.style.display = "inline";
-                bronze.style.display = "inline";
-                silver.style.display = "inline";
-                gold.style.display = "inline";
             }
             if (this.getAttribute("package") === "website2") {
                 plan.style.display = "inline";
-                bronze.style.display = "inline";
-                silver.style.display = "inline";
-                gold.style.display = "inline";
             }
             if (this.getAttribute("package") === "illustration2") {
                 plan.style.display = "inline";
-                bronze.style.display = "inline";
-                silver.style.display = "inline";
-                gold.style.display = "inline";
             }
             if (this.getAttribute("package") === "fullpackage2") {
                 plan.style.display = "inline";
-                bronze.style.display = "inline";
-                silver.style.display = "inline";
-                gold.style.display = "inline";
             }
         });
     }
 });
 
-
-document.addEventListener("DOMContentLoaded", function() {
-    let inputs = document.getElementsByTagName("input");
-    let quote = document.getElementById('quote');
-
-    for (let input of inputs) {
-        inputs.addEventListener("click", function() {
-            if (this.getAttribute("plan") === "bronze") {
-                quote.style.display = "inline";
-            }
-            if (this.getAttribute("plan") === "silver") {
-                quote.style.display = "inline";
-            }
-            if (this.getAttribute("plan") === "gold") {
-                quote.style.display = "inline";
-            }
-        });
-    }
-});
 
 // Extract user's checked checkboxes 
 
