@@ -22,7 +22,6 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254, default=False)
     description = models.TextField(default=False)
@@ -30,5 +29,22 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Service(models.Model):
+    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
+    sku = models.CharField(max_length=254, null=True, blank=True)
+    name = models.CharField(max_length=254, default=False)
+    description = models.TextField(default=False)
+    price = models.DecimalField(max_digits=6, decimal_places=2, default=False)
+    quantity = models.IntegerField(null=False, blank=False, default=0)
+
+    def save(self, *args, **kwargs):
+        """
+        Override the original save method to set the lineitem total
+        and update the order total.
+        """
+        self.lineitem_total = self.price * self.quantity
+        super().save(*args, **kwargs)
 
 

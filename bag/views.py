@@ -3,7 +3,7 @@ from django.shortcuts import (
 )
 from django.contrib import messages
 
-from products.models import Product
+from products.models import Product, Service
 
 
 def view_bag(request):
@@ -14,8 +14,10 @@ def view_bag(request):
 
 def quote(request):
     products = Product.objects.all()
+    services = Service.objects.all()
     context = {
         'products': products,
+        'services': services,
     }
     return render(request, 'bag/quote.html', context)
 

@@ -10,25 +10,49 @@
                     <label for="logo">
                         <input type="checkbox" name="logo" id="logo" onchange="brandingCheckbox(event)">
                         <span class="checkmark"></span>
-                        <span>Logo design</span>
+                        <span>
+                            {% for service in services %}
+                                {% if service.name == "logo" %}
+                                   Logo
+                                {% endif %}
+                            {% endfor %}
+                        </span>
                     </label>
                     <br>
                     <label for="promo">
                         <input type="checkbox" name="promo" id="promo" onchange="brandingCheckbox(event)">
                         <span class="checkmark"></span>
-                        <span>Promotional design (e.g., brochures, flyers, social media banners)</span>
+                        <span>
+                            {% for service in services %}
+                                {% if service.name == "promotional" %}
+                                    Promotional design (e.g., brochures, flyers, social media banners)
+                                {% endif %}
+                            {% endfor %}
+                        </span>
                     </label>
                     <br>
                     <label class="stationary">
                         <input type="checkbox" name="stationary" id="stationary" onchange="brandingCheckbox(event)">
                         <span class="checkmark"></span>
-                        <span>Stationary design (e.g., letterheads, business cards, envelopes)</span>
+                        <span>
+                            {% for service in services %}
+                                {% if service.name == "stationary" %}
+                                    Stationary design (e.g., letterheads, business cards, envelopes)
+                                {% endif %}
+                            {% endfor %}
+                        </span>
                     </label>
                     <br>
                     <label class="packaging">
                         <input type="checkbox" name="packaging" id="packaging" onchange="brandingCheckbox(event)">
                         <span class="checkmark"></span>
-                        <span>Packaging design (e.g., shipping boxes, paper bags, wrapping paper)</span>
+                        <span>
+                            {% for service in services %}
+                                {% if service.name == "packaging" %}
+                                    Packaging design (e.g., shipping boxes, paper bags, wrapping paper)
+                                {% endif %}
+                            {% endfor %}
+                        </span>
                     </label>
                     <p class="fs-5 mb-3 text-muted">*If the type of product you're looking for is not here, <a href="{% url 'home' %}#contact">get in touch</a></p>
 
@@ -40,7 +64,7 @@
                     <p class="fs-5 mb-3 text-muted">*Please note, the printing and shipping service cost is not included in the quote. This service is offered by <a href="https://www.helloprint.co.uk/">helloprint</a>. Please visit their website for more.</p>
                     <br>
 
-                <button type="button" package="branding2" class="btn btn-lg btn-outline-black">Select this package</button>
+                <button type="button" package="branding2" class="btn btn-lg btn-outline-black">Continue</button>
             </div>
         </div>
     </div>
@@ -48,7 +72,7 @@
 </div>
 
 <div style="display:none" id="website2">
-<h2 class="display-6 text-center mb-4">Select a package</h2>
+
 <div class="row mb-3">
     <div class="col">
         <div class="card mb-4 rounded-0 ">
@@ -61,25 +85,49 @@
                     <label for="logo">
                         <input type="checkbox" name="logo" id="logo" onchange="brandingCheckbox(event)">
                         <span class="checkmark"></span>
-                        <span>Portfolio website</span>
+                        <span>
+                            {% for service in services %}
+                                {% if service.name == "portfolio" %}
+                                    Portfolio website
+                                {% endif %}
+                            {% endfor %}
+                        </span>
                     </label>
                     <br>
                     <label for="promo">
                         <input type="checkbox" name="promo" id="promo" onchange="brandingCheckbox(event)">
                         <span class="checkmark"></span>
-                        <span>Blog website</span>
+                        <span>
+                            {% for service in services %}
+                                {% if service.name == "blog" %}
+                                    Blog Website
+                                {% endif %}
+                            {% endfor %}
+                        </span>
                     </label>
                     <br>
                     <label class="stationary">
                         <input type="checkbox" name="stationary" id="stationary" onchange="brandingCheckbox(event)">
                         <span class="checkmark"></span>
-                        <span>Small business website</span>
+                        <span>
+                            {% for service in services %}
+                                {% if service.name == "small-business" %}
+                                    Small business website
+                                {% endif %}
+                            {% endfor %}
+                        </span>
                     </label>
                     <br>
                     <label class="packaging">
                         <input type="checkbox" name="packaging" id="packaging" onchange="brandingCheckbox(event)">
                         <span class="checkmark"></span>
-                        <span>E-commerce website</span>
+                        <span>
+                            {% for service in services %}
+                                {% if service.name == "e-commerce" %}
+                                    E-commerce website
+                                {% endif %}
+                            {% endfor %}
+                        </span>
                     </label>
                     <p class="fs-5 mb-3 text-muted">*If the type of website you're looking for is not here, <a href="{% url 'home' %}#contact">get in touch</a></p>
 
@@ -92,7 +140,7 @@
                     <br>
                 </form>
 
-                <button type="button" package="website2" class="btn btn-lg btn-outline-black">Select this package</button>
+                <button type="button" package="website2" class="btn btn-lg btn-outline-black">Continue</button>
             </div>
         </div>
     </div>
@@ -100,7 +148,7 @@
 </div>
 
 <div style="display:none" id="illustration2">
-<h2 class="display-6 text-center mb-4">Select a package</h2>
+
 <div class="row mb-3">
     <div class="col">
         <div class="card mb-4 rounded-0 ">
@@ -113,25 +161,49 @@
                     <label for="logo">
                         <input type="checkbox" name="logo" id="logo" onchange="brandingCheckbox(event)">
                         <span class="checkmark"></span>
-                        <span>Single illustration (e.g., book cover, album cover, poster)</span>
+                        <span>
+                            {% for service in services %}
+                                {% if service.name == "book-album" %}
+                                    Single illustration (e.g., book cover, album cover, poster)
+                                {% endif %}
+                            {% endfor %}
+                        </span>
                     </label>
                     <br>
                     <label for="promo">
                         <input type="checkbox" name="promo" id="promo" onchange="brandingCheckbox(event)">
                         <span class="checkmark"></span>
-                        <span>Multiple illustrations under a given theme (e.g., magazine, newspaper, blog) <i>*Note: the quote will be an estimate for 3 illustrations</i></span>
+                        <span>
+                            {% for service in services %}
+                                {% if service.name == "magazine" %}
+                                    Multiple illustrations under a given theme (e.g., magazine, newspaper, blog) <i class="fs-5 mb-3 text-muted">*Note: the quote will be an estimate for 3 illustrations</i>
+                                {% endif %}
+                            {% endfor %}
+                        </span>
                     </label>
                     <br>
                     <label class="stationary">
                         <input type="checkbox" name="stationary" id="stationary" onchange="brandingCheckbox(event)">
                         <span class="checkmark"></span>
-                        <span>Single nonfiction illustration (e.g., graph, instruction, pictogram)</span>
+                        <span>
+                            {% for service in services %}
+                                {% if service.name == "non-fiction" %}
+                                    Single nonfiction illustration (e.g., graph, instruction, pictogram)
+                                {% endif %}
+                            {% endfor %}
+                        </span>
                     </label>
                     <br>
                     <label class="packaging">
                         <input type="checkbox" name="packaging" id="packaging" onchange="brandingCheckbox(event)">
                         <span class="checkmark"></span>
-                        <span>Multiple illustrations inside a single layout (e.g., storybook, comic page)</span>
+                        <span>
+                            {% for service in services %}
+                                {% if service.name == "storybook" %}
+                                    Multiple illustrations inside a single layout (e.g., storybook, comic page)
+                                {% endif %}
+                            {% endfor %}
+                        </span>
                     </label>
                     <p class="fs-5 mb-3 text-muted">*If the type of product you're looking for is not here, <a href="{% url 'home' %}#contact">get in touch</a></p>
 
@@ -144,7 +216,7 @@
                     <br>
                 </form>
 
-                <button type="button" package="illustration2" class="btn btn-lg btn-outline-black">Select this package</button>
+                <button type="button" package="illustration2" class="btn btn-lg btn-outline-black">Continue</button>
             </div>
         </div>
     </div>
@@ -152,7 +224,7 @@
 </div>
 
 <div style="display:none" id="fullpackage2">
-    <h2 class="display-6 text-center mb-4">Select a package</h2>
+
     <div class="row mb-3">
         <div class="col">
             <div class="card mb-4 rounded-0 ">
@@ -165,25 +237,49 @@
                         <label for="logo">
                             <input type="checkbox" name="logo" id="logo" onchange="brandingCheckbox(event)">
                             <span class="checkmark"></span>
-                            <span>Logo</span>
+                            <span>
+                                {% for service in services %}
+                                    {% if service.name == "logo" %}
+                                        Logo
+                                    {% endif %}
+                                {% endfor %}
+                            </span>
                         </label>
                         <br>
                         <label for="promo">
                             <input type="checkbox" name="promo" id="promo" onchange="brandingCheckbox(event)">
                             <span class="checkmark"></span>
-                            <span>Branding designs (i.e., for promotional use, stationary items and packaging)</span>
+                            <span>
+                                {% for service in services %}
+                                    {% if service.name == "branding" %}
+                                        Branding designs (i.e., for promotional use, stationary items and packaging)
+                                    {% endif %}
+                                {% endfor %}
+                            </span>
                         </label>
                         <br>
                         <label class="stationary">
                             <input type="checkbox" name="stationary" id="stationary" onchange="brandingCheckbox(event)">
                             <span class="checkmark"></span>
-                            <span>Website</span>
+                            <span>
+                                {% for service in services %}
+                                    {% if service.name == "website" %}
+                                        Website
+                                    {% endif %}
+                                {% endfor %}
+                            </span>
                         </label>
                         <br>
                         <label class="packaging">
                             <input type="checkbox" name="packaging" id="packaging" onchange="brandingCheckbox(event)">
                             <span class="checkmark"></span>
-                            <span>Illustration designs (i.e., for articles, presentations, or other)</span>
+                            <span>
+                                {% for service in services %}
+                                    {% if service.name == "illustration" %}
+                                        Illustration designs (i.e., for articles, presentations, or other)
+                                    {% endif %}
+                                {% endfor %}
+                            </span>
                         </label>
                         <p class="fs-5 mb-3 text-muted">*Can't find what you're looking for? <a href="{% url 'home' %}#contact">get in touch</a></p>
 
@@ -203,7 +299,7 @@
                         <br>
                     </form>
 
-                    <button type="button" package="fullpackage2" class="btn btn-lg btn-outline-black">Select this package</button>
+                    <button type="button" package="fullpackage2" class="btn btn-lg btn-outline-black">Continue</button>
                 </div>
             </div>
         </div>
