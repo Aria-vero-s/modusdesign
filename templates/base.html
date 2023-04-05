@@ -2,7 +2,7 @@
 
 <!doctype html>
 <html lang="en">
-  <head>
+    <head>
 
     {% block meta %}
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -41,8 +41,9 @@
     {% endblock %}
 
     <title>Modus Design {% block extra_title %}{% endblock %}</title>
-  </head>
-  <body>
+    </head>
+
+    <body>
     <header class="fixed-top">
         <div class="row">
             <div class="col-12">
@@ -137,51 +138,54 @@
     {% endblock %}
 
     {% block footer %}
-    <footer class="bg-white w-100">
-        <div class="footer container-fluid pt-3">
-            <!-- Grid row -->
-            <div class="row text-left">
-                <!-- Grid column -->
-                <div class="col-md-6">
+        <footer class="py-5 px-5 bg-black text-white w-100">
+            <div class="row">
+                <div class="col-6">
                     <h3>Social</h3>
                     <div id="social">
                         <p>Keep up to date with the latest offers</p>
-                        <a href="https://www.facebook.com/profile.php?id=100089872322144" target="_blank"><i class="fab fa-facebook-square"></i></a>
-                        <a href="https://www.instagram.com/modusdesign.official/" target="_blank"><i class="fab fa-instagram-square"></i></a>
-                        <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter-square"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=100089872322144" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/modusdesign.official/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.etsy.com/ca-fr/shop/ArianeSaulnier?ref=seller-platform-mcnav" target="_blank"><i class="fa-brands fa-etsy"></i></a>
                     </div>
                 </div>
-                <!-- Grid column -->
-                <div class="col-md-6">
-
-                </div>
-            </div>
-        </div>
-    </footer>
-    <footer class="footer-bg-black text-white">
-        <div class="footer container-fluid pt-3">
-            <div class="row">
-                <div class="col-md-6">
-                    <form method="GET" action="{% url 'quote' %}">
-                        <div class="input-group">
-                            <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search">
-                            <div class="input-group-append">
-                                <button class="form-control btn btn-black border border-black rounded-0" type="submit">
-                                    <span class="icon">
-                                        <i class="fas fa-search"></i>
-                                    </span>
-                                </button>
+    
+                <div class="col-6">
+                    <h3>Newsletter subscription</h3>
+                    <!-- Begin Mailchimp Signup Form -->
+                    <div id="mc_embed_signup">
+                        <form action="https://gmail.us21.list-manage.com/subscribe/post?u=2e9377371cc577d152248cadd&amp;id=771e91f781&amp;f_id=00cb95e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                            <div id="mc_embed_signup_scroll">
+                            <div class="indicates-required"></div>
+                            <div class="mc-field-group">
+                                <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span></label>
+                                <p><input type="email" value="" name="EMAIL" class="required email border-0 rounded-0 w-100" id="mce-EMAIL" required></p>
+                                <span id="mce-EMAIL-HELPERTEXT" class="helper_text"></span>
                             </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="col-md-6 text-left mb-5">
-                    @ 2023 Made by: <a href="https://github.com/Aria-vero-s" target="_blank">aria-vero-s</a><br>
-                    <a href ="https://www.privacypolicygenerator.info/live.php?token=lx1Nwh7vdojPRxFPWkJwoluEpSHI13pM" target="_blank">Privacy Notice</a>
+                            <div id="mce-responses" class="clear foot">
+                                <div class="response" id="mce-error-response" style="display:none"></div>
+                                <div class="response" id="mce-success-response" style="display:none"></div>
+                            </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_2e9377371cc577d152248cadd_771e91f781" tabindex="-1" value=""></div>
+                                <div class="optionalParent">
+                                    <div class="clear foot">
+                                        <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button rounded-0 btn-outline-black btn-lg">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!--End mc_embed_signup-->
                 </div>
             </div>
-        </div>
-    </footer>
+    
+            <div class="row justify-content-center pt-5">
+                <p>@ 2023 Made by: <a href="https://github.com/Aria-vero-s" target="_blank">aria-vero-s</a></p>
+            </div>
+            <div class="row justify-content-center pb-5">
+                <p><a href ="https://www.privacypolicygenerator.info/live.php?token=lx1Nwh7vdojPRxFPWkJwoluEpSHI13pM" target="_blank">Privacy Notice</a></p>
+            </div>
+        </footer>
     {% endblock %}
 
     {% block postloadjs %}
@@ -190,5 +194,5 @@
     </script>
     {% endblock %}
     
-  </body>
+    </body>
 </html>

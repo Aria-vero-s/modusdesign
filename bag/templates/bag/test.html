@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+    {% block page_header %}
+        <div class="container header-container">
+            <div class="row mt-5">
+                <div class="col mt-5"></div>
+            </div>
+        </div>
+    {% endblock %}
+
+    <div class="overlay"></div>
+    <form name="costcalculator">
+      <div class="package-type">
+        <select name="packageType" id="packageType" onchange="setMonths(this.value)">
+          <option value="gold">Gold</option>
+          <option value="silver">Silver</option>
+          <option value="bronze">Bronze</option>
+        </select>
+      </div>
+    
+      <div class="months">
+        <select name="months" id="months">
+          <option value="1">1 month</option>
+          <option value="2">2 months</option>
+          <option value="3">3 months</option>
+          <option value="4">4 months</option>
+          <option value="5">5 months</option>
+          <option value="6">6 months</option>
+          <option value="7">7 months</option>
+          <option value="8">8 months</option>
+          <option value="9">9 months</option>
+          <option value="10">10 months</option>
+          <option value="11">11 months</option>
+          <option value="12">12 months</option>
+        </select>
+        <input type="checkbox" id="months" name="months" value="1">
+        <label for="months"> I have a bike</label><br>
+        <input type="checkbox" id="vehicle2" name="vehicle2" value="2">
+        <label for="vehicle2"> I have a car</label><br>
+        <input type="checkbox" id="vehicle3" name="vehicle3" value="3">
+        <label for="vehicle3"> I have a boat</label><br><br>
+      </div>
+    
+      <button type="button" onclick="calculatePrice()">Calculate</button>
+      <div id="price"></div> 
+    </form>
+
+{% endblock %}
+
+{% block postloadjs %}
+<script type="text/javascript">
+          var costs = {
+    'gold': {
+      'basePrice': 199.99,
+      'pricePerMonth' : 99.5,
+      'maxMonths': 12
+    },
+    'silver': {
+      'basePrice': 150,
+      'pricePerMonth' : 75,
+      'maxMonths': 12
+    },
+    'bronze': {
+      'basePrice': 75,
+      'pricePerMonth' : 37.5,
+      'maxMonths': 2
+    }
+};
+
+function setMonths(package)
+{
+    var maxMonths = costs[package].maxMonths;
+    document.getElementById("months").innerHTML = ''; // Clear all options
+    for (var i = 1; i<=maxMonths; i++){
+       var opt = document.createElement('option');
+       opt.value = i;
+       opt.innerHTML = i +  (i > 1 ? ' months' : ' month');
+       document.getElementById('months').appendChild(opt);
+    }
+}
+
+function calculatePrice()
+{
+  var package = document.getElementById('packageType').value;
+  var months = document.getElementById('months').value;
+  var price = costs[package].basePrice + (costs[package].pricePerMonth * (months - 1));
+  document.getElementById('price').innerHTML = price.toFixed(2);
+}
+
+</script>
+{% endblock %}
