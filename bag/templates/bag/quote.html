@@ -115,7 +115,10 @@
                 <button type="button" class="btn btn-lg btn-outline-black mb-3">Not yet, save this quote and get in touch</button>
             </div>
             <div class="row justify-content-center">
-                <button type="button" value="Refresh" onclick="window.location.reload();" class="btn btn-lg btn-outline-black mb-3">No, start over</button>
+                <button type="button" value="Refresh" class="btn btn-lg btn-outline-black mb-3">No, start over</button>
+            </div>
+            <div class="row justify-content-center">
+                <button type="button" value="Refresh" onclick="clearBag()" class="btn btn-lg btn-outline-black mb-3">No, start over2</button>
             </div>
         </div>
     </div>
@@ -137,6 +140,10 @@
         $('.btt-link').click(function(e) {
             window.scrollTo(0,0)
         })
+
+        function clearBag() {
+        bag.clear()
+        }
     </script>
     
 {% endblock %}
