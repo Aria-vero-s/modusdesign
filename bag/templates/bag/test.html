@@ -12,39 +12,51 @@
     {% endblock %}
 
     <div class="overlay"></div>
-    <form name="costcalculator">
-      <div class="package-type">
-        <select name="packageType" id="packageType" onchange="setMonths(this.value)">
-          <option value="gold">Gold</option>
-          <option value="silver">Silver</option>
-          <option value="bronze">Bronze</option>
+    <ul>
+      <li><a href="https://stackoverflow.com/questions/54744679/cost-calculator-using-javascript-advanced" target="_blank">stackoverflow link</a></li>
+      <li><a href="https://csshint.com/multi-step-html-forms/" target="_blank">forms link</a></li>
+    </ul>
+    <form name="costcalculator">    
+      <div class="services" id="services">
+        <select name="branding" id="branding">
+          <option value="1">logo</option>
+          <option value="2">promotional</option>
+          <option value="3">stationary</option>
+          <option value="4">packaging</option>
+        </select>
+        <select name="website" id="website">
+          <option value="5">portfolio</option>
+          <option value="6">blog</option>
+          <option value="7">small business</option>
+          <option value="8">e-commerce</option>
+        </select>
+        <select name="illustration" id="illustration">
+          <option value="9">album</option>
+          <option value="10">magazine</option>
+          <option value="11">nonfiction</option>
+          <option value="12">storybook</option>
+        </select>
+        <select name="fullpackage" id="fullpackage">
+          <option value="13">logo</option>
+          <option value="14">website</option>
+          <option value="15">branding</option>
+          <option value="16">illustrations</option>
         </select>
       </div>
-    
-      <div class="months">
-        <select name="months" id="months">
-          <option value="1">1 month</option>
-          <option value="2">2 months</option>
-          <option value="3">3 months</option>
-          <option value="4">4 months</option>
-          <option value="5">5 months</option>
-          <option value="6">6 months</option>
-          <option value="7">7 months</option>
-          <option value="8">8 months</option>
-          <option value="9">9 months</option>
-          <option value="10">10 months</option>
-          <option value="11">11 months</option>
-          <option value="12">12 months</option>
-        </select>
-        <input type="checkbox" id="months" name="months" value="1">
-        <label for="months"> I have a bike</label><br>
-        <input type="checkbox" id="vehicle2" name="vehicle2" value="2">
-        <label for="vehicle2"> I have a car</label><br>
-        <input type="checkbox" id="vehicle3" name="vehicle3" value="3">
-        <label for="vehicle3"> I have a boat</label><br><br>
+      
+      <div class="plan-type">
+        <p>Select a plan:</p>
+        <input type="radio" id="bronze" name="planType" value="bronze" onchange="setServices(this.value)">
+        <label for="bronze">bronze</label><br>
+        <input type="radio" id="silver" name="planType" value="silver" onchange="setServices(this.value)">
+        <label for="silver">silver</label><br>
+        <input type="radio" id="gold" name="planType" value="gold" onchange="setServices(this.value)">
+        <label for="gold">gold</label>
       </div>
-    
+
+      <input type="submit" value="reset">
       <button type="button" onclick="calculatePrice()">Calculate</button>
+      <button type="button" onclick="showPlanNumber()">Plan</button>
       <div id="price"></div> 
     </form>
 
@@ -52,42 +64,70 @@
 
 {% block postloadjs %}
 <script type="text/javascript">
-          var costs = {
-    'gold': {
-      'basePrice': 199.99,
-      'pricePerMonth' : 99.5,
-      'maxMonths': 12
-    },
-    'silver': {
-      'basePrice': 150,
-      'pricePerMonth' : 75,
-      'maxMonths': 12
-    },
-    'bronze': {
-      'basePrice': 75,
-      'pricePerMonth' : 37.5,
-      'maxMonths': 2
-    }
+var costs = {
+  'branding': {
+    'logo': 24,
+    'promotional' : 36,
+    'stationary': 36,
+    'packaging': 36
+  },
+  'website': {
+    'portfolio': 150,
+    'blog' : 150,
+    'small': 150,
+    'ecommerce': 150
+  },
+  'illustration': {
+    'album': 72,
+    'magazine' : 72,
+    'nonfiction': 48,
+    'storybook': 72
+  },
+  'fullpackage': {
+    'logo': 24,
+    'website' : 150,
+    'branding': 36,
+    'illustration': 72
+  }
 };
 
-function setMonths(package)
+var plans = {
+  'bronze': 3,
+  'silver' : 6,
+  'gold': 10
+};
+
+// Basically, once the user clicks on submit, the total price shows up.
+// For example, if the user selected logo (which is £36) and then bronze (which is 3),
+// the price would show up as 108 (because the function calculated 36 * 3 = 108)
+
+function setServices(package)
 {
-    var maxMonths = costs[package].maxMonths;
-    document.getElementById("months").innerHTML = ''; // Clear all options
-    for (var i = 1; i<=maxMonths; i++){
+    var services = Object.keys(costs);
+    document.getElementById("services").innerHTML = ''; // Clear all options
+
+    for (var i = 1; i<=services; i++){
        var opt = document.createElement('option');
        opt.value = i;
-       opt.innerHTML = i +  (i > 1 ? ' months' : ' month');
-       document.getElementById('months').appendChild(opt);
+       opt.innerHTML = i +  (i > 1 ? ' services' : ' service');
+       document.getElementById('services').appendChild(opt);
     }
 }
 
 function calculatePrice()
 {
-  var package = document.getElementById('packageType').value;
-  var months = document.getElementById('months').value;
-  var price = costs[package].basePrice + (costs[package].pricePerMonth * (months - 1));
-  document.getElementById('price').innerHTML = price.toFixed(2);
+  var plan = document.getElementById('planType').value;
+  var services = document.getElementById('services').value;
+  var price = costs[plan].basePrice + (costs[plan].keys.value * (plans));
+  document.getElementById('price').innerHTML = price;
+}
+
+function showPlanNumber() {
+  let selected_cost = document.getElementById('services').value;
+  var selected_plan = document.getElementById('planType').value;
+  var selected_services = document.getElementById('services').value;
+  var price = costs.package[selected_service] * plans[selected_plan]
+  document.getElementById('price').innerHTML = price;
 }
 
 </script>
