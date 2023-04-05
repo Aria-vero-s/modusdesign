@@ -35,7 +35,7 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid col-12 bg-white h-100" id="contact" name="contact">
+    <div class="container-fluid col-12 bg-white" id="contact" name="contact">
         <div class="row w-100">
             <div class="container my-5 py-5">
                 <h1 class="header-black">Contact</h1>
@@ -44,24 +44,25 @@
                     Phone: +44 1234567890<br>
                 </p>
                 <p>Or send me a message:</p>
-                <form method="GET" action="#" class="signup-form">
-                
-                <label for="fname">First Name</label>
-                <input id="fname" class="text-input" name="first_name" type="text" required>
-                
-                <label for="lname">Last Name</label>
-                <input id="lname" class="text-input" name="last_name" type="text" required>
-                
-                <label for="email">Email Address</label>
-                <input type="email" class="text-input" id="email" name="email_address" required>
-                
-                <label for="comment">Leave a message</label>
-                <textarea id="comment" class="text-input" name="comment" type="text" style="height:100px; text-align: start;"></textarea>
-        
-                <input class="btn btn-black rounded-0 type="submit" value="submit">
 
+                <form method="POST" action="" class="signup-form">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        {{ form.fname }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.lname }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.email }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.comment }}
+                    </div>
+
+                    <p><input class="btn btn-black rounded-0" type="submit" value="submit"></p>
                 </form>
-
             </div>
         </div>
     </div>
@@ -82,4 +83,11 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+
+	</script>
 {% endblock %}

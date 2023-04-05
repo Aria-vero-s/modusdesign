@@ -1,9 +1,19 @@
 from django.shortcuts import render
+from .forms import ContactForm
+from django.http import HttpResponse
+from django.contrib import messages
 
 
 # Create your views here.
 def index(request):
-    return render(request, './home/index.html')
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.info(request, 'Message sent! You will soon receive a reply by email.')
+    form = ContactForm()
+    context = {'form': form}
+    return render(request, 'home/index.html', context)
 
 
 def branding(request):
@@ -16,3 +26,4 @@ def website(request):
 
 def illustration(request):
     return render(request, "home/illustration.html", {})
+
