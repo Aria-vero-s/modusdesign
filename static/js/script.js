@@ -38,13 +38,30 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-function quoteDisplay() {
+function quoteDisplay(event) {
+    event.preventDefault(); // for this example only
+    const form = document.getElementById('form');
+    var logo = document.getElementById("logo");
+    var promo = document.getElementById("promo");
+    var stationary = document.getElementById("stationary");
+    var packaging = document.getElementById("packaging");
+
+    console.log(event);
+    console.log(form.getAttribute("action"));
+    let formAction = form.getAttribute("action");
+
+    console.log(formAction);
+
     var x = document.getElementById("quote");
     if (x.style.display === "none") {
       x.style.display = "block";
     } else {
       x.style.display = "none";
     }
+    form.action = `${formAction}?logo=${logo.checked}&promo=${promo.checked}&stationary=${stationary.checked}&packaging=${packaging.checked}`;
+
+  // Submit the form
+   form.submit();
   }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -73,31 +90,32 @@ document.addEventListener("DOMContentLoaded", function() {
 // Extract user's checked checkboxes 
 
 
-function brandingCheckbox(event) {
+function brandingCheckbox(event,plan) {
+
     var logo = document.getElementById("logo");
     var promo = document.getElementById("promo");
     var stationary = document.getElementById("stationary");
     var packaging = document.getElementById("packaging");
 
     if (document.getElementById('logo').checked){
-        alert("logo checked") ;
+       // alert("logo checked") ;
     } else {
-        alert("logo unchecked")
+       // alert("logo unchecked")
     }
     if (document.getElementById('promo').checked){
-        alert("promo checked") ;
+       // alert("promo checked") ;
     } else {
-        alert("promo unchecked")
+      //  alert("promo unchecked")
     }
     if (document.getElementById('stationary').checked){
-        alert("stationary checked") ;
+     //   alert("stationary checked") ;
     } else {
-        alert("stationary unchecked")
+       // alert("stationary unchecked")
     }
     if (document.getElementById('packaging').checked){
-        alert("packaging checked") ;
+      //  alert("packaging checked") ;
     } else {
-        alert("packaging unchecked")
+      //  alert("packaging unchecked")
     }
 
 };

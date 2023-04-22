@@ -1,7 +1,7 @@
 from decimal import Decimal
 from django.conf import settings
-from django.shortcuts import get_object_or_404
-from products.models import Product
+from django.shortcuts import get_list_or_404, get_object_or_404
+from products.models import Product, Service
 
 
 def bag_contents(request):
@@ -10,11 +10,18 @@ def bag_contents(request):
     total = 0
     product_count = 0
     bag = request.session.get('bag', {})
+    logo = request.session.get('logo')
 
     for item_id, item_data in bag.items():
         if isinstance(item_data, int):
             product = get_object_or_404(Product, pk=item_id)
-            total += item_data * product.price
+            services = get_list_or_404(Service)
+            servicePrice = 0
+            for service in services:
+                if service.name == 'logo' and logo == 'true':
+                    servicePrice += service.price * service.quantity
+            print(servicePrice)
+            total += item_data * product.price + servicePrice
             product_count += item_data
             bag_items.append({
                 'item_id': item_id,
@@ -23,8 +30,14 @@ def bag_contents(request):
             })
         else:
             product = get_object_or_404(Product, pk=item_id)
+            services = get_list_or_404(Service)
+            servicePrice = 0
+            for service in services:
+                if service.name == 'logo' and logo == 'true':
+                    servicePrice += service.price * service.quantity
+            print(servicePrice)
             for size, quantity in item_data['items_by_size'].items():
-                total += quantity * product.price
+                total += quantity * product.price + servicePrice
                 product_count += quantity
                 bag_items.append({
                     'item_id': item_id,

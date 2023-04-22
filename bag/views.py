@@ -4,6 +4,9 @@ from django.shortcuts import (
 from django.contrib import messages
 
 from products.models import Product, Service
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 def view_bag(request):
@@ -15,6 +18,8 @@ def view_bag(request):
 def quote(request):
     products = Product.objects.all()
     services = Service.objects.all()
+    logger.info('Services: {}'.format(services))
+    logger.info('Products: {}'.format(products))
     context = {
         'products': products,
         'services': services,
@@ -24,14 +29,19 @@ def quote(request):
 
 def add_to_bag(request, item_id):
     """ Add a quantity of the specified product to the shopping bag """
-
+   
+    print(request)
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
+    logo = request.GET.get('logo')
     redirect_url = request.POST.get('redirect_url')
+    print(logo)
+    print(redirect_url)
     size = None
     if 'product_size' in request.POST:
         size = request.POST['product_size']
     bag = request.session.get('bag', {})
+    
 
     if item_id in list(bag.keys()):
         bag[item_id] += quantity
@@ -43,6 +53,7 @@ def add_to_bag(request, item_id):
         messages.success(request, f'Added {product.name} to your bag')
 
     request.session['bag'] = bag
+    request.session['logo'] = logo
     return redirect(redirect_url)
 
 
@@ -118,4 +129,3 @@ def remove_from_bag(request, item_id):
 def test(request):
     """ A view that renders the bag contents page """
     return render(request, 'bag/test.html')
-
