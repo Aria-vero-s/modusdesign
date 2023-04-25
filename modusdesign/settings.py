@@ -190,6 +190,12 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 MEDIA_URL = 'https://res.cloudinary.com/dpvdjusy5/image/upload/'
 
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dpvdjusy5',
+    'API_KEY': 'aOd1laIemjcIrunnpa-TNY5rIoA',
+    'API_SECRET': 'aOd1laIemjcIrunnpa-TNY5rIoA',
+}
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
