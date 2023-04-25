@@ -3,6 +3,8 @@ from django.conf import settings
 from django.shortcuts import get_list_or_404, get_object_or_404
 from products.models import Product, Service
 
+# bag_contents takes in a request object as input and returns a dictionary called context
+# The function first initializes some variables: bag_items as an empty list, total and product_count as integers set to 0, and bag and logo as variables retrieved from the request object.
 
 def bag_contents(request):
 

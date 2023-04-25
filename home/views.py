@@ -27,3 +27,6 @@ def website(request):
 def illustration(request):
     return render(request, "home/illustration.html", {})
 
+
+def terms(request):
+    return render(request, "home/terms.html", {})

@@ -1,0 +1,274 @@
+{% extends "base.html" %}
+{% load static %}
+{% load itertools %}
+
+{% block content %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row mt-5">
+            <div class="col mt-5"></div>
+        </div>
+    </div>
+{% endblock %}
+
+    <div class="overlay"></div>
+    <div class="container mb-2">
+
+        <div class="pricing-header mx-auto text-center">
+            <h1 class="display-4 fw-normal text-black">Get a quote</h1>
+            <p class="fs-5 text-muted">Quickly find out the total cost of your project by filling the form below.</p>
+        </div>
+
+        <h2 class="display-6 text-center mb-4">Select a service</h2>
+
+        {% include 'bag/includes/service.html' %}
+        
+
+        <div style="display:none" id="branding2">
+            
+            {% include 'bag/includes/package.html' %}
+
+        
+        <div id="plan" style="display:none">
+            <h2 class="display-6 text-center mb-4">Select a plan</h2>
+            <div class="card-deck">
+                {% for product in products %}
+                
+                    {% if product.name == "Gold-plan" %}
+                        <div class="card rounded-0">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal">
+                                    {{ product.name }}
+                                </h4>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">{{ product.description }}</p>
+                                <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST" id="form">
+                                        {% csrf_token %}
+                                    <input class="form-control qty_input" type="hidden" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                    <input type="submit" class="btn btn-lg btn-outline-black" value="Select this plan" onclick="quoteDisplay()">
+                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                </form>
+                            </div>
+                        </div>
+                    {% endif %}
+                
+                    {% if product.name == "Silver-plan" %}
+                        <div class="card rounded-0">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal">
+                                    {{ product.name }}
+                                </h4>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">{{ product.description }}</p>
+                                <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST" id="form">
+                                        {% csrf_token %}
+                                    <input class="form-control qty_input" type="hidden" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                    <input type="submit" class="btn btn-lg btn-outline-black" value="Select this plan" onclick="quoteDisplay()">
+                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                </form>
+                            </div>
+                        </div>
+                    {% endif %}
+               
+                    {% if product.name == "Bronze-plan" %}
+                        <div class="card rounded-0">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal">
+                                    {{ product.name }}
+                                </h4>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">{{ product.description }}</p>
+                                <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST" id="form">
+                                        {% csrf_token %}
+                                    <input class="form-control qty_input" type="hidden" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                    <input type="submit" class="btn btn-lg btn-outline-black" value="Select this plan" onclick="quoteDisplay()">
+                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                </form>
+                            </div>
+                        </div>
+                    {% endif %}
+            
+                {% endfor %}
+            </div>
+
+        <div id="quote" >
+            <h2 class="display-6 text-center my-5">Your quote is</h2>
+            <div class="text-center">
+                <h2 class="my-0">
+                    {% if grand_total %}
+                        ${{ grand_total|floatformat:2 }}
+                    {% else %}
+                        $0.00
+                    {% endif %}
+                </h2>
+            </div>
+
+            <p class="fs-5 text-muted text-center">How does the pricing work? <a href="#">Click here</a> to find out more</p>
+            <h3 class="display-6 text-center mb-4">Would you like to continue?</h3>
+            <div class="row justify-content-center">
+                <a href="{% url 'view_bag' %}" class="btn btn-lg btn-outline-black mb-3">Yes, continue to checkout</a>
+            </div>
+            <div class="row justify-content-center">
+                <button type="button" class="btn btn-lg btn-outline-black mb-3">Not yet, save this quote and get in touch</button>
+            </div>
+            <div class="row justify-content-center">
+                <button type="button" value="Refresh" class="btn btn-lg btn-outline-black mb-3">No, start over</button>
+            </div>
+            <div class="row justify-content-center">
+                <button type="button" value="Refresh" onclick="clearBag()" class="btn btn-lg btn-outline-black mb-3">No, start over2</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+<div class="btt-button shadow-sm rounded-0 border border-black">
+    <a class="btt-link d-flex h-100">
+        <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
+    </a>	
+</div>
+
+{% block postloadjs %}
+    {{ block.super }}
+    {% include 'products/includes/quantity_input_script.html' %}
+
+    <script type="text/javascript">
+        $('.btt-link').click(function(e) {
+            window.scrollTo(0,0)
+        })
+
+        function clearBag() {
+        bag.clear()
+        }
+    </script>
+    <script>
+        function add_to_bag(product_id) {
+            let product_price = document.getElementById('product-price-' + product_id).innerText;
+            let service_price = document.querySelector('input[name="service"]:checked').value;
+            let total_price = parseFloat(product_price) + parseFloat(service_price);
+            let form = document.getElementById('form');
+            let csrf_token = document.getElementsByName('csrfmiddlewaretoken')[0].value;
+            let quantity = document.getElementsByName('quantity')[0].value;
+            let formData = new FormData(form);
+            formData.append('product_id', product_id);
+            formData.append('quantity', quantity);
+            formData.append('total_price', total_price.toString());
+            formData.append('csrfmiddlewaretoken', csrf_token);
+            fetch(form.action, {
+                method: 'POST',
+                body: formData
+            }).then(response => response.json())
+                .then(data => {
+                    document.getElementById('bag-total').innerText = data.bag_total;
+                })
+                .catch(error => console.log(error));
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // initialize bag session variable
+            $('#get-quote').click(function(event) {
+                event.preventDefault();
+                var selectedProducts = JSON.parse(sessionStorage.getItem('selectedProducts'));
+                var selectedService = sessionStorage.getItem('selectedService');
+                var totalPrice = parseFloat(sessionStorage.getItem('totalPrice'));
+                
+                var selectedItems = {
+                    'products': selectedProducts,
+                    'service': selectedService,
+                    'totalPrice': totalPrice.toFixed(2)
+                };
+            var bagKey = selectedProducts.join('-') + '-' + selectedService;
+            if (bag[bagKey]) {
+                bag[bagKey].totalPrice = (parseFloat(bag[bagKey].totalPrice) + totalPrice).toFixed(2);
+            } else {
+                bag[bagKey] = selectedItems;
+            }
+            sessionStorage.setItem('bag', JSON.stringify(bag));
+            
+            window.location.href = '{% url "view_bag" %}';
+        });
+    });
+
+    // Submit quote form
+    $('#get-quote-form').submit(function(event) {
+        event.preventDefault();
+
+        var formData = $(this).serializeArray();
+        var products = [];
+        var service = null;
+
+        formData.forEach(function(field) {
+            if (field.name === 'service') {
+                service = field.value;
+            } else if (field.name === 'products') {
+                products.push(field.value);
+            }
+        });
+
+        var totalPrice = calculateTotalPrice(products, service);
+
+        $('#total-price').text('Total price: $' + totalPrice.toFixed(2)).show();
+        $('#get-quote-button').hide();
+        $('#add-to-bag-button').show();
+
+        // Store selected items in session storage
+        sessionStorage.setItem('selectedProducts', JSON.stringify(products));
+        sessionStorage.setItem('selectedService', service);
+        sessionStorage.setItem('totalPrice', totalPrice.toFixed(2));
+    });
+
+    // Helper function to calculate the total price
+    function calculateTotalPrice(products, service) {
+        var totalPrice = 0;
+        var selectedItems = {
+            'products': selectedProducts,
+            'service': selectedService,
+            'totalPrice': totalPrice.toFixed(2)
+        };
+        for (var i = 0; i < products.length; i++) {
+            var productPrice = parseFloat($('#product-price-' + products[i]).text());
+            totalPrice += productPrice;
+        }
+        var serviceMultiplier = 1;
+        if (service === 'Bronze-plan') {
+            serviceMultiplier = 3;
+        } else if (service === 'Silver-plan') {
+            serviceMultiplier = 4;
+        } else if (service === 'Gold-plan') {
+            serviceMultiplier = 5;
+        }
+        totalPrice *= serviceMultiplier;
+        return totalPrice;
+    }
+    document.getElementById('get-quote').addEventListener('click', function() {
+            let product_ids = document.getElementsByName('products');
+            let selected_product_ids = [];
+            let selected_product_names = [];
+            let total_price = 0;
+            for (let i = 0; i < product_ids.length; i++) {
+                if (product_ids[i].checked) {
+                    let product_id = product_ids[i].value;
+                    let product_name = product_ids[i].nextSibling.nodeValue.trim();
+                    let product_price = parseFloat(document.getElementById('product-price-' + product_id).innerText);
+                    selected_product_ids.push(product_id);
+                    selected_product_names.push(product_name);
+                    total_price += product_price;
+                }
+            }
+            let service_price = parseFloat(document.querySelector('input[name="service"]:checked').value);
+            total_price += service_price;
+            let total_price_div = document.getElementById('total-price');
+            total_price_div.style.display = 'block';
+            total_price_div.innerText = 'Total price: $' + total_price.toFixed(2) + '\nSelected products:\n' + selected_product_names.join('\n');
+        });
+    </script>
+    
+{% endblock %}

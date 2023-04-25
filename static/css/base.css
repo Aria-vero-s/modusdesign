@@ -7,7 +7,7 @@ body {
     background: url('/media/photography.jpg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh);
-    color: #grey;
+    color: black;
     font-family: 'Lato';
 }
 
@@ -17,6 +17,10 @@ a {
     color: grey;
     transition: color .3s ease-in-out;
   }
+
+.oblique {
+    font-style:oblique;
+}
 
 a:hover,
 a:active,
