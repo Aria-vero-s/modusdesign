@@ -70,21 +70,13 @@
                             </thead>
 
                             {% for item in bag_items %}
-                                <tr>
-                                    <td class="py-3">
-                                        {% include "bag/product-info.html" %}
-                                    </td>
-                                    <td class="py-3">
-                                        <p class="my-0">${{ item.product.price }}</p>
-                                    </td>
-                                    <td class="py-3 w-25">
-                                        {% include "bag/quantity-form.html" %}
-                                    </td>
-                                    <td class="py-3">
-                                        <p class="my-0">${{ item.product.price | calc_subtotal:item.quantity }}</p>
-                                    </td>
-                                </tr>
+                                {% if item.product %}
+                                    {{ item.product.name }} - {{ item.quantity }} x {{ item.product.price }}
+                                {% elif item.service %}
+                                    {{ item.service.name }} - {{ item.quantity }} x {{ item.service.price }}
+                                {% endif %}
                             {% endfor %}
+                            
                             <tr>
                                 <td colspan="5" class="pt-5 text-right">
                                     {% include "bag/bag-total.html" %}
@@ -99,7 +91,7 @@
                     </div>
                 {% else %}
                     <p class="lead mb-5">Your bag is empty.</p>
-                    <a href="{% url 'quote' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                    <a href="{% url 'bag:quote' %}" class="btn btn-outline-black rounded-0 btn-lg">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
                         </span>

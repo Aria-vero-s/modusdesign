@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bag_tools %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row mt-5">
+            <div class="col mt-5"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <div class="container mb-2">
+        <div class="row">
+            <div class="col">
+                <hr>
+                <h2 class="logo-font mb-4">Test</h2>
+                <hr>
+            </div>
+        </div>
+    </div>
+    {% if services %}
+  <h2>Services:</h2>
+  <ul>
+    {% for service in services %}
+      <li>{{ service.name }} <form method="POST" action="{% url 'bag:add_to_bag' service.id %}">{% csrf_token %}
+          <input type="hidden" name="obj_type" value="service">
+          <button type="submit">Add to Bag</button>
+        </form>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+{% if products %}
+  <h2>Products:</h2>
+  <ul>
+    {% for product in products %}
+      <li>{{ product.name }} <form method="POST" action="{% url 'bag:add_to_bag' product.id %}">{% csrf_token %}
+          <input type="hidden" name="obj_type" value="product">
+          <a href="{% url 'bag:add_to_bag' obj.id %}">Add to Bag</a>
+        </form>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+{% if bag_items %}
+  <h2>Bag:</h2>
+  <ul>
+    {% for obj_id, item in bag_items.items %}
+      <li>{{ item.type }} - {{ item.name }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+{% endblock %}

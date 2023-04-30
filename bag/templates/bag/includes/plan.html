@@ -3,7 +3,7 @@
         <div class="card mb-4 rounded-0 ">
             {% for product in products %}
                 {% if product.name == "Bronze plan" %}
-                    <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
+                    <form class="form" action="{% url 'bag:add_to_bag' product.id %}" method="POST">
                         {% csrf_token %}
                         <div class="card-header py-3">
                             <h4 class="my-0 fw-normal">
@@ -30,7 +30,7 @@
         <div class="card mb-4 rounded-0 ">
             {% for product in products %}
                 {% if product.name == "Silver plan" %}
-                    <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
+                    <form class="form" action="{% url 'bag:add_to_bag' product.id %}" method="POST">
                         {% csrf_token %}
                         <div class="card-header py-3">
                             <h4 class="my-0 fw-normal">
@@ -57,7 +57,7 @@
         <div class="card mb-4 rounded-0 ">
             {% for product in products %}
                 {% if product.name == "Gold plan" %}
-                    <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
+                    <form class="form" action="{% url 'bag:add_to_bag' product.id %}" method="POST">
                         {% csrf_token %}
                         <div class="card-header py-3">
                             <h4 class="my-0 fw-normal">

@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-dnjkt0hvid688d(+t)+(t#+k8m3klxfb7bcc_#f-^j4*6!%3j0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['modusdesign.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -103,6 +103,22 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 SITE_ID = 1
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'INFO',
+    }
+}
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -180,21 +196,23 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+# STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-MEDIA_URL = 'https://res.cloudinary.com/dpvdjusy5/image/upload/'
+MEDIA_URL = '/media/'
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dpvdjusy5',
-    'API_KEY': 'aOd1laIemjcIrunnpa-TNY5rIoA',
-    'API_SECRET': 'aOd1laIemjcIrunnpa-TNY5rIoA',
-}
+# MEDIA_URL = 'https://res.cloudinary.com/dpvdjusy5/image/upload/'
+
+# CLOUDINARY_STORAGE = {
+#     'CLOUD_NAME': 'dpvdjusy5',
+#     'API_KEY': 'aOd1laIemjcIrunnpa-TNY5rIoA',
+#     'API_SECRET': 'aOd1laIemjcIrunnpa-TNY5rIoA',
+# }
 
 
 # Default primary key field type

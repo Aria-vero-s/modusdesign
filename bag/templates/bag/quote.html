@@ -42,7 +42,7 @@
                             </div>
                             <div class="card-body">
                                 <p class="card-text">{{ product.description }}</p>
-                                <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST" id="form">
+                                <form class="form" action="{% url 'bag:add_to_bag' product.id %}" method="POST" id="form">
                                         {% csrf_token %}
                                     <input class="form-control qty_input" type="hidden" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
                                     <input type="submit" class="btn btn-lg btn-outline-black" value="Select this plan" onclick="quoteDisplay()">
@@ -68,7 +68,7 @@
             <p class="fs-5 text-muted text-center">How does the pricing work? <a href="{% url 'terms' %}">Click here</a> to find out more</p>
             <h3 class="display-6 text-center mb-4">Would you like to continue?</h3>
             <div class="row justify-content-center">
-                <a href="{% url 'view_bag' %}" class="btn btn-lg btn-outline-black mb-3">Yes, continue to checkout</a>
+                <a href="{% url 'bag:view_bag' %}" class="btn btn-lg btn-outline-black mb-3">Yes, continue to checkout</a>
             </div>
             <div class="row justify-content-center">
                 <button type="button" class="btn btn-lg btn-outline-black mb-3">Not yet, save this quote and get in touch</button>

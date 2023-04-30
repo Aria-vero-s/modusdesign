@@ -1,65 +1,56 @@
-from django.shortcuts import (
-    render, redirect, reverse, HttpResponse, get_object_or_404
-)
+from django.shortcuts import render, redirect, reverse, HttpResponse
 from django.contrib import messages
-
 from products.models import Product, Service, Category
-import logging
-
-logger = logging.getLogger(__name__)
+from django.urls import reverse
 
 
 def view_bag(request):
-    """ A view that renders the bag contents page """
 
     return render(request, 'bag/bag.html')
 
 
 def quote(request):
+
+    return render(request, 'bag/quote.html')
+
+
+def test(request):
+    
+    return render(request, 'bag/test.html')
+
+
+def quoteslides(request):
     products = Product.objects.all()
     services = Service.objects.all()
-    logger.info('Services: {}'.format(services))
-    logger.info('Products: {}'.format(products))
+    categories = Category.objects.all()
+
     context = {
         'products': products,
         'services': services,
+        'categories': categories,
     }
-    return render(request, 'bag/quote.html', context)
+
+    return render(request, 'bag/quoteslides.html', context)
 
 
-def add_to_bag(request, item_id):
-    """ Add a quantity of the specified product to the shopping bag """
-
-    product = Product.objects.get(id=item_id)
-    quantity = int(request.POST.get('quantity'))
-    redirect_url = request.POST.get('redirect_url')
-    size = None
-    if 'product_size' in request.POST:
-        size = request.POST['product_size']
+def add_to_bag(request):
+    # get the bag object from the request.session dictionary
     bag = request.session.get('bag', {})
+    # get the list of products and services from the POST data
+    products = request.POST.getlist('products')
+    services = request.POST.getlist('services')
+    # loop through each product_id in the products list (same for services),
+    # and add it to the bag dictionary with a value of 1
+    # (or increment the existing value by 1, if the product_id is already in the bag)
+    for product_id in products:
+        bag[product_id] = bag.get(product_id, 0) + 1
 
-    if size:
-        if item_id in list(bag.keys()):
-            if size in bag[item_id]['items_by_size'].keys():
-                bag[item_id]['items_by_size'][size] += quantity
-                messages.success(request, f'Updated size {size.upper()} {product.name} quantity to {bag[item_id]["items_by_size"][size]}')
-            else:
-                bag[item_id]['items_by_size'][size] = quantity
-                messages.success(request, f'Added size {size.upper()} {product.name} to your bag')
-        else:
-            bag[item_id] = {'items_by_size': {size: quantity}}
-            messages.success(request, f'Added size {size.upper()} {product.name} to your bag')
-    else:
-        if item_id in list(bag.keys()):
-            bag[item_id] += quantity
-            messages.success(request, f'Updated {product.name} quantity to {bag[item_id]}')
-        else:
-            bag[item_id] = quantity
-            messages.success(request, f'Added {product.name} to your bag')
-
+    for service_id in services:
+        bag[service_id] = bag.get(service_id, 0) + 1
+    # save the bag dictionary back to the request.session
     request.session['bag'] = bag
-    return redirect(redirect_url)
-
+    # redirect the user to the page URL
+    return redirect(reverse('bag:quoteslides'))
 
 
 def adjust_bag(request, item_id):
@@ -129,41 +120,3 @@ def remove_from_bag(request, item_id):
     except Exception as e:
         messages.error(request, f'Error removing item: {e}')
         return HttpResponse(status=500)
-
-
-def test(request):
-    """ A view that renders the bag contents page """
-    return render(request, 'bag/test.html')
-
-
-def quoteslides(request):
-    """
-    A view that renders the quoteslides page,
-    allowing users to add products to their shopping bag
-    """
-    bag = request.session.get('bag', {})
-    products = []
-    total = 0
-    
-    for product_id, quantity in bag.items():
-        product = Product.objects.get(id=product_id)
-        total += quantity * product.price
-        products.append({
-            'id': product_id,
-            'name': product.name,
-            'quantity': quantity,
-            'price': product.price,
-        })
-    
-    context = {
-        'products': products,
-        'total': total,
-    }
-    
-    if request.method == 'POST':
-        # Clear the bag and show a success message
-        request.session['bag'] = {}
-        messages.success(request, 'Your order has been placed!')
-        return redirect(reverse('home'))
-    
-    return render(request, 'bag/quoteslides.html', context)

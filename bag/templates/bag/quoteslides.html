@@ -12,7 +12,7 @@
 {% endblock %}
 
 <style>
-    .card {
+  .card {
   position: absolute;
   top: 0;
   left: 0;
@@ -59,117 +59,105 @@ li {
     <div class="overlay"></div>
     <div class="container page-content">
 
-        <div class="pricing-header mx-auto text-center">
-            <h1 class="display-4 fw-normal text-black">Get a quote</h1>
-            <p class="fs-5 text-muted">Quickly find out the total cost of your project by filling the form below.</p>
-        </div>
+      <div class="pricing-header mx-auto text-center">
+          <h1 class="display-4 fw-normal text-black">Get a quote</h1>
+          <p class="fs-5 text-muted">Quickly find out the total cost of your project by filling the form below.</p>
+      </div>
 
-    <!-- slide start -->
-        <div class="container flex-fill d-flex flex-column min-vh-100">
-            <div class="row">
-              <div class="col-md-6 mx-auto">
-                <div id="card-group">
-                  <div class="card active" id="card1">
-                    <div class="card-body">
-                      <h5 class="card-title">Select a type of service</h5>
-                      <form id="services">
-                        {% for category in categories %}
-                        <div class="my-3"></div>
-                        <h2>{{ category }}</h2>
-                        {% for service in services %}
-                            {% if service.category == category %}
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="{{ service.id }}" id="{{ service.id }}">
-                                    <label class="form-check-label" for="{{ service.id }}">
-                                        {{ service.name }} - {{ service.description }}
-                                    </label>
-                                </div>
-                            {% endif %}
-                        {% endfor %}
-                        {% endfor %}
-                        <div class="my-5"></div>
-                        <button type="button" class="btn btn-lg btn-outline-black mb-3 next-btn">Next</button>
-                        <div class="my-5"></div>
-                      </form>
-                    </div>
+      <!-- slide start -->
+      <div class="container flex-fill d-flex flex-column min-vh-100">
+        <div class="row">
+          <div class="col-md-6 mx-auto">
+            <form method="POST" action="{% url 'bag:add_to_bag' %}">
+              {% csrf_token %}
+              <div id="card-group">
+
+                <div class="card active" id="card1">
+                  <div class="card-body">
+                    <h5 class="card-title">Select a type of service</h5>
+                    {% for category in categories %}
+                    <h2>{{ category }}</h2>
+                      {% for service in services %}
+                        {% if service.category == category %}
+                              <div>
+                                  <input type="checkbox" name="services" value="{{ service.id }}">
+                                  <label>{{ service.name }} - {{ service.price }}</label>
+                              </div>
+                        {% endif %}
+                      {% endfor %}
+                    {% endfor %}
+                    <button type="button" class="btn btn-lg btn-outline-black mb-3 next-btn">Next</button>
+
                   </div>
-                  <div class="card" id="card2">
-                    <div class="card-body">
-                      <h5 class="card-title">Select a package</h5>
+                </div>
 
-                      <form method="post" action="{% url 'add_to_bag' item_id=product.id %}" id="products" class="form">
-                        {% csrf_token %}
-                        <h2>{{ category }}</h2>
-                        {% for product in products %}
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="{{ product.id }}" id="{{ product.id }}">
-                                <label class="form-check-label" for="{{ product.id }}">
-                                    {{ product.name }}
-                                </label>
-                            </div>
-                        {% endfor %}
-                        
-                        <div class="my-5"></div>
-                        <button type="button" class="btn btn-lg btn-outline-black mb-3 back-btn">Back</button>
-                
-                        <input class="form-control qty_input" type="hidden" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
-                        <input type="submit" class="btn btn-lg btn-outline-black" value="Select this plan" onclick="quoteDisplay()">
-                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                        
-                        <button type="submit" class="btn btn-lg btn-outline-black mb-3 next-btn">Next and add to bag</button>
-                        <div class="my-5"></div>
-                    </form>
+                <div class="card" id="card2">
+                  <div class="card-body">
 
-                    </div>
+                    <h5 class="card-title">Select a package</h5>
+                    <h2>{{ category }}</h2>
+                    {% for product in products %}
+                      <div>
+                          <input type="checkbox" name="products" value="{{ product.id }}">
+                          <label>{{ product.name }} - {{ product.price }}</label>
+                      </div>
+                    {% endfor %}
+                    <button type="button" class="btn btn-lg btn-outline-black mb-3 back-btn">Back</button>
+                    <button type="button" class="btn btn-lg btn-outline-black mb-3 next-btn">Next</button>
+
                   </div>
-                  <div class="card" id="card3">
-                    <div class="card-body">
-                      <form>
-                        <div id="quote" >
-                            <h2 class="display-6 text-center mt-5">Your quote is:</h2>
-                            <div class="text-center">
-                                <h2 class="my-0 mp-0">
-                                    {% if grand_total %}
-                                        ${{ grand_total|floatformat:2 }}
-                                    {% else %}
-                                        $0.00
-                                    {% endif %}
-                                </h2>
-                                {% if bag_items %}
-                                <ul>
-                                    {% for item in bag_items %}
-                                    <li>{{ item.product.name }} - {{ item.quantity }} x {{ item.product.price }}</li>
-                                    {% endfor %}
-                                </ul>
-                                {% endif %}
-                                <p>Product Count: {{ product_count }}</p>
-                            </div>
-                        </div>
-                        <div class="row justify-content-center">
-                            <p class="fs-5 text-muted text-center">How does the pricing work? <a href="{% url 'terms' %}" class="oblique">Click here</a> to find out more</p>
-                            
-                            <h3 class="display-6 text-center mb-4">Would you like to continue?</h3>
-                            <a href="{% url 'view_bag' %}" class="btn btn-lg btn-outline-black mb-3">Yes, continue to checkout</a>
-                            <h3 class="display-6 text-center mb-4">Or, save this quote and get in touch:</h3>
-                        </div>
-                        <div class="form-group">
-                            <label for="input6">Please write your name:</label>
-                            <input type="text" class="form-control" id="input6" placeholder="">
-                        </div>
-                        <div class="row mt-5">
-                            <button type="button" class="btn btn-lg btn-outline-black mb-3 back-btn">Back</button>
-                            <button type="submit" class="btn btn-lg btn-outline-black mb-3">Submit</button>
-                        </div>
-                        <div class="my-5"></div>
-                      </form>
+                </div>
+
+                <div class="card" id="card3">
+                  <div class="card-body">
+                    <div id="quote">
+
+                      <h2 class="display-6 text-center mt-5">Your quote is:</h2>
+                      <div class="text-center">
+                          {% if grand_total %}
+                          ${{ grand_total|floatformat:2 }}
+                          {% else %}
+                          $0.00
+                          {% endif %}
+                        </h2>
+                        {% if bag_items %}
+                        <ul>
+                          {% for item in bag_items %}
+                          <li>{{ item.product.name }} - {{ item.quantity }} x {{ item.product.price }}</li>
+                          {% endfor %}
+                        </ul>
+                        {% endif %}
+                        <p>Product Count: {{ product_count }}</p>
+                      </div>
                     </div>
+
+                    <div class="row justify-content-center">
+                      <p class="fs-5 text-muted text-center">How does the pricing work? <a href="{% url 'terms' %}" class="oblique">Click here</a> to find out more</p>
+                      
+                      <h3 class="display-6 text-center mb-4">Would you like to continue?</h3>
+                      <a href="{% url 'bag:view_bag' %}" class="btn btn-lg btn-outline-black mb-3">Yes, continue to checkout</a>
+                      <h3 class="display-6 text-center mb-4">Or, save this quote and get in touch:</h3>
+                    </div>
+                    <div class="form-group">
+                      <label for="input6">Please write your name:</label>
+                      <input type="text" class="form-control" id="input6" placeholder="">
+                    </div>
+                    <div class="row mt-5">
+                      <button type="button" class="btn btn-lg btn-outline-black mb-3 back-btn">Back</button>
+                      <button type="submit">Add to bag</button>
+                    </div>
+
+
                   </div>
                 </div>
               </div>
-            </div>
+            </form>
           </div>
-        <!-- slide end -->
+        </div>
+      </div>
+      <!-- slide end -->
 
+        <!-- The following script allows user to navigate between them with "Next" and "Back" buttons. -->
         <script>
         // Get all the cards and hide all except the first one
         const cards = document.querySelectorAll('.card');
@@ -214,5 +202,93 @@ li {
         });
         </script>
 
+        <!-- For each checkbox, the script checks if it is checked.
+          If it is, the value of the checkbox (which corresponds to the id of the service)
+          is added to an array called selectedServices.
+          It also creates creates a JavaScript object called data, which has two properties:
+          item_id (the id of the item that the user is interested in) and 
+          services (an array of the ids of the services that the user has selected).
+      -->
+
+      <script>
+        function submitForm(item_id) {
+          event.preventDefault();
+
+          // Get selected services
+          var services = [];
+          var serviceInputs = document.getElementsByName('service_id');
+          for (var i = 0; i < serviceInputs.length; i++) {
+            if (serviceInputs[i].checked) {
+              services.push({
+                id: serviceInputs[i].value,
+                name: serviceInputs[i].nextElementSibling.textContent,
+                price: 0.0,
+                quantity: 1,
+                type: 'service',
+              });
+            }
+          }
+
+          // Get selected product
+          var products = [];
+          var productInputs = document.getElementsByName('product_id');
+          for (var i = 0; i < productInputs.length; i++) {
+            if (productInputs[i].checked) {
+              products.push({
+                id: productInputs[i].value,
+                name: productInputs[i].nextElementSibling.textContent,
+                price: parseFloat(productInputs[i].nextElementSibling.textContent.replace('$', '')),
+                quantity: 1,
+                type: 'product',
+              });
+            }
+          }
+
+          // Combine services and products into a single list
+          var items = services.concat(products);
+
+          // Send request to add items to shopping bag
+          fetch('/add_to_bag/' + item_id + '/', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-CSRFToken': getCookie('csrftoken'),
+            },
+            body: JSON.stringify({
+              items: items,
+            }),
+          })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              // Show success message
+              alert('Items added to bag successfully!');
+              // Reload page to update bag icon and total
+              window.location.reload();
+            } else {
+              // Show error message
+              alert('There was an error adding items to bag.');
+            }
+          });
+        }
+
+        // Helper function to get CSRF token from cookie
+        function getCookie(name) {
+          var cookieValue = null;
+          if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+              var cookie = cookies[i].trim();
+              if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+              }
+            }
+          }
+          return cookieValue;
+        }
+
+      </script>
 </div>
+
 {% endblock %}
