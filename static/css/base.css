@@ -11,6 +11,10 @@ body {
     font-family: 'Lato';
 }
 
+.header-container {
+    margin-top: 100px;
+}
+
 /* link style */
 
 a {
@@ -38,6 +42,26 @@ a:focus {
 .fixed-top {
     background-color: #000;
 }
+
+
+@media screen and (max-width: 1052px) {
+    .nav-item {
+        font-size: 14px;
+    }
+}
+
+
+/* icons */
+
+.card-icon {
+    font-size: 4rem;
+    margin: 20px;
+}
+
+.card-icon-details {
+    font-size: 14rem;
+}
+
 
 /* header */
 

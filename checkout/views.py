@@ -101,7 +101,7 @@ def checkout(request):
         if not bag:
             messages.error(request,
                            "There's nothing in your bag at the moment")
-            return redirect(reverse('products'))
+            return redirect(reverse('view_bag'))
 
         current_bag = bag_contents(request)
         total = current_bag['grand_total']
