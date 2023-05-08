@@ -58,6 +58,7 @@ def add_to_bag(request, item_id):
     
     # The bag dictionary is saved to the user's session.
     request.session['bag'] = bag
+
     # The function redirects the user to the redirect_url.
     return redirect(redirect_url)
 

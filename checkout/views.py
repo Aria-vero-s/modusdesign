@@ -41,6 +41,8 @@ def checkout(request):
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
+        message = request.session.get('bag', {}).get('message')
+
 
         form_data = {
             'full_name': request.POST['full_name'],
@@ -69,6 +71,7 @@ def checkout(request):
                             order=order,
                             product=product,
                             quantity=item_data,
+                            message=message,
                         )
                         order_line_item.save()
                     else:
