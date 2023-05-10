@@ -70,7 +70,7 @@ class OrderLineItem(models.Model):
     product_size = models.CharField(max_length=2, null=True, blank=True)  # XS, S, M, L, XL
     quantity = models.IntegerField(null=False, blank=False, default=0)
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
-    message = models.TextField(blank=True, default='')
+    message = models.CharField(max_length=250, null=True, blank=True)
 
     def save(self, *args, **kwargs):
         """

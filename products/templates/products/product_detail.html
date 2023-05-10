@@ -22,23 +22,60 @@
                     {% csrf_token %}
                     <div class="form-row">
                     {% with product.has_sizes as s %}
+                    <style>
+                        .btn-group .btn.active {
+                            background-color: lightgray !important;
+                            color: black !important;
+                        }
+                    </style>                    
                         {% if s %}
-                            <div class="col-12">
-                                <p><strong>Types:</strong></p>
-                                <div class="btn-group" role="group" aria-label="Product Sizes">
-                                    <button type="button" class="btn btn-secondary rounded-0" value="xs" style="margin-right: 10px;">Portfolio</button>
-                                    <button type="button" class="btn btn-secondary rounded-0" value="s" style="margin-right: 10px;">Blog</button>
-                                    <button type="button" class="btn btn-secondary rounded-0" value="m" style="margin-right: 10px;">E-commerce</button>
-                                    <button type="button" class="btn btn-secondary rounded-0" value="l">Other</button>
+                            {% if product.name == "Website design" %}
+                                <div class="col-12 mt-3">
+                                    <span><strong>Select the type of feature you need in your website</strong></span>
+                                    <p class="text-muted"><strong>(you may select more than one)</strong></p>
+                                    <div class="btn-group" role="group" aria-label="Product Sizes">
+                                        <button type="button" class="btn btn-secondary rounded-0" value="portfolio" style="margin-right: 10px;" onclick="document.getElementById('id_product_size').value='portfolio';">Portfolio</button>
+                                        <button type="button" class="btn btn-secondary rounded-0" value="blog" style="margin-right: 10px;" onclick="document.getElementById('id_product_size').value='blog';">Blog</button>
+                                        <button type="button" class="btn btn-secondary rounded-0" value="e-commerce" style="margin-right: 10px;" onclick="document.getElementById('id_product_size').value='e-commerce';">E-commerce</button>
+                                        <button type="button" class="btn btn-secondary rounded-0" value="other" onclick="document.getElementById('id_product_size').value='other';">Other</button>
+                                    </div>
+                                    <input type="hidden" name="product_size" id='id_product_size'>
                                 </div>
-                                <input type="hidden" name="product_size" id='id_product_size' value="m">
-                            </div>
+                            {% endif %}
+                        {% endif %}
+                        {% if s %}
+                            {% if product.name == "Branding design" %}
+                                <div class="col-12">
+                                    <p><strong>Select what you need:</strong></p>
+                                    <div class="btn-group" role="group" aria-label="Product Sizes">
+                                        <button type="button" class="btn btn-secondary rounded-0" value="logo" style="margin-right: 10px;" onclick="document.getElementById('id_product_size').value='logo';">Logo</button>
+                                        <button type="button" class="btn btn-secondary rounded-0" value="promotional" style="margin-right: 10px;" onclick="document.getElementById('id_product_size').value='promotional';">Promotional</button>
+                                        <button type="button" class="btn btn-secondary rounded-0" value="stationary" style="margin-right: 10px;" onclick="document.getElementById('id_product_size').value='stationary';">Stationary</button>
+                                        <button type="button" class="btn btn-secondary rounded-0" value="packaging" onclick="document.getElementById('id_product_size').value='packaging';">Packaging</button>
+                                    </div>
+                                    <input type="hidden" name="product_size" id='id_product_size'>
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                        {% if s %}
+                            {% if product.name == "Illustration design" %}
+                                <div class="col-12">
+                                    <p><strong>Types:</strong></p>
+                                    <div class="btn-group" role="group" aria-label="Product Sizes">
+                                        <button type="button" class="btn btn-secondary rounded-0" value="magazine" style="margin-right: 10px;" onclick="document.getElementById('id_product_size').value='magazine';">Magazine</button>
+                                        <button type="button" class="btn btn-secondary rounded-0" value="non-fiction" style="margin-right: 10px;" onclick="document.getElementById('id_product_size').value='non-fiction';">Non-fiction</button>
+                                        <button type="button" class="btn btn-secondary rounded-0" value="album-book" style="margin-right: 10px;" onclick="document.getElementById('id_product_size').value='album-book';">Album/Book cover</button>
+                                        <button type="button" class="btn btn-secondary rounded-0" value="storybook-comic" onclick="document.getElementById('id_product_size').value='storybook-comic';">Storybook/comic</button>
+                                    </div>
+                                    <input type="hidden" name="product_size" id='id_product_size'>
+                                </div>
+                            {% endif %}
                         {% endif %}
                         <div class="col-12 mt-5">
                             <!-- add textarea input for custom order details -->
                             <div class="form-group">
-                                <label for="message">What do you need in your website? Please write here:</label>
-                                <textarea class="form-control" id="message" name="message"></textarea>
+                                <label for="message">Write the details of your project. Please write here:</label>
+                                <textarea class="form-control" id="message" name="message" required></textarea>
                             </div>
                         </div>
                         <div class="col-12">
@@ -86,6 +123,17 @@
 {% endblock %}
 
 {% block postloadjs %}
+<script>
+    $(function() {
+    $('.btn-group .btn').click(function() {
+        $(this).toggleClass('active');
+        var selected = $('.btn-group .btn.active').map(function() {
+            return $(this).val();
+        }).get().join(',');
+        $('#id_product_size').val(selected);
+    });
+});
+</script>
 {{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
 {% endblock %}

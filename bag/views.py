@@ -16,13 +16,13 @@ def add_to_bag(request, item_id):
     quantity = int(request.POST.get('quantity'))
     # redirect_url is assigned the value of the redirect_url field from the request's POST data.
     redirect_url = request.POST.get('redirect_url')
-    # size is initialized to None.
-    size = None
+    # size is list of strings using the split() method
+    size = request.POST.get('product_size').split(',')
     # If the product_size field is present in the request's POST data, size is assigned the value of the product_size field.
     if 'product_size' in request.POST:
         size = request.POST['product_size']
     # get the textarea input from the request POST data
-    message = request.POST.get('message')
+    message = request.POST.get('message', '')
     # bag is assigned the current shopping bag from the user's session, or an empty dictionary if the bag does not yet exist.
     bag = request.session.get('bag', {})
 
@@ -54,7 +54,7 @@ def add_to_bag(request, item_id):
     
     # add the textarea input to the bag as a new key-value pair
     if message:
-        bag[item_id]['message'] = message
+        bag[item_id] = {'items_by_size': {size: quantity}, 'message': message}
     
     # The bag dictionary is saved to the user's session.
     request.session['bag'] = bag
