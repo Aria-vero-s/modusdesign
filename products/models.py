@@ -32,13 +32,15 @@ class Product(models.Model):
         return self.name
 
 
-class Service(models.Model):
-    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
-    sku = models.CharField(max_length=254, null=True, blank=True)
-    name = models.CharField(max_length=254, default=False)
+class Template(models.Model):
+    title = models.CharField(max_length=254)
     description = models.TextField(default=False)
+    image_url = models.URLField(max_length=1024, null=True, blank=True)
+    image = models.ImageField(null=True, blank=True)
+    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
     price = models.DecimalField(max_digits=6, decimal_places=2, default=False)
     quantity = models.IntegerField(null=False, blank=False, default=0)
+    sku = models.CharField(max_length=254, null=True, blank=True)
 
     def save(self, *args, **kwargs):
         """
@@ -47,5 +49,8 @@ class Service(models.Model):
         """
         self.lineitem_total = self.price * self.quantity
         super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.name
 
 

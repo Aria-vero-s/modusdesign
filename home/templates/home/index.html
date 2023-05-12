@@ -13,7 +13,7 @@
     <div class="container mb-2 vh-100">
         <div class="row h-100">
             <div class="col-7 col-md-6 my-auto">
-                <h1 class="display-4 header-white">
+                <h1 class="display-4 header-white animation">
                     Graphic<br>
                     Design<br>
                     your way
@@ -26,26 +26,33 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid col-12 bg-black h-100" id="about" name="about">
-        <div class="row w-100">
-            <div class="container text-white my-5 py-5">
-                <h1 class="header-white my-5">About</h1>
-                <img class="ml-5" src="media/profile.jpg">
-                Ariane Saulnier is currently a student in web development at Code Institute. Her interest in both music education and technology was developed at an early age, with her mother as a piano teacher and her father as an engineer. After studying and teaching music in her home country for many years, she decided to take a leap and move to the UK with a working visa. Seeing the opportunity to pursue her passion for web design and technology, Ariane decided to take a course in web development at Code Institute. She will be graduating soon with a Diploma in Software Development (E-commerce Applications). Ariane is passionate about technology and its ability to enable learning and education. Throughout her time at Code Institute, she developed a passion for designing websites and coding projects. With her dual background in music education and technology, combined with the experience of living and teaching abroad, Ariane looks forward to combining her music education background with web development skills.
+     
+    <div class="container-fluid bg-black" id="about" name="about">
+        <div class="row">
+          <div class="container text-white my-5 py-5">
+            <h1 class="header-white my-5 animation">About</h1>
+            <div class="image-text-wrapper">
+              <img class="ml-5 animation3" src="/media/profile.jpg">
+              <p class="animation2">Ariane Saulnier is currently a student in web development at Code Institute. Her interest in both music education and technology was developed at an early age, with her mother as a piano teacher and her father as an engineer. After studying and teaching music in her home country for many years, she decided to take a leap and move to the UK with a working visa. Seeing the opportunity to pursue her passion for web design and technology, Ariane decided to take a course in web development at Code Institute. She will be graduating soon with a Diploma in Software Development (E-commerce Applications). Ariane is passionate about technology and its ability to enable learning and education. Throughout her time at Code Institute, she developed a passion for designing websites and coding projects. With her dual background in music education and technology, combined with the experience of living and teaching abroad, Ariane looks forward to combining her music education background with web development skills.</p>
             </div>
+          </div>
         </div>
-    </div>
+      </div>
+      
+      
     <div class="container-fluid col-12 bg-white" id="contact" name="contact">
         <div class="row w-100">
             <div class="container my-5 py-5">
-                <h1 class="header-black">Contact</h1>
-                <p class="mb-5">
+                <h1 class="header-black animation">Contact</h1>
+                <p class="mb-5 animation3">
                     Email: modusdesign.official@gmail.com<br>
-                    Phone: +44 1234567890<br>
+                    Phone: +44 1234567890
+                    <br>
+                    <br>
+                    Or send me a message:
                 </p>
-                <p>Or send me a message:</p>
 
-                <form method="POST" action="" class="signup-form">
+                <form method="POST" action="" class="signup-form animation2">
                     {% csrf_token %}
 
                     <div class="form-group">
@@ -71,7 +78,7 @@
         <div class="row w-100">
             <div class="container text-white my-5 py-5">
                 <div class="my-5 py-5">
-                    <p class="bg-black my-5 py-5 mx-5 px-5 text-center">
+                    <p class="bg-black my-5 py-5 mx-5 px-5 text-center animation">
                         "Ariane Saulnier is an excellent artist who is reliable and consistent, which is represented in her artistry. I have always been more than happy with the final products and will continue to work with her for any visual art that I require in my projects."
                         <br>
                         - Jaeyoung Chong
@@ -87,7 +94,5 @@
 
 {% block postloadjs %}
     {{ block.super }}
-    <script type="text/javascript">
 
-	</script>
 {% endblock %}

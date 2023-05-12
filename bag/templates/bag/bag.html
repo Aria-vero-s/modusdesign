@@ -69,17 +69,10 @@
                                 </tr>
                             </thead>
                             {% for item in bag_items %}
-                                {{ item.service }}
-                            {% endfor %}
-                            {% for item in bag_items %}
                                 {% if item.product %}
                                     {{ item.product.name }} - {{ item.quantity }} x {{ item.product.price }}
                                 {% endif %}
-                                {% if item.service %}
-                                    {{ item.service.name }} - {{ item.quantity }} x {{ item.service.price }}
-                                {% endif %}
                             {% endfor %}
-                            
                             <tr>
                                 <td colspan="5" class="pt-5 text-right">
                                     {% include "bag/bag-total.html" %}

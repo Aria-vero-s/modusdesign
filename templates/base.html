@@ -140,7 +140,7 @@
     {% block footer %}
         <footer class="py-5 px-5 bg-black text-white w-100">
             <div class="row">
-                <div class="col-6">
+                <div class="col-6 animation">
                     <h3>Social</h3>
                     <div id="social">
                         <p>Keep up to date with the latest offers</p>
@@ -150,7 +150,7 @@
                     </div>
                 </div>
     
-                <div class="col-6">
+                <div class="col-6 animation3">
                     <h3>Newsletter subscription</h3>
                     <!-- Begin Mailchimp Signup Form -->
                     <div id="mc_embed_signup">
@@ -179,10 +179,10 @@
                 </div>
             </div>
     
-            <div class="row justify-content-center pt-5">
+            <div class="row justify-content-center pt-5 animation2">
                 <p>@ 2023 Made by: <a href="https://github.com/Aria-vero-s" target="_blank">aria-vero-s</a></p>
             </div>
-            <div class="row justify-content-center pb-5">
+            <div class="row justify-content-center pb-5 animation2">
                 <p><a href ="https://www.privacypolicygenerator.info/live.php?token=lx1Nwh7vdojPRxFPWkJwoluEpSHI13pM" target="_blank">Privacy Notice</a></p>
             </div>
         </footer>
@@ -192,6 +192,82 @@
     <script type="text/javascript">
         $('.toast').toast('show');
     </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const the_animation = document.querySelectorAll('.animation');
+        const the_animation2 = document.querySelectorAll('.animation2');
+        const the_animation3 = document.querySelectorAll('.animation3');
+    
+        const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting || entry.intersectionRatio > 0) {
+            if (entry.target.classList.contains('animation')) {
+                entry.target.classList.add('scroll-animation');
+            } else if (entry.target.classList.contains('animation2')) {
+                entry.target.classList.add('scroll-animation2');
+            } else if (entry.target.classList.contains('animation3')) {
+                entry.target.classList.add('scroll-animation3');
+            }
+            } else {
+            if (entry.target.classList.contains('animation')) {
+                entry.target.classList.remove('scroll-animation');
+            } else if (entry.target.classList.contains('animation2')) {
+                entry.target.classList.remove('scroll-animation2');
+            } else if (entry.target.classList.contains('animation3')) {
+                entry.target.classList.remove('scroll-animation3');
+            }
+            }
+        });
+        }, {
+        threshold: [0, 0.5]
+        });
+    
+        for (let i = 0; i < the_animation.length; i++) {
+        const elements = the_animation[i];
+        observer.observe(elements);
+        }
+    
+        for (let i = 0; i < the_animation2.length; i++) {
+        const elements = the_animation2[i];
+        observer.observe(elements);
+        }
+    
+        for (let i = 0; i < the_animation3.length; i++) {
+        const elements = the_animation3[i];
+        observer.observe(elements);
+        }
+    });
+
+    </script>
+    <script>
+    // Get the toast and overlay elements
+    const toast = document.querySelector('.toast');
+    const overlay = document.querySelector('.toast-overlay');
+
+    // Function to show the toast and overlay
+    function showToast() {
+    toast.style.display = 'block';
+    overlay.style.display = 'block';
+    }
+
+    // Function to hide the toast and overlay
+    function hideToast() {
+    toast.style.display = 'none';
+    overlay.style.display = 'none';
+    }
+
+    // Show the toast and overlay when the page loads
+    document.addEventListener('DOMContentLoaded', () => {
+    showToast();
+    });
+
+    // Close the toast and overlay when the close button is clicked
+    const closeButton = toast.querySelector('.close');
+    closeButton.addEventListener('click', hideToast);
+
+
+    </script>
+
     {% endblock %}
     
     </body>

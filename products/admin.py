@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, Category, Service
+from .models import Product, Category, Template
 
 # Register your models here.
 
@@ -20,17 +20,20 @@ class CategoryAdmin(admin.ModelAdmin):
         'name',
     )
 
-class ServiceAdmin(admin.ModelAdmin):
+class TemplateAdmin(admin.ModelAdmin):
     list_display = (
-        'sku',
-        'name',
+        'title',
+        'description',
+        'image_url',
+        'image',
         'category',
         'price',
         'quantity',
+        'sku',
     )
 
     ordering = ('sku',)
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
-admin.site.register(Service, ServiceAdmin)
+admin.site.register(Template, TemplateAdmin)
