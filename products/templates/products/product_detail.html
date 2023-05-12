@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load bag_tools %}
 
 {% block page_header %}
     <div class="container header-container">
@@ -110,7 +111,7 @@
                                     </span>
                                     <span class="text-uppercase">Go back</span>
                                 </a>
-                                <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Continue">
+                                <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Get a quote">
                             </div>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             {% endwith %}
@@ -136,4 +137,5 @@
 </script>
 {{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
+
 {% endblock %}

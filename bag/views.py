@@ -43,9 +43,9 @@ def add_to_bag(request, item_id):
             bag[item_id] = {'items_by_size': {size: quantity}}
             messages.success(request, f'Added {size.upper()} {product.name} to your bag')
     else:
-        # If the product with the given item_id is already in the bag, the quantity for that product is incremented by the quantity value. A success message is displayed with the updated quantity.
+        # If the product with the given item_id is already in the bag, the quantity for that product does not increment.
         if item_id in list(bag.keys()):
-            bag[item_id] += quantity
+            bag[item_id] = quantity
             messages.success(request, f'Updated {product.name} quantity to {bag[item_id]}')
         # If the product with the given item_id is not yet in the bag, a new key is created in the bag dictionary with the item_id as the key and the quantity as the value. A success message is displayed.
         else:

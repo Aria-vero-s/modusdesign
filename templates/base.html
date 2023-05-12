@@ -40,7 +40,7 @@
 
     {% endblock %}
 
-    <title>Modus Design {% block extra_title %}{% endblock %}</title>
+    <title>Aria Design {% block extra_title %}{% endblock %}</title>
     </head>
 
     <body>
@@ -53,7 +53,12 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <!-- logo -->
-                    <a href="{% url 'home' %}"><h2 class="header-white">Modus Design</h2></a>
+                    <a href="{% url 'home' %}"><h2 class="header-white">
+                        <span class="marchevoked">A</span>
+                        <span class="Audrey-Normal">R</span>
+                        <span class="Pask-Personal">I</span>
+                        <span class="Ade-Display mr-2" >A</span>
+                          Design</h2></a>
                     <!-- links -->
                     <div class="collapse navbar-collapse" id="main-nav">
                         <ul class="navbar-nav w-auto mx-auto">
@@ -197,30 +202,26 @@
         const the_animation = document.querySelectorAll('.animation');
         const the_animation2 = document.querySelectorAll('.animation2');
         const the_animation3 = document.querySelectorAll('.animation3');
-    
-        const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
+        const observerOptions = {
+            threshold: [0, 0.5]
+        };
+
+        const observerCallback = (entries, observer) => {
+            entries.forEach((entry) => {
             if (entry.isIntersecting || entry.intersectionRatio > 0) {
-            if (entry.target.classList.contains('animation')) {
+                if (entry.target.classList.contains('animation')) {
                 entry.target.classList.add('scroll-animation');
-            } else if (entry.target.classList.contains('animation2')) {
+                } else if (entry.target.classList.contains('animation2')) {
                 entry.target.classList.add('scroll-animation2');
-            } else if (entry.target.classList.contains('animation3')) {
+                } else if (entry.target.classList.contains('animation3')) {
                 entry.target.classList.add('scroll-animation3');
+                }
+                observer.unobserve(entry.target);
             }
-            } else {
-            if (entry.target.classList.contains('animation')) {
-                entry.target.classList.remove('scroll-animation');
-            } else if (entry.target.classList.contains('animation2')) {
-                entry.target.classList.remove('scroll-animation2');
-            } else if (entry.target.classList.contains('animation3')) {
-                entry.target.classList.remove('scroll-animation3');
-            }
-            }
-        });
-        }, {
-        threshold: [0, 0.5]
-        });
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
     
         for (let i = 0; i < the_animation.length; i++) {
         const elements = the_animation[i];
@@ -256,17 +257,13 @@
     overlay.style.display = 'none';
     }
 
-    // Show the toast and overlay when the page loads
-    document.addEventListener('DOMContentLoaded', () => {
-    showToast();
-    });
-
     // Close the toast and overlay when the close button is clicked
     const closeButton = toast.querySelector('.close');
     closeButton.addEventListener('click', hideToast);
 
 
     </script>
+
 
     {% endblock %}
     

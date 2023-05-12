@@ -1,3 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Sonsie+One&display=swap');
+
+@font-face {
+    font-family: 'Audrey-Normal';
+    src: url('/media/fonts/Audrey-Normal.otf') format('truetype');
+  }
+
+@font-face {
+    font-family: 'MARCHEVOKED-Demo';
+    src: url('/media/fonts/MARCHEVOKED-Demo.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Pask-Personal';
+    src: url('/media/fonts/Pask-Personal.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Ade-Display';
+    src: url('/media/fonts/Ade-Display.otf') format('truetype');
+}
+
 html {
     height: 100%;
     scroll-behavior: smooth;
@@ -14,6 +36,26 @@ body {
 .header-container {
     margin-top: 100px;
 }
+
+.sonsie {
+    font-family: 'Sonsie One', cursive;
+  }
+
+.Audrey-Normal {
+    font-family: 'Audrey-Normal';
+  }
+
+.marchevoked {
+    font-family: 'MARCHEVOKED-Demo';
+  }
+
+.Pask-Personal {
+    font-family: 'Pask-Personal';
+  }
+
+.Ade-Display {
+    font-family: 'Ade-Display';
+  }
 
 /* link style */
 
@@ -226,6 +268,9 @@ a:focus {
     float: right;
     width: 30%;
     margin-left: 20px;
+    display: block;
+    margin: -30px 0 0 -30px;
+    border-radius: 50%;
   }  
   
   @media (max-width: 576px) {
@@ -233,15 +278,27 @@ a:focus {
       float: none;
       margin: 0 auto 20px;
       display: block;
-      width: 80%;
+      width: 50%;
+      transform: rotate(-10deg);
     }
   }
   
 
 @media (max-width: 412px) {
     #about img {
-        width: 100%;
+        width: 50%;
         height: auto;
+    }
+  }
+  
+.review {
+    margin: 40px;
+    padding: 80px;
+}
+
+@media (max-width: 412px) {
+    .review {
+        margin: 0px;
     }
   }
 
@@ -249,7 +306,7 @@ a:focus {
 
 #project-right img {
     float: right;
-    width: 30%;
+    width: 60%;
     height:auto;
     margin-left:30px; 
     margin-bottom: 30px;
@@ -257,7 +314,7 @@ a:focus {
 
 #project-left img {
     float: left;
-    width: 30%;
+    width: 60%;
     height:auto;
     margin-right:30px; 
     margin-bottom: 30px;
@@ -340,11 +397,6 @@ a:focus {
 
 /* bootstrap toasts */
 
-.message-container {
-    position: fixed;
-    z-index: 9999;
-  }
-
 /* Styling for overlay */
 .toast-overlay {
     position: fixed;
@@ -366,10 +418,12 @@ a:focus {
     z-index: 9999;
   }  
   
+  
 /* footer */
 
 .footer {
     padding: 80px;
+    display: flex;
 }
 
 .footer-bg-black {
@@ -389,6 +443,14 @@ a:focus {
 @media (max-width: 900px) {
     .footer {
         padding: 20px;
+    }
+}
+
+/* Styles for mobile devices */
+@media (max-width: 576px) {
+    .footer {
+        flex-direction: column;
+        align-items: center;
     }
 }
 
