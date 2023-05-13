@@ -16,6 +16,7 @@ def add_to_bag(request, item_id):
     quantity = int(request.POST.get('quantity'))
     # redirect_url is assigned the value of the redirect_url field from the request's POST data.
     redirect_url = request.POST.get('redirect_url')
+    print(redirect_url)
     # size is list of strings using the split() method
     size = request.POST.get('product_size').split(',')
     # If the product_size field is present in the request's POST data, size is assigned the value of the product_size field.
@@ -81,13 +82,13 @@ def adjust_bag(request, item_id):
             del bag[item_id]['items_by_size'][size]
             if not bag[item_id]['items_by_size']:
                 bag.pop(item_id)
-            messages.success(request, f'Removed {size.upper()} {product.name} from your bag')
+            messages.warning(request, f'Removed {size.upper()} {product.name} from your bag')
     else:
         if quantity > 0:
             bag[item_id] = quantity
         else:
             bag.pop(item_id)
-            messages.success(request, f'Removed {product.name} from your bag')
+            messages.warning(request, f'Removed {product.name} from your bag')
 
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
@@ -107,10 +108,10 @@ def remove_from_bag(request, item_id):
             del bag[item_id]['items_by_size'][size]
             if not bag[item_id]['items_by_size']:
                 bag.pop(item_id)
-            messages.success(request, f'Removed {size.upper()} {product.name} from your bag')
+            messages.warning(request, f'Removed {size.upper()} {product.name} from your bag')
         else:
             bag.pop(item_id)
-            messages.success(request, f'Removed {product.name} from your bag')
+            messages.warning(request, f'Removed {product.name} from your bag')
 
         request.session['bag'] = bag
         return HttpResponse(status=200)

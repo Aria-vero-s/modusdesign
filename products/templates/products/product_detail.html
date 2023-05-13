@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load static %}
-{% load bag_tools %}
 
 {% block page_header %}
     <div class="container header-container">
@@ -28,7 +27,10 @@
                             background-color: lightgray !important;
                             color: black !important;
                         }
-                    </style>                    
+                        input:focus {
+                        outline: none;
+                        }
+                    </style>       
                         {% if s %}
                             {% if product.name == "Website design" %}
                                 <div class="col-12 mt-3">
@@ -40,7 +42,7 @@
                                         <button type="button" class="btn btn-secondary rounded-0" value="e-commerce" style="margin-right: 10px;" onclick="document.getElementById('id_product_size').value='e-commerce';">E-commerce</button>
                                         <button type="button" class="btn btn-secondary rounded-0" value="other" onclick="document.getElementById('id_product_size').value='other';">Other</button>
                                     </div>
-                                    <input type="hidden" name="product_size" id='id_product_size'>
+                                    <input name="product_size" id="id_product_size" style="max-height: 0; border: none;" required>
                                 </div>
                             {% endif %}
                         {% endif %}
@@ -54,7 +56,7 @@
                                         <button type="button" class="btn btn-secondary rounded-0" value="stationary" style="margin-right: 10px;" onclick="document.getElementById('id_product_size').value='stationary';">Stationary</button>
                                         <button type="button" class="btn btn-secondary rounded-0" value="packaging" onclick="document.getElementById('id_product_size').value='packaging';">Packaging</button>
                                     </div>
-                                    <input type="hidden" name="product_size" id='id_product_size'>
+                                    <input name="product_size" id="id_product_size" style="max-height: 0; border: none;" required>
                                 </div>
                             {% endif %}
                         {% endif %}
@@ -62,13 +64,13 @@
                             {% if product.name == "Illustration design" %}
                                 <div class="col-12">
                                     <p><strong>Types:</strong></p>
-                                    <div class="btn-group" role="group" aria-label="Product Sizes">
+                                    <div class="btn-group" role="group" aria-label="Product Sizes" style="white-space: nowrap;">
                                         <button type="button" class="btn btn-secondary rounded-0" value="magazine" style="margin-right: 10px;" onclick="document.getElementById('id_product_size').value='magazine';">Magazine</button>
                                         <button type="button" class="btn btn-secondary rounded-0" value="non-fiction" style="margin-right: 10px;" onclick="document.getElementById('id_product_size').value='non-fiction';">Non-fiction</button>
                                         <button type="button" class="btn btn-secondary rounded-0" value="album-book" style="margin-right: 10px;" onclick="document.getElementById('id_product_size').value='album-book';">Album/Book cover</button>
                                         <button type="button" class="btn btn-secondary rounded-0" value="storybook-comic" onclick="document.getElementById('id_product_size').value='storybook-comic';">Storybook/comic</button>
                                     </div>
-                                    <input type="hidden" name="product_size" id='id_product_size'>
+                                    <input name="product_size" id="id_product_size" style="max-height: 0; border: none;" required>
                                 </div>
                             {% endif %}
                         {% endif %}
@@ -111,7 +113,7 @@
                                     </span>
                                     <span class="text-uppercase">Go back</span>
                                 </a>
-                                <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Get a quote">
+                                <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Continue">
                             </div>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             {% endwith %}
@@ -121,9 +123,12 @@
             </div>
         </div>
     </div>
+
+    
 {% endblock %}
 
 {% block postloadjs %}
+
 <script>
     $(function() {
     $('.btn-group .btn').click(function() {
@@ -137,5 +142,4 @@
 </script>
 {{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
-
 {% endblock %}

@@ -57,7 +57,7 @@
                         <span class="marchevoked">A</span>
                         <span class="Audrey-Normal">R</span>
                         <span class="Pask-Personal">I</span>
-                        <span class="Ade-Display mr-2" >A</span>
+                        <span class="Audrey-Normal mr-3" >A</span>
                           Design</h2></a>
                     <!-- links -->
                     <div class="collapse navbar-collapse" id="main-nav">
@@ -198,48 +198,50 @@
         $('.toast').toast('show');
     </script>
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const the_animation = document.querySelectorAll('.animation');
-        const the_animation2 = document.querySelectorAll('.animation2');
-        const the_animation3 = document.querySelectorAll('.animation3');
-        const observerOptions = {
+        document.addEventListener('DOMContentLoaded', function() {
+          const the_animation = document.querySelectorAll('.animation');
+          const the_animation2 = document.querySelectorAll('.animation2');
+          const the_animation3 = document.querySelectorAll('.animation3');
+          const observerOptions = {
             threshold: [0, 0.5]
-        };
-
-        const observerCallback = (entries, observer) => {
+          };
+      
+          const observerCallback = (entries, observer) => {
             entries.forEach((entry) => {
-            if (entry.isIntersecting || entry.intersectionRatio > 0) {
+              const top = entry.boundingClientRect.top;
+              const bottom = entry.boundingClientRect.bottom;
+              const isInView = (top < window.innerHeight) && (bottom > 0);
+              if (isInView && (entry.isIntersecting || entry.intersectionRatio > 0)) {
                 if (entry.target.classList.contains('animation')) {
-                entry.target.classList.add('scroll-animation');
+                  entry.target.classList.add('scroll-animation');
                 } else if (entry.target.classList.contains('animation2')) {
-                entry.target.classList.add('scroll-animation2');
+                  entry.target.classList.add('scroll-animation2');
                 } else if (entry.target.classList.contains('animation3')) {
-                entry.target.classList.add('scroll-animation3');
+                  entry.target.classList.add('scroll-animation3');
                 }
                 observer.unobserve(entry.target);
-            }
+              }
             });
-        };
-
-        const observer = new IntersectionObserver(observerCallback, observerOptions);
-    
-        for (let i = 0; i < the_animation.length; i++) {
-        const elements = the_animation[i];
-        observer.observe(elements);
-        }
-    
-        for (let i = 0; i < the_animation2.length; i++) {
-        const elements = the_animation2[i];
-        observer.observe(elements);
-        }
-    
-        for (let i = 0; i < the_animation3.length; i++) {
-        const elements = the_animation3[i];
-        observer.observe(elements);
-        }
-    });
-
-    </script>
+          };
+      
+          const observer = new IntersectionObserver(observerCallback, observerOptions);
+      
+          for (let i = 0; i < the_animation.length; i++) {
+            const elements = the_animation[i];
+            observer.observe(elements);
+          }
+      
+          for (let i = 0; i < the_animation2.length; i++) {
+            const elements = the_animation2[i];
+            observer.observe(elements);
+          }
+      
+          for (let i = 0; i < the_animation3.length; i++) {
+            const elements = the_animation3[i];
+            observer.observe(elements);
+          }
+        });
+      </script>
     <script>
     // Get the toast and overlay elements
     const toast = document.querySelector('.toast');

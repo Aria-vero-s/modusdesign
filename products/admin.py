@@ -22,13 +22,12 @@ class CategoryAdmin(admin.ModelAdmin):
 
 class TemplateAdmin(admin.ModelAdmin):
     list_display = (
-        'title',
+        'name',
         'description',
         'image_url',
         'image',
         'category',
         'price',
-        'quantity',
         'sku',
     )
 
