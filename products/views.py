@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
-from .models import Product, Category
+from .models import Product, Category, Template
 from .forms import ProductForm
 
 
@@ -68,6 +68,19 @@ def product_detail(request, product_id):
     }
 
     return render(request, 'products/product_detail.html', context)
+
+
+def htmltemplate(request):
+    """A view to show individual product details """
+
+    templates = Template.objects.all()
+
+    context = {
+        'templates': templates,
+    }
+
+    return render(request, 'products/htmltemplate.html', context)
+
 
 
 @login_required
