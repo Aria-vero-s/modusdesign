@@ -10,7 +10,7 @@ def index(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.info(request, 'You will soon receive a reply by email.')
+            messages.info(request, 'Message sent! You will soon receive a reply by email.')
     form = ContactForm()
     context = {'form': form}
     return render(request, 'home/index.html', context)
