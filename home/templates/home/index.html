@@ -20,13 +20,29 @@
                 </h1>
                 <div class="my-5">
                     <h4>
-                        <a href="{% url 'view_bag' %}" class="quote-button btn btn-lg rounded-0 text-uppercase py-3">Get a quote now</a>
+                        <a href="{% url 'products' %}" class="quote-button btn btn-lg rounded-0 text-uppercase py-3">Get a quote now</a>
                     </h4>
                 </div>
             </div>
         </div>
     </div>
-     
+    <style>
+        .custom-button {
+        border-radius: 0;
+        border: 1px solid #fff;
+        color:white;
+        padding-left: 5px;
+        padding-right:5px;
+        margin-right: -4px;
+        letter-spacing: 10px;
+        }
+
+        .custom-button:hover {
+        border: 1px solid #fff;
+        color:black;
+        background-color: white;
+        }
+    </style>
     <div class="container-fluid bg-black" id="about" name="about">
         <div class="row">
           <div class="container text-white my-5 py-5">
@@ -35,6 +51,11 @@
                 <img class="ml-5 animation3 mb-5" src="/media/profile-image.jpg">
                 <p class="animation2">Ariane Saulnier is currently a student in web development at Code Institute. Her interest in both music education and technology was developed at an early age, with her mother as a piano teacher and her father as an engineer. After studying and teaching music in her home country for many years, she decided to take a leap and move to the UK with a working visa. Seeing the opportunity to pursue her passion for web design and technology, Ariane decided to take a course in web development at Code Institute. She will be graduating soon with a Diploma in Software Development (E-commerce Applications). Ariane is passionate about technology and its ability to enable learning and education. Throughout her time at Code Institute, she developed a passion for designing websites and coding projects. With her dual background in music education and technology, combined with the experience of living and teaching abroad, Ariane looks forward to combining her music education background with web development skills.</p>
             </div>
+            <div class="custom-button-group">
+                <a href="https://uk.linkedin.com/in/ariane-saulnier" target="_blank" class="custom-button text-uppercase">Linkedin</a>
+                <a href="https://www.behance.net/arianesaulnier" target="_blank" class="custom-button text-uppercase">Behance</a>
+                <a href="media/Ariane_Saulnier_CV.docx" download class="custom-button text-uppercase">Resume</a>
+              </div>
           </div>
         </div>
       </div>

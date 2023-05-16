@@ -13,15 +13,15 @@ def add_to_bag(request, item_id):
     # product is assigned the product with the given item_id or raises a 404 error if the product does not exist.
     product = get_object_or_404(Product, pk=item_id)
     # quantity is assigned the integer value of the quantity field from the request's POST data.
-    quantity = int(request.POST.get('quantity'))
+    quantity = int(request.POST.get('quantity', 1))
     # redirect_url is assigned the value of the redirect_url field from the request's POST data.
     redirect_url = request.POST.get('redirect_url')
     print(redirect_url)
     # size is list of strings using the split() method
-    size = request.POST.get('product_size').split(',')
+    size = request.POST.get('product_size')
     # If the product_size field is present in the request's POST data, size is assigned the value of the product_size field.
-    if 'product_size' in request.POST:
-        size = request.POST['product_size']
+    if size is not None:
+        size = product_size.split(',')
     # get the textarea input from the request POST data
     message = request.POST.get('message', '')
     # bag is assigned the current shopping bag from the user's session, or an empty dictionary if the bag does not yet exist.

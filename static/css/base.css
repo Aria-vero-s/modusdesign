@@ -26,7 +26,7 @@ html {
 }
 
 body {
-    background: url('/media/photography.jpg') no-repeat center center fixed;
+    background: url('/media/city-purple.jpg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh);
     color: black;
@@ -86,14 +86,6 @@ a:focus {
 .fixed-top {
     background-color: #000;
 }
-
-
-@media screen and (max-width: 1052px) {
-    .nav-item {
-        font-size: 14px;
-    }
-}
-
 
 /* icons */
 

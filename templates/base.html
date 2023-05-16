@@ -48,16 +48,14 @@
         <div class="row">
             <div class="col-12">
                 <!-- navbar -->
-                <nav class="navbar navbar-expand-lg">
+                <nav class="navbar navbar-expand-xl">
                     <button class="navbar-dark navbar-toggler border" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <!-- logo -->
                     <a href="{% url 'home' %}"><h2 class="header-white">
-                        <span class="marchevoked">A</span>
-                        <span class="Audrey-Normal">R</span>
-                        <span class="Pask-Personal">I</span>
-                        <span class="Audrey-Normal mr-3" >A</span>
+                        <span class="Pask-Personal">ARI</span>
+                        <span class="marchevoked" style="margin-left:-4px">A</span>
                           Design</h2></a>
                     <!-- links -->
                     <div class="collapse navbar-collapse" id="main-nav">
@@ -73,7 +71,13 @@
                     
                             <li class="nav-item dropdown">
                                 <a class="header-white font-weight-bold nav-link mr-5" href="{% url 'products' %}">
-                                    Services & quote
+                                    Services
+                                </a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="header-white font-weight-bold nav-link mr-5" href="{% url 'templates' %}">
+                                    products
                                 </a>
                             </li>
                     

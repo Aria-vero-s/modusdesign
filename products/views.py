@@ -58,7 +58,7 @@ def all_products(request):
     return render(request, 'products/products.html', context)
 
 
-def html_template_products(request):
+def templates(request):
     """ A view to show all products, including sorting and search queries """
 
     products = Template.objects.all()
@@ -106,7 +106,6 @@ def html_template_products(request):
     }
 
     return render(request, 'products/templates.html', context)
-
 
 
 def product_detail(request, product_id):
