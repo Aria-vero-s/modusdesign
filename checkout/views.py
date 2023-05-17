@@ -69,7 +69,7 @@ def checkout(request):
                             order=order,
                             product=product,
                             quantity=item_data,
-                            message=item_data['message']
+                            message='',
                         )
                         order_line_item.save()
                     else:
@@ -79,7 +79,7 @@ def checkout(request):
                                 product=product,
                                 quantity=quantity,
                                 product_size=size,
-                                message=item_data['message']
+                                message=item_data.get('message', ''),
                             )
                             order_line_item.save()
                 except Product.DoesNotExist:

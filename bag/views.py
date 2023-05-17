@@ -19,9 +19,6 @@ def add_to_bag(request, item_id):
     print(redirect_url)
     # size is list of strings using the split() method
     size = request.POST.get('product_size')
-    # If the product_size field is present in the request's POST data, size is assigned the value of the product_size field.
-    if size is not None:
-        size = product_size.split(',')
     # get the textarea input from the request POST data
     message = request.POST.get('message', '')
     # bag is assigned the current shopping bag from the user's session, or an empty dictionary if the bag does not yet exist.
