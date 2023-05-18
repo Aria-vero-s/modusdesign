@@ -2,7 +2,16 @@
 
 [View the live project here.](https://modusdesign.herokuapp.com/)
 
-Site owners may use Modus Design to sell their work and offer graphic design services. The website is designed to be responsive and accessible on a range of devices, making it easy to navigate for potential customers and employers.
+Site owners may use Modus Design to sell their work and offer graphic design services. The website is designed to be responsive and accessible on a range of devices, making it easy to navigate for potential customers and employers as a B2B.
+
+Still needs:
+- robots.txt file
+- sitemap.xml file
+- Social media mockup pages (to link here)
+- modify the 404
+- get the emails to work
+- deployment to heroku / AWS
+
 
 ![mockup](media/modus.png?raw=true)
 
@@ -30,8 +39,6 @@ Site owners may use Modus Design to sell their work and offer graphic design ser
         -   The two main colours used are white and black
     -   #### Typography
         -   The Lato font is the main font used throughout the whole website. Lato is a sans serif typeface family found on google font.
-    -   #### Imagery
-        -   Imagery is important. The large, background hero image is black and white, with modern geometric shapes and matches the color theme.
 
 ## Features
 
@@ -181,8 +188,6 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 ### Media
 
 -   All Portfolio images were created by the developer.
--   The hero image on the homepage is from https://unsplash.com/fr/photos/5GwLlb-_UYk
-
 ### Acknowledgements
 
 -   My Mentor for continuous helpful feedback.
