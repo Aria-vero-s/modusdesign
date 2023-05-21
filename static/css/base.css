@@ -8,7 +8,7 @@ html {
 
 body {
     background: url('/media/city-purple.jpg') no-repeat center center fixed;
-    background-size: contain;
+    background-size: 100% auto;
     height: calc(100vh);
     color: black;
     font-family: 'Lato';
