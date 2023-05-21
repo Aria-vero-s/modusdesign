@@ -8,11 +8,12 @@ html {
 
 body {
     background: url('/media/city-purple.jpg') no-repeat center center fixed;
-    background-size: cover;
+    background-size: contain;
     height: calc(100vh);
     color: black;
     font-family: 'Lato';
     max-width: 100%;
+    max-height: 100%;
     overflow-x: hidden;
 }
 
