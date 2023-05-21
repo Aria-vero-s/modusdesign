@@ -1,15 +1,22 @@
 {% load static %}
 
 <div class="toast-overlay"></div>
+<div class="toast text-center" data-autohide="false">
 
-<div class="toast rounded-0" data-autohide="false">
     <div class="toast-header bg-white text-dark">
+
         <button type="button" class="ml-2 mb-1 close text-dark" data-dismiss="toast" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
-        <div class="toast-body bg-white">
-            <h1>Thank you</h1>
-            {{ message }}        
+    </div>
+    <div class="toast-body bg-white justify-content-center">
+        <div class="col">
+            <div class="row">
+                <h1>Info!</h1><br>
+                <hr class="mt-1 mb-3">
+                <p>{{ message }}</p>
+                <hr class="mt-1 mb-3">
+            </div>
         </div>
     </div>
 </div>

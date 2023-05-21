@@ -53,10 +53,7 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <!-- logo -->
-                    <a href="{% url 'home' %}"><h2 class="header-white">
-                        <span class="Pask-Personal">ARI</span>
-                        <span class="marchevoked" style="margin-left:-4px">A</span>
-                          Design</h2></a>
+                    <a href="{% url 'home' %}"><h2 class="header-white"><span class="merriweather">ARIA </span>Design</h2></a>
                     <!-- links -->
                     <div class="collapse navbar-collapse" id="main-nav">
                         <ul class="navbar-nav w-auto mx-auto">
@@ -127,6 +124,8 @@
                 {% with message.level as level %}
                     {% if level == 40 %}
                         {% include 'includes/toasts/toast_error.html' %}
+                    {% elif level == 35 %}
+                        {% include 'includes/toasts/toast_custom.html' %}
                     {% elif level == 30 %}
                         {% include 'includes/toasts/toast_warning.html' %}
                     {% elif level == 25 %}

@@ -15,6 +15,8 @@ import dj_database_url
 from pathlib import Path
 if os.path.exists('env.py'):
     import env
+from django.contrib.messages import constants as messages
+
 
 # Import necessary packages
 
@@ -29,7 +31,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['modusdesign.herokuapp.com', 'localhost', '127.0.0.1']
 

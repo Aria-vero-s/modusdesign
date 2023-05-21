@@ -1,24 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Sonsie+One&display=swap');
-
-@font-face {
-    font-family: 'Audrey-Normal';
-    src: url('/media/fonts/Audrey-Normal.otf') format('truetype');
-  }
-
-@font-face {
-    font-family: 'MARCHEVOKED-Demo';
-    src: url('/media/fonts/MARCHEVOKED-Demo.otf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Pask-Personal';
-    src: url('/media/fonts/Pask-Personal.otf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Ade-Display';
-    src: url('/media/fonts/Ade-Display.otf') format('truetype');
-}
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;1,300;1,900&display=swap');
 
 html {
     height: 100%;
@@ -38,26 +19,6 @@ body {
 .header-container {
     margin-top: 100px;
 }
-
-.sonsie {
-    font-family: 'Sonsie One', cursive;
-  }
-
-.Audrey-Normal {
-    font-family: 'Audrey-Normal';
-  }
-
-.marchevoked {
-    font-family: 'MARCHEVOKED-Demo';
-  }
-
-.Pask-Personal {
-    font-family: 'Pask-Personal';
-  }
-
-.Ade-Display {
-    font-family: 'Ade-Display';
-  }
 
 /* link style */
 
@@ -104,7 +65,14 @@ a:focus {
 .header-white {
     text-transform: uppercase;
     color:white;
+    font-family: 'Lato';
 }
+
+.header-white .merriweather {
+    font-family: 'Merriweather' !important;
+    font-weight: 300 !important;
+    font-style: oblique !important;
+  }
 
 .header-design {
     font-size: 4rem;
