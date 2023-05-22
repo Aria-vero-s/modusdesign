@@ -18,7 +18,7 @@
         </div>
         <div class="content-wrapper">
           <div class="content">
-            <h1 class="header-design header-white animation m-5">
+            <h1 class="header-design header-white animation3 m-5">
               Web+<br>
               Branding+<br>
               Graphic+<br>
@@ -53,23 +53,23 @@
     </style>
     <div class="container-fluid bg-black" id="about" name="about">
       <div class="row">
-        <div class="container text-white my-5 py-5">
-          <h1 class="header-white my-5 animation">Why Choose Modus Design?</h1>
-          <div class="image-text-wrapper">
-            <div class="ethos-content animation2">
-              <h2>Freelance Design Services</h2>
+        <div class="container text-white mt-5 pt-5">
+          <h1 class="header-white mt-5 animation3 text-center">Why Choose Modus Design?</h1>
+          <div class="text-center">
+            <div class="ethos-content animation mt-5">
+              <i class="fa-solid fa-handshake-simple fa-2xl"></i>
+              <h3>Freelance Design Services</h3>
               <p>Modus Design, derived from the Latin term meaning "a mode of procedure," represents designing as a process. When you choose Modus, you're selecting a human-centric approach to graphic design in a world saturated with automated templates and generic designs.</p>
 
-              <i class="fa-solid fa-eye"></i><h3> Customised Logo and Branding, Websites and Illustrations</h3>
+              <i class="fa-solid fa-house-laptop fa-2xl"></i>
+              <h3> Branding, Websites and Illustrations</h3>
               <p>Modus Design offers a comprehensive range of services that seamlessly blend branding, website design and illustration to create a cohesive visual identity for your business or project.</p>
 
-              <i class="fa-solid fa-palette"></i><h3> Human-Centered Design</h3>
+              <i class="fa-solid fa-palette fa-2xl"></i>
+              <h3> Human-Centered Design</h3>
               <p>In an era dominated by automated processes, Modus Design ensures a human-centered design approach and meticulous attention to detail.</p>
 
-              <i class="fa-solid fa-handshake-simple"></i><h3> Collaborative Partnership and Timely Delivery</h3>
-              <p>When you partner with Modus Design, you gain more than just a service provider; you gain a collaborative partner with open communication throughout the design process.</p>
-
-              <p><a href="{% url 'home' %}#contact">Get in touch</a> today to discuss your design needs and embark on a creative journey together.</p>
+              <p>Get in <a href="{% url 'home' %}#contact">touch</a> today to discuss your design needs and embark on a creative journey together.</p>
             </div>
           </div>
         </div>
@@ -79,18 +79,14 @@
     <div class="container-fluid bg-black" id="about" name="about">
         <div class="row">
           <div class="container text-white my-5 py-5">
-            <h1 class="header-white my-5 animation">Meet the designer</h1>
+            <h1 class="header-white my-5 animation3">Meet the designer</h1>
             <div class="image-text-wrapper">
-                <img class="ml-5 animation3 mb-5" src="{{ MEDIA_URL}}profile-image.jpg">
-                <p class="animation2">Ariane Saulnier is currently a student in web development at Code Institute. Her interest in both music education and technology was developed at an early age, with her mother as a piano teacher and her father as an engineer. After studying and teaching music in her home country for many years, she decided to take a leap and move to the UK with a working visa. Seeing the opportunity to pursue her passion for web design and technology, Ariane decided to take a course in web development at Code Institute. She will be graduating soon with a Diploma in Software Development (E-commerce Applications). Ariane is passionate about technology and its ability to enable learning and education. Throughout her time at Code Institute, she developed a passion for designing websites and coding projects. With her dual background in music education and technology, combined with the experience of living and teaching abroad, Ariane looks forward to combining her music education background with web development skills.</p>
+                <img class="ml-5 animation mb-5" src="{{ MEDIA_URL}}profile-image.jpg">
+                <p class="animation">Ariane Saulnier is currently a student in web development at Code Institute. Her interest in both music education and technology was developed at an early age, with her mother as a piano teacher and her father as an engineer. After studying and teaching music in her home country for many years, she decided to take a leap and move to the UK with a working visa. Seeing the opportunity to pursue her passion for web design and technology, Ariane decided to take a course in web development at Code Institute. She will be graduating soon with a Diploma in Software Development (E-commerce Applications). Ariane is passionate about technology and its ability to enable learning and education. Throughout her time at Code Institute, she developed a passion for designing websites and coding projects. With her dual background in music education and technology, combined with the experience of living and teaching abroad, Ariane looks forward to combining her music education background with web development skills.</p>
             </div>
-            <div class="custom-button-group">
-                <a href="https://uk.linkedin.com/in/ariane-saulnier" target="_blank" class="custom-button text-uppercase">Linkedin</a>
-                <a href="https://www.behance.net/arianesaulnier" target="_blank" class="custom-button text-uppercase">Behance</a>
-                <a href="media/Ariane_Saulnier_CV.docx" download class="custom-button text-uppercase">Resume</a>
-              </div>
+            <ul class="list-unstyled">
               <li class="nav-item dropdown">
-                <a class="btn btn-outline-black btn-lg rounded-0 text-uppercase nav-link" href="#" id="design-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="btn btn-black btn-lg rounded-0 text-uppercase nav-link" href="#" id="design-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Portfolio
                 </a>
                 <div class="dropdown-menu border-0" aria-labelledby="design-link">
@@ -98,7 +94,13 @@
                     <a href="{% url 'website' %}" class="dropdown-item">Website design</a>
                     <a href="{% url 'illustration' %}" class="dropdown-item">Illustration design</a>
                 </div>
-            </li>
+              </li>
+            </ul>
+            <div class="custom-button-group text-center">
+                <a href="https://uk.linkedin.com/in/ariane-saulnier" target="_blank" class="custom-button text-uppercase">Linkedin</a>
+                <a href="https://www.behance.net/arianesaulnier" target="_blank" class="custom-button text-uppercase">Behance</a>
+                <a href="media/Ariane_Saulnier_CV.docx" download class="custom-button text-uppercase">Resume</a>
+              </div>
           </div>
         </div>
       </div>
@@ -107,8 +109,8 @@
     <div class="container-fluid col-12 bg-white" id="contact" name="contact">
         <div class="row w-100">
             <div class="container my-5 py-5">
-                <h1 class="header-black animation">Contact</h1>
-                <p class="mb-5 animation3">
+                <h1 class="header-black animation3">Contact</h1>
+                <p class="mb-5 animation">
                     Email: ariane.saulnier@gmail.com<br>
                     Phone: +44 7897284606
                     <br>
@@ -116,7 +118,7 @@
                     Or send me a message:
                 </p>
 
-                <form method="POST" action="" class="signup-form animation2">
+                <form method="POST" action="" class="signup-form animation">
                     {% csrf_token %}
 
                     <div class="form-group">
