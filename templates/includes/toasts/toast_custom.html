@@ -12,7 +12,11 @@
     <div class="toast-body bg-white justify-content-center">
         <div class="col">
             <div class="row">
-                <h1>Your quote is: ${{ total|floatformat:2 }}</h1><br>
+                {% if product.image_home.url %}
+                    <h1>Your total is: ${{ total|floatformat:2 }}</h1><br>
+                {% else %}
+                    <h1>Your quote is: ${{ total|floatformat:2 }}</h1><br>
+                {% endif %}
                 <p>{{ message }}</p>
                 <hr class="mt-1 mb-3">
             </div>
@@ -26,8 +30,8 @@
                 <a href="{% url 'view_bag' %}" class="btn btn-black btn-block rounded-0">
                     <span class="text-uppercase">OK, continue to payment</span>
                 </a>
-                <a href="{% url 'products' %}" class="btn btn-black btn-block rounded-0">
-                    <span class="text-uppercase">No, start over</span>
+                <a href="{% url 'home' %}#contact" class="btn btn-black btn-block rounded-0">
+                    <span class="text-uppercase">No, get in touch</span>
                 </a>
             </div>
             {% endif %}
