@@ -4,15 +4,6 @@
 
 Site owners may use Modus Design to sell their work and offer graphic design services. The website is designed to be responsive and accessible on a range of devices, making it easy to navigate for potential customers and employers as a B2B.
 
-Still needs:
-- robots.txt file
-- sitemap.xml file
-- Social media mockup pages (to link here)
-- modify the 404
-- get the emails to work
-- deployment to heroku / AWS
-
-
 ![mockup](media/modus.png?raw=true)
 
 ## User Experience (UX)

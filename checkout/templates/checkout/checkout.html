@@ -29,8 +29,8 @@
                 <p>Order Summary ({{ product_count }})</p>
                 {% for item in bag_items %}
                     <p>Service: {{ item.product.name }}</p>
-                    <p>Total: ${{ item.product.price | calc_subtotal:item.quantity }}</p>
                 {% endfor %}
+                <p>Total: ${{ item.product.price | calc_subtotal:item.quantity }}</p>
             </div>
         </div>
         <hr>
