@@ -91,6 +91,13 @@ a:focus {
     color:white;
 }
 
+/* Styles for mobile devices */
+@media (max-width: 576px) {
+    .header-design {
+        font-size: 3rem;
+    }
+}
+
 .header-black {
     text-transform: uppercase;
     color:black;
