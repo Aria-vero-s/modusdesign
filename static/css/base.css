@@ -94,7 +94,7 @@ a:focus {
 /* Styles for mobile devices */
 @media (max-width: 576px) {
     .header-design {
-        font-size: 3rem;
+        font-size: 2rem;
     }
 }
 

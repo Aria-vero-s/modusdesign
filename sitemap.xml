@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://modusdesign.herokuapp.com/</loc>
+  <lastmod>2023-05-22T14:18:56+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://modusdesign.herokuapp.com/products/</loc>
+  <lastmod>2023-05-22T14:18:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://modusdesign.herokuapp.com/products/templates/</loc>
+  <lastmod>2023-05-22T14:18:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://modusdesign.herokuapp.com/branding</loc>
+  <lastmod>2023-05-22T14:18:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://modusdesign.herokuapp.com/website</loc>
+  <lastmod>2023-05-22T14:18:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://modusdesign.herokuapp.com/illustration</loc>
+  <lastmod>2023-05-22T14:18:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://modusdesign.herokuapp.com/accounts/signup/</loc>
+  <lastmod>2023-05-22T14:18:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://modusdesign.herokuapp.com/accounts/login/</loc>
+  <lastmod>2023-05-22T14:18:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://modusdesign.herokuapp.com/products/8</loc>
+  <lastmod>2023-05-22T14:18:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://modusdesign.herokuapp.com/products/9</loc>
+  <lastmod>2023-05-22T14:18:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://modusdesign.herokuapp.com/products/10</loc>
+  <lastmod>2023-05-22T14:18:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://modusdesign.herokuapp.com/products/templates/6</loc>
+  <lastmod>2023-05-22T14:18:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://modusdesign.herokuapp.com/products/templates/5</loc>
+  <lastmod>2023-05-22T14:18:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://modusdesign.herokuapp.com/products/templates/7</loc>
+  <lastmod>2023-05-22T14:18:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://modusdesign.herokuapp.com/accounts/password/reset/</loc>
+  <lastmod>2023-05-22T14:18:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
