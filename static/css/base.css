@@ -71,6 +71,19 @@ a:focus {
     font-size: 14rem;
 }
 
+/* logo */
+
+.logo {
+    text-transform: uppercase;
+    color:white;
+    font-family: 'Lato';
+}
+
+.logo .merriweather {
+    font-family: 'Merriweather' !important;
+    font-weight: 300 !important;
+    font-style: oblique !important;
+  }
 
 /* header */
 
@@ -79,12 +92,6 @@ a:focus {
     color:white;
     font-family: 'Lato';
 }
-
-.header-white .merriweather {
-    font-family: 'Merriweather' !important;
-    font-weight: 300 !important;
-    font-style: oblique !important;
-  }
 
 .header-design {
     font-size: 4rem;
@@ -207,16 +214,16 @@ a:focus {
   
   .animation3 {
     opacity: 0;
-    transform: translateX(100%);
+    transform: translateY(100%);
     transition: all 0.7s ease-out;
     transition-delay: 0.4s;
   }
   
   .scroll-animation3 {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
-  
+
 /* about */
 
 #about .image-text-wrapper {
