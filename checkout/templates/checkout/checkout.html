@@ -25,14 +25,21 @@
         </div>
 
         <div class="row text-center">
-                <div class="col">
+            <div class="col">
                 <p>Order Summary ({{ product_count }})</p>
                 {% for item in bag_items %}
-                    <p>Service: {{ item.product.name }}</p>
+                    {% if item.product.name %}
+                        <p>Service: {{ item.product.name }}</p>
+                    {% endif %}
                 {% endfor %}
-                <p>Total: ${{ item.product.price | calc_subtotal:item.quantity }}</p>
+                <p>Total:
+                    {% for item in bag_items %}
+                        ${{ item.product.price | calc_subtotal:item.quantity }}
+                    {% endfor %}
+                </p>
             </div>
         </div>
+        
         <hr>
         <div class="row">
             <div class="col-lg-3"></div>

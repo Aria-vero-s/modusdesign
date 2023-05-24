@@ -4,7 +4,7 @@
 
 Site owners may use Modus Design to sell their work and offer graphic design services. The website is designed to be responsive and accessible on a range of devices, making it easy to navigate for potential customers and employers as a B2B.
 
-![mockup](media/modus.png?raw=true)
+![mockup](media/modus-mockup.png?raw=true)
 
 ## User Experience (UX)
 
@@ -29,7 +29,7 @@ Site owners may use Modus Design to sell their work and offer graphic design ser
     -   #### Colour Scheme
         -   The two main colours used are white and black
     -   #### Typography
-        -   The Lato font is the main font used throughout the whole website. Lato is a sans serif typeface family found on google font.
+        -   The Lato font is the main font used throughout the whole website. The lato font is a sans serif typeface family paired with Merriwheater to create the logo. Both fonts are from google fonts.
 
 ## Features
 
@@ -53,8 +53,8 @@ Site owners may use Modus Design to sell their work and offer graphic design ser
     - Bootstrap was used to assist with the responsiveness and styling of the website.
 2. [Google Fonts:](https://fonts.google.com/)
     - Google fonts were used to import the 'Lato' font into the style.css file which is used on all pages throughout the project.
-3. [Git](https://git-scm.com/)
-    - Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
+3. [Visual Studio](https://code.visualstudio.com/)
+    - Visual Studio was used for version control to commit to Git and Push to GitHub.
 4. [GitHub:](https://github.com/)
     - GitHub is used to store the projects code after being pushed from Git.
 
@@ -72,7 +72,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
     1. As a User, I want to easily understand the main purpose of the site and learn more about the organisation.
 
         1. Upon entering the site, users are automatically greeted with a clean and easily readable navigation bar to go to the page of their choice. Underneath there is a Hero Image and a "Get a quote now" button.
-        2. Following the hero image are the about, contact and testimonials sections.
+        2. Following the hero image are the ethos section, about, contact and testimonials sections.
         3. At the bottom of the page, the user can search the site contents with an integrated search bar, access social media links, read the privacy notice and sign up to newsletters.
 
     2. As a User, I want to be able to easily be able to navigate throughout the site to find content.
@@ -82,9 +82,9 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
         3. On the contact section, after a form response is submitted, the page refreshes and the user is brought to the top of the page where the navigation bar is.
 
     3. As a User, I want to get a quote based on my needs as a potential customer.
-        1. After clicking on "get a quote now", the user is redirected to a new page with a custom form.
-        2. The form is divided in 3 steps. First, the user needs to select a service, then check the products they need and finally select a plan based on their budget and timeframe.
-        3. Once the form is submitted, the user can see the automatically calculated quote, and choose one of the following options: proceed to checkout, redirect to the contact form or start over.
+        1. After clicking on "get a quote now", the user is redirected to a new page with a list of services.
+        2. First, the user is required to select a type of service, then the user can write about their custom needs in a textarea field and finally click on the get a quote button to view the total price.
+        3. Once the quote is displayed, the user can choose one of the following options: proceed to checkout or be redirected to the contact form.
 
 -   #### Site Owner Goals
 
@@ -99,13 +99,10 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
         2. Here the Site Owner can see the user's name, email and message.
         3. The Site Owner can reply to the user through email.
 
-    3. As a Site Owner, I want to add new testimonials to the homepage easily.
-        1. On the testimonials section on the homepage, the Site Owner can create, read, update or delete the testimonials.
-
 ### Further Testing
 
 -   The Website was tested on Google Chrome, Internet Explorer, Microsoft Edge and Safari browsers.
--   The website was viewed on a variety of devices such as Desktop, Laptop and iPhone6.
+-   The website was viewed on a variety of devices such as MacBook Pro, HP ProBook, android mobiles and iPhone6.
 -   A large amount of testing was done to ensure that all pages were linking correctly.
 -   Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues.
 
@@ -115,25 +112,9 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 ## Deployment
 
-### GitHub Pages
+### Heroku
 
-The project was deployed to GitHub Pages using the following steps...
-
-1. Log in to GitHub and locate the [GitHub Repository](https://github.com/)
-2. At the top of the Repository (not top of page), locate the "Settings" Button on the menu.
-    - Alternatively Click [Here](https://raw.githubusercontent.com/) for a GIF demonstrating the process starting from Step 2.
-3. Scroll down the Settings page until you locate the "GitHub Pages" Section.
-4. Under "Source", click the dropdown called "None" and select "Master Branch".
-5. The page will automatically refresh.
-6. Scroll back down through the page to locate the now published site [link](https://github.com) in the "GitHub Pages" section.
-
-### Forking the GitHub Repository
-
-By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps...
-
-1. Log in to GitHub and locate the [GitHub Repository](https://github.com/)
-2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
-3. You should now have a copy of the original repository in your GitHub account.
+The project was deployed to Heroku. The live version can be found [here](https://modusdesign.herokuapp.com/).
 
 ### Making a Local Clone
 
@@ -165,8 +146,6 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 
 ### Code
 
--   The full-screen hero image code came from the Code Institute [boutique_ado tutorial](https://github.com/ckz8780/boutique_ado_v1/tree/master/boutique_ado)
-
 -   [Bootstrap4](https://getbootstrap.com/docs/4.4/getting-started/introduction/): Bootstrap Library used throughout the project mainly to make site responsive using the Bootstrap Grid System, Cards and Carousel.
 
 -   [Stripe](https://stripe.com/en-gb-ca) : Stripe software and APIs to accept payments, send payouts, and manage orders online.
@@ -175,12 +154,11 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 
 -   All content was written by the developer.
 
-
 ### Media
 
 -   All Portfolio images were created by the developer.
+
 ### Acknowledgements
 
 -   My Mentor for continuous helpful feedback.
-
 -   Tutor support at Code Institute for their support.
