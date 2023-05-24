@@ -48,12 +48,12 @@
         <div class="row">
             <div class="col-12">
                 <!-- navbar -->
-                <nav class="navbar navbar-expand-lg">
+                <nav class="navbar navbar-expand-xl">
                     <button class="navbar-dark navbar-toggler border" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <!-- logo -->
-                    <a href="{% url 'home' %}"><h2 class="header-white">Modus Design</h2></a>
+                    <a href="{% url 'home' %}"><h2 class="logo"><span class="merriweather">MODUS </span>Design</h2></a>
                     <!-- links -->
                     <div class="collapse navbar-collapse" id="main-nav">
                         <ul class="navbar-nav w-auto mx-auto">
@@ -67,8 +67,14 @@
                             </li>
                     
                             <li class="nav-item dropdown">
-                                <a class="header-white font-weight-bold nav-link mr-5" href="{% url 'quote' %}">
-                                    Services & quote
+                                <a class="header-white font-weight-bold nav-link mr-5" href="{% url 'products' %}">
+                                    Services
+                                </a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="header-white font-weight-bold nav-link mr-5" href="{% url 'templates' %}">
+                                    products
                                 </a>
                             </li>
                     
@@ -118,6 +124,8 @@
                 {% with message.level as level %}
                     {% if level == 40 %}
                         {% include 'includes/toasts/toast_error.html' %}
+                    {% elif level == 35 %}
+                        {% include 'includes/toasts/toast_custom.html' %}
                     {% elif level == 30 %}
                         {% include 'includes/toasts/toast_warning.html' %}
                     {% elif level == 25 %}
@@ -140,17 +148,16 @@
     {% block footer %}
         <footer class="py-5 px-5 bg-black text-white w-100">
             <div class="row">
-                <div class="col-6">
+                <div class="col-6 animation3">
                     <h3>Social</h3>
                     <div id="social">
-                        <p>Keep up to date with the latest offers</p>
+                        <p>Keep up to date with the latest offers.</p>
                         <a href="https://www.facebook.com/profile.php?id=100089872322144" target="_blank"><i class="fa-brands fa-facebook"></i></a>
                         <a href="https://www.instagram.com/modusdesign.official/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://www.etsy.com/ca-fr/shop/ArianeSaulnier?ref=seller-platform-mcnav" target="_blank"><i class="fa-brands fa-etsy"></i></a>
                     </div>
                 </div>
     
-                <div class="col-6">
+                <div class="col-6 animation3">
                     <h3>Newsletter subscription</h3>
                     <!-- Begin Mailchimp Signup Form -->
                     <div id="mc_embed_signup">
@@ -179,10 +186,10 @@
                 </div>
             </div>
     
-            <div class="row justify-content-center pt-5">
+            <div class="row justify-content-center pt-5 animation">
                 <p>@ 2023 Made by: <a href="https://github.com/Aria-vero-s" target="_blank">aria-vero-s</a></p>
             </div>
-            <div class="row justify-content-center pb-5">
+            <div class="row justify-content-center pb-5 animation">
                 <p><a href ="https://www.privacypolicygenerator.info/live.php?token=lx1Nwh7vdojPRxFPWkJwoluEpSHI13pM" target="_blank">Privacy Notice</a></p>
             </div>
         </footer>
@@ -192,6 +199,76 @@
     <script type="text/javascript">
         $('.toast').toast('show');
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const the_animation = document.querySelectorAll('.animation');
+          const the_animation2 = document.querySelectorAll('.animation2');
+          const the_animation3 = document.querySelectorAll('.animation3');
+          const observerOptions = {
+            threshold: [0, 0.5]
+          };
+      
+          const observerCallback = (entries, observer) => {
+            entries.forEach((entry) => {
+              const top = entry.boundingClientRect.top;
+              const bottom = entry.boundingClientRect.bottom;
+              const isInView = (top < window.innerHeight) && (bottom > 0);
+              if (isInView && (entry.isIntersecting || entry.intersectionRatio > 0)) {
+                if (entry.target.classList.contains('animation')) {
+                  entry.target.classList.add('scroll-animation');
+                } else if (entry.target.classList.contains('animation2')) {
+                  entry.target.classList.add('scroll-animation2');
+                } else if (entry.target.classList.contains('animation3')) {
+                  entry.target.classList.add('scroll-animation3');
+                }
+                observer.unobserve(entry.target);
+              }
+            });
+          };
+      
+          const observer = new IntersectionObserver(observerCallback, observerOptions);
+      
+          for (let i = 0; i < the_animation.length; i++) {
+            const elements = the_animation[i];
+            observer.observe(elements);
+          }
+      
+          for (let i = 0; i < the_animation2.length; i++) {
+            const elements = the_animation2[i];
+            observer.observe(elements);
+          }
+      
+          for (let i = 0; i < the_animation3.length; i++) {
+            const elements = the_animation3[i];
+            observer.observe(elements);
+          }
+        });
+      </script>
+    <script>
+    // Get the toast and overlay elements
+    const toast = document.querySelector('.toast');
+    const overlay = document.querySelector('.toast-overlay');
+
+    // Function to show the toast and overlay
+    function showToast() {
+    toast.style.display = 'block';
+    overlay.style.display = 'block';
+    }
+
+    // Function to hide the toast and overlay
+    function hideToast() {
+    toast.style.display = 'none';
+    overlay.style.display = 'none';
+    }
+
+    // Close the toast and overlay when the close button is clicked
+    const closeButton = toast.querySelector('.close');
+    closeButton.addEventListener('click', hideToast);
+
+
+    </script>
+
+
     {% endblock %}
     
     </body>

@@ -69,6 +69,7 @@ def checkout(request):
                             order=order,
                             product=product,
                             quantity=item_data,
+                            message='',
                         )
                         order_line_item.save()
                     else:
@@ -78,6 +79,7 @@ def checkout(request):
                                 product=product,
                                 quantity=quantity,
                                 product_size=size,
+                                message=item_data.get('message', ''),
                             )
                             order_line_item.save()
                 except Product.DoesNotExist:
@@ -101,7 +103,7 @@ def checkout(request):
         if not bag:
             messages.error(request,
                            "There's nothing in your bag at the moment")
-            return redirect(reverse('products'))
+            return redirect(reverse('view_bag'))
 
         current_bag = bag_contents(request)
         total = current_bag['grand_total']
@@ -176,7 +178,7 @@ def checkout_success(request, order_number):
             if user_profile_form.is_valid():
                 user_profile_form.save()
 
-    messages.success(request, f'Order successfully processed! \
+    messages.info(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
 

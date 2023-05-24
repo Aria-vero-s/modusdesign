@@ -28,6 +28,7 @@ class Order(models.Model):
     grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     original_bag = models.TextField(null=False, blank=False, default='')
     stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
+    message = models.TextField(blank=True, default='')
 
     def _generate_order_number(self):
         """
@@ -69,6 +70,7 @@ class OrderLineItem(models.Model):
     product_size = models.CharField(max_length=2, null=True, blank=True)  # XS, S, M, L, XL
     quantity = models.IntegerField(null=False, blank=False, default=0)
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
+    message = models.CharField(max_length=250, null=True, blank=True)
 
     def save(self, *args, **kwargs):
         """
@@ -76,9 +78,14 @@ class OrderLineItem(models.Model):
         and update the order total.
         """
         self.lineitem_total = self.product.price * self.quantity
+                # Set the message field to the value of the message from the textarea
+        if self.message:
+            self.message = self.message.strip()
         super().save(*args, **kwargs)
-
+    
+        # Save the message field to the database
+        self.order.save()
+        
     def __str__(self):
         return f'SKU {self.product.sku} on order {self.order.order_number}'
-
 

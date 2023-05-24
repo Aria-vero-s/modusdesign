@@ -1,0 +1,1 @@
+web: gunicorn modusdesign.wsgi:application

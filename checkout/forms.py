@@ -9,6 +9,10 @@ class OrderForm(forms.ModelForm):
                   'street_address1', 'street_address2',
                   'town_or_city', 'postcode', 'country',
                   'county',)
+        custom_order = forms.CharField(widget=forms.Textarea(attrs={
+            'placeholder': 'Enter any special instructions or comments for your order here...',
+            'rows': 4
+        }), required=False)
 
     def __init__(self, *args, **kwargs):
         """
