@@ -109,6 +109,12 @@
             </div>
         </div>
     </form>
+    {% if request.user.is_superuser %}
+        <small class="text-center align-items-center">
+            <a class="btn" href="{% url 'edit_product' product.id %}">Edit</a> | 
+            <a class="btn text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+        </small>
+    {% endif %}
 </div>
     
 {% endblock %}
