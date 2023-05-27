@@ -168,11 +168,28 @@ def edit_product(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
-        form = TemplateForm(request.POST, request.FILES, instance=product)
+        form = TemplateForm(request.POST, instance=product)
         if form.is_valid():
-            product = form.save()
-            messages.success(request, 'Successfully updated product!')
-            return redirect(reverse('template_detail', args=[product.id]))
+            # Handle file uploads
+            image_home = request.FILES.get('image_home')
+            image_list = request.FILES.get('image_list')
+            image_detail = request.FILES.get('image_detail')
+
+            # Update form data with uploaded images
+            form_data = model_to_dict(product)
+            form_data['image_home'] = image_home if image_home else form_data['image_home']
+            form_data['image_list'] = image_list if image_list else form_data['image_list']
+            form_data['image_detail'] = image_detail if image_detail else form_data['image_detail']
+
+            # Create a new form instance with the updated form data
+            form = TemplateForm(form_data, instance=product)
+
+            if form.is_valid():
+                product = form.save()
+                messages.success(request, 'Successfully updated product!')
+                return redirect(reverse('template_detail', args=[product.id]))
+            else:
+                messages.error(request, 'Failed to update product. Please ensure the form is valid.')
         else:
             messages.error(request, 'Failed to update product. Please ensure the form is valid.')
     else:
