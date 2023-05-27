@@ -43,7 +43,7 @@ class Migration(migrations.Migration):
             name='OrderLineItem',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('product_size', models.CharField(blank=True, max_length=2, null=True)),
+                ('product_size', models.CharField(blank=True, max_length=250, null=True)),
                 ('quantity', models.IntegerField(default=0)),
                 ('lineitem_total', models.DecimalField(decimal_places=2, editable=False, max_digits=6)),
                 ('message', models.CharField(blank=True, max_length=250, null=True)),
