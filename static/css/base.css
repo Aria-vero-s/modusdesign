@@ -199,7 +199,9 @@ a:focus {
 
 .custom-button {
 border-radius: 0;
-border: 1px solid #fff;
+border-width: 1px;
+border-style: solid;
+border-color: white;
 color:white;
 padding-left: 5px;
 padding-right:5px;
@@ -208,7 +210,6 @@ letter-spacing: 10px;
 }
 
 .custom-button:hover {
-border: 1px solid #fff;
 color:black;
 background-color: white;
 }
