@@ -102,7 +102,6 @@ The navigation bar plays a vital role in facilitating user navigation and provid
 -   [GitHub](https://github.com/) used to host repository.
 -   [VisualStudio](https://code.visualstudio.com/) was used to develop project and organise version control.
 -   [RandomKeygen](https://randomkeygen.com/) used to create a strong password for required <SECRET_KEY>.
--   [favicon.io](https://favicon.io/) used to create a site favicon.
 
 ## Testing
 
@@ -152,11 +151,32 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 -   A large amount of testing was done to ensure that all pages were linking correctly.
 -   Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues.
 
+### Known Bugs
+
+-   In the edit_product page while logged in as admin, the images are not editable.
+
 ## Deployment
 
 ### Heroku
 
 The project was deployed to Heroku. The live version can be found [here](https://modusdesign.herokuapp.com/).
+
+1. Create a requirements.txt file that lists all the Python packages required for the project. Run the following command in your terminal:
+```
+$ pip3 freeze --local > requirements.txt
+```
+2. Create a Procfile in the project's root directory and add the following line:
+```
+web: gunicorn ARTstop.wsgi:application
+```
+3. Push the requirements.txt and Procfile to your repository.
+4. Log in to Heroku (https://www.heroku.com/) and navigate to the dashboard.
+5. Click on "Create New App" and choose a unique name for your app.
+6. Select the appropriate region based on your location.
+7. Click "Create App" to create the Heroku app.
+8. In the Heroku dashboard, navigate to the "Deploy" tab.
+9. Under the "Deployment Method" section, select "GitHub".
+10. Search for your repository by name and click "Connect" to connect Heroku to your GitHub repository.
 
 ### Making a Local Clone
 
