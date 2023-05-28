@@ -21,7 +21,16 @@
                 <form class="form" action="{% url 'add_to_bag' product.id%}" method="POST">
                     {% csrf_token %}
                     <div class="form-row">
-                    {% with product.has_sizes as s %}     
+                    {% with product.has_sizes as s %}
+                    <style>
+                        .btn-group .btn.active {
+                            background-color: lightgray !important;
+                            color: black !important;
+                        }
+                        input:focus {
+                        outline: none;
+                        }
+                    </style>       
                         {% if s %}
                             {% if product.name == "Website design" %}
                                 <div class="col-12">
