@@ -33,9 +33,43 @@ Site owners may use Modus Design to sell their work and offer graphic design ser
 
 ## Features
 
--   Responsive on all device sizes
+# General features:
 
--   Interactive elements
+-   Responsive Design: The website is optimized to provide a seamless user experience across all device sizes, including desktop, tablet, and mobile.
+-   Authentication: Users can create an account and securely log in to manage their information and view their order history.
+-   Payment System: The platform includes a secure payment system that enables users to purchase HTML templates or hire freelance services conveniently.
+-   UX Design: The user interface (UI) is designed with a focus on user experience (UX), incorporating intuitive navigation, interactive elements, and engaging animations.
+
+# Navigation Bar Features:
+
+The navigation bar plays a vital role in facilitating user navigation and providing convenient access to various sections of the website. It ensures seamless movement between different pages, incorporates dropdown menus for enhanced functionality, and complements the overall design and user experience.
+
+-   Logo and Homepage Link: The navigation bar includes a logo that serves as a link to the homepage, allowing users to easily navigate back to the main page.
+
+-   About Page: A link in the navigation bar directs users to the About page, where they can learn more about Modus Design and the designer. Clicking on the link triggers a smooth scrolling action, bringing users back to the homepage section where the about container is located.
+
+-   Services and Products: The navigation bar includes links to the Services and Products pages, where users can explore and access the main features of the site. These pages provide detailed information about the available services and products and offer a convenient platform for users to make payments.
+
+-   Portfolio: The navigation bar features a link to the Portfolio section, showcasing various works and projects. Clicking on the Portfolio link reveals a dropdown menu with three options: Branding Portfolio, Website Portfolio, and Illustration Portfolio. Each option leads to a dedicated gallery, allowing users to explore specific works within each category.
+
+-   Contact Page: The navigation bar provides a link to the Contact page, which allows users to get in touch with the site owner/designer. Similar to the About page, clicking on the Contact link triggers a smooth scrolling action, bringing users back to the homepage section where the contact form is located.
+
+-   My Account: The navigation bar includes a My Account dropdown menu that provides options for user login and registration. When a user is not logged in, the dropdown menu displays login and registration links. Once a user logs in, the menu options change to My Profile and Logout, enabling users to manage their account details and log out from the platform.
+
+-   Admin Access: For users with admin privileges, the My Account dropdown menu includes an additional link called Product Management. This link grants access to the product management section, where admins can perform specific administrative tasks related to the products or services offered.
+
+    -   Admin CRUD functionality
+        As well as all of the abpve features(read), the admin can add, edit and delete products, artists and classes from the site - they don't have to visit the admin panel for this.
+
+        Add(Create): From the 'My Account' dropdown, the admin can choose 'Product Management'. This allows them to add a new template by filling in the form.
+
+        Edit(Update): From the item detail page, the admin has an edit button that will direct them to the edit page. All of the form fields wil be populated with the Template information that can then be updated and saved.
+
+        Delete(Delete) From the item detail page, the admin has a delete button that will trigger a confirmation modal. Once the admin confirms deletion, the Template will be removed from the database
+
+# Footer:
+
+-   All pages include a footer section located at the bottom, which contains social media links and a newsletter subscription form. The footer provides easy access to the project's social media profiles and allows users to stay updated by subscribing to the newsletter.
 
 ## Technologies Used
 
@@ -43,20 +77,31 @@ Site owners may use Modus Design to sell their work and offer graphic design ser
 
 -   [HTML5](https://en.wikipedia.org/wiki/HTML5)
 -   [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+-   [Python3](https://www.python.org/)
 -   [Javascript](https://en.wikipedia.org/wiki/JavaScript)
--   [Django](https://en.wikipedia.org/wiki/Django_(web_framework))
-
 
 ### Frameworks, Libraries & Programs Used
 
-1. [Bootstrap 4.4.1:](https://getbootstrap.com/docs/4.4/getting-started/introduction/)
+-   [Django](https://en.wikipedia.org/wiki/Django_(web_framework))
+-   [Pip3](https://pip.pypa.io/en/stable/)
+-   [FontAwesome](https://fontawesome.com/)
+-   [Bootstrap 4.4.1:](https://getbootstrap.com/docs/4.4/getting-started/introduction/)
     - Bootstrap was used to assist with the responsiveness and styling of the website.
-2. [Google Fonts:](https://fonts.google.com/)
+-   [Google Fonts:](https://fonts.google.com/)
     - Google fonts were used to import the 'Lato' font into the style.css file which is used on all pages throughout the project.
-3. [Visual Studio](https://code.visualstudio.com/)
+-   [Visual Studio](https://code.visualstudio.com/)
     - Visual Studio was used for version control to commit to Git and Push to GitHub.
-4. [GitHub:](https://github.com/)
+-   [GitHub:](https://github.com/)
     - GitHub is used to store the projects code after being pushed from Git.
+
+### All Others
+
+-   [Heroku](https://www.heroku.com/) used to deploy live site.
+-   [Stripe](https://dashboard.stripe.com/login) used for the payments system.
+-   [AWS](https://aws.amazon.com/) used for file storage.
+-   [GitHub](https://github.com/) used to host repository.
+-   [VisualStudio](https://code.visualstudio.com/) was used to develop project and organise version control.
+-   [RandomKeygen](https://randomkeygen.com/) used to create a strong password for required <SECRET_KEY>.
 
 ## Testing
 
@@ -91,7 +136,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
     1. As a Site Owner, I want to find the details of any new orders.
 
         1. These are clearly shown in the django admin panel once the owner signs in and clicks on orders.
-        2. Once an order is submitted, the Site Owner can access the client details and project details as selected in the custom quote.
+        2. Once an order is submitted, the Site Owner can access the client details and project details.
 
     2. As a Site Owner, I want to find the best way to get in contact with the customer with any questions I may have.
 
@@ -108,13 +153,30 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 ### Known Bugs
 
--   N/A
+-   In the edit_product page while logged in as admin, the images are not editable.
 
 ## Deployment
 
 ### Heroku
 
 The project was deployed to Heroku. The live version can be found [here](https://modusdesign.herokuapp.com/).
+
+1. Create a requirements.txt file that lists all the Python packages required for the project. Run the following command in your terminal:
+```
+$ pip3 freeze --local > requirements.txt
+```
+2. Create a Procfile in the project's root directory and add the following line:
+```
+web: gunicorn ARTstop.wsgi:application
+```
+3. Push the requirements.txt and Procfile to your repository.
+4. Log in to Heroku (https://www.heroku.com/) and navigate to the dashboard.
+5. Click on "Create New App" and choose a unique name for your app.
+6. Select the appropriate region based on your location.
+7. Click "Create App" to create the Heroku app.
+8. In the Heroku dashboard, navigate to the "Deploy" tab.
+9. Under the "Deployment Method" section, select "GitHub".
+10. Search for your repository by name and click "Connect" to connect Heroku to your GitHub repository.
 
 ### Making a Local Clone
 
