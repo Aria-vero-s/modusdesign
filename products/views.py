@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+from django.forms.models import model_to_dict
 from django.db.models.functions import Lower
 
 from .models import Product, Category, Template
@@ -158,7 +159,6 @@ def add_product(request):
 
     return render(request, template, context)
 
-
 @login_required
 def edit_product(request, product_id):
     """ Edit a product in the store """
@@ -177,9 +177,10 @@ def edit_product(request, product_id):
 
             # Update form data with uploaded images
             form_data = model_to_dict(product)
-            form_data['image_home'] = image_home if image_home else form_data['image_home']
-            form_data['image_list'] = image_list if image_list else form_data['image_list']
-            form_data['image_detail'] = image_detail if image_detail else form_data['image_detail']
+            product.image = image_home
+            form_data['image_home'] = image_home if image_home else image_home
+            form_data['image_list'] = image_list if image_list else image_list
+            form_data['image_detail'] = image_detail if image_detail else image_detail
 
             # Create a new form instance with the updated form data
             form = TemplateForm(form_data, instance=product)
