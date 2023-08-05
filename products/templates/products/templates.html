@@ -20,7 +20,7 @@
         </div>
         <div class="row justify-content-center">
             {% for product in products %}
-                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-4">
+                <div class="col-12 col-md-6 col-lg-6 col-xl-4">
                     <div class="card text-center h-100 animation">
                         <div class="card-body d-flex flex-column">
                             <a href="{% url 'template_detail' product.id %}">
@@ -37,6 +37,14 @@
                 </div>
             {% endfor %}
         </div>
+        {% if request.user.is_superuser %}
+            <small class="row justify-content-center align-items-center">
+                <div class="text-center" style="margin-bottom:100px;" >
+                    <p style="margin-top:50px;" >You are seeing this because you are logged in as admin:</p>
+                    <a class="btn btn-black rounded-0" href="{% url 'add_product'%}">Add a template</a>
+                </div>
+            </small>
+        {% endif %}
     </div>
 {% endblock %}
 

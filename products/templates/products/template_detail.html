@@ -85,9 +85,9 @@
         </div>
     </form>
     {% if request.user.is_superuser %}
-    <p>You are seeing this because you are logged in as admin:</p>
         <small class="row justify-content-center align-items-center">
-            <div class="text-center">
+            <div class="text-center" style="margin-bottom:100px;">
+                <p>You are seeing this because you are logged in as admin:</p>
                 <a class="btn" href="{% url 'edit_product' product.id %}">Edit</a> | 
                 <a class="btn text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
             </div>
