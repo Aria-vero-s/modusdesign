@@ -166,31 +166,26 @@ def edit_product(request, product_id):
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 
-    product = get_object_or_404(Product, pk=product_id)
+    product = get_object_or_404(Template, pk=product_id)
     if request.method == 'POST':
         form = TemplateForm(request.POST, instance=product)
         if form.is_valid():
-            # Handle file uploads
-            image_home = request.FILES.get('image_home')
-            image_list = request.FILES.get('image_list')
-            image_detail = request.FILES.get('image_detail')
-
-            # Update form data with uploaded images
-            form_data = model_to_dict(product)
-            product.image = image_home
-            form_data['image_home'] = image_home if image_home else image_home
-            form_data['image_list'] = image_list if image_list else image_list
-            form_data['image_detail'] = image_detail if image_detail else image_detail
-
-            # Create a new form instance with the updated form data
-            form = TemplateForm(form_data, instance=product)
-
-            if form.is_valid():
-                product = form.save()
-                messages.success(request, 'Successfully updated product!')
-                return redirect(reverse('template_detail', args=[product.id]))
-            else:
-                messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            print(request.FILES)
+            product = form.save()
+            if request.FILES.get('image_home', None):
+                product.image_home = request.FILES.get('image_home')
+                product.save()
+            if request.FILES.get('image', None):
+                product.image = request.FILES.get('image')
+                product.save()
+            if request.FILES.get('image_list', None):
+                product.image_list = request.FILES.get('image_list')
+                product.save()
+            if request.FILES.get('image_detail', None):
+                product.image_detail = request.FILES.get('image_detail')
+                product.save()
+            messages.success(request, 'Successfully updated product!')
+            return redirect(reverse('template_detail', args=[product.id]))
         else:
             messages.error(request, 'Failed to update product. Please ensure the form is valid.')
     else:
