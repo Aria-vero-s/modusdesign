@@ -13,7 +13,7 @@
     <div class="overlay"></div>
     <div class="container">
         <div class="row justify-content-center align-items-center">
-            <div class="col-md-6 mx-auto text-center">
+            <div class="col-12 col-lg-6 text-center">
                 <h2>{{ product.name }}</h2>
                 <p class="lead mb-0 font-weight-bold">${{ product.price }}</p>
                 <p class="mt-3">{{ product.description }}</p>
@@ -28,20 +28,20 @@
                             color: black !important;
                         }
                         input:focus {
-                        outline: none;
+                            outline: none;
                         }
                     </style>       
                         {% if s %}
                             {% if product.name == "Website design" %}
                                 <div class="col-12">
                                     <p><strong>Select the type of feature you need: (you may select more than one)</strong></p>
-                                    <div class="btn-group align-items-center text-center" role="group" aria-label="Product Sizes">
+                                    <div class="btn-group" style="display: block;" role="group" aria-label="Product Sizes">
                                         <button type="button" class="btn btn-secondary rounded-0" value="portfolio" style="margin-right: 10px;" onclick="document.getElementById('id_product_size').value='portfolio';">Portfolio</button>
                                         <button type="button" class="btn btn-secondary rounded-0" value="blog" style="margin-right: 10px;" onclick="document.getElementById('id_product_size').value='blog';">Blog</button>
                                         <button type="button" class="btn btn-secondary rounded-0" value="e-commerce" style="margin-right: 10px;" onclick="document.getElementById('id_product_size').value='e-commerce';">E-commerce</button>
                                         <button type="button" class="btn btn-secondary rounded-0" value="other" onclick="document.getElementById('id_product_size').value='other';">Other</button>
                                     </div>
-                                    <input name="product_size" id="id_product_size" style="max-height: 0; border: none;" required>
+                                    <input name="product_size" id="id_product_size" style="border: none; display:none;" required>
                                 </div>
                             {% endif %}
                         {% endif %}
@@ -49,13 +49,13 @@
                             {% if product.name == "Branding design" %}
                                 <div class="col-12">
                                     <p><strong>Select what you need:</strong></p>
-                                    <div class="btn-group" role="group" aria-label="Product Sizes">
+                                    <div class="btn-group" style="display: block;" role="group" aria-label="Product Sizes">
                                         <button type="button" class="btn btn-secondary rounded-0" value="logo" style="margin-right: 10px;" onclick="document.getElementById('id_product_size').value='logo';">Logo</button>
                                         <button type="button" class="btn btn-secondary rounded-0" value="promotional" style="margin-right: 10px;" onclick="document.getElementById('id_product_size').value='promotional';">Promotional</button>
                                         <button type="button" class="btn btn-secondary rounded-0" value="stationary" style="margin-right: 10px;" onclick="document.getElementById('id_product_size').value='stationary';">Stationary</button>
                                         <button type="button" class="btn btn-secondary rounded-0" value="packaging" onclick="document.getElementById('id_product_size').value='packaging';">Packaging</button>
                                     </div>
-                                    <input name="product_size" id="id_product_size" style="max-height: 0; border: none;" required>
+                                    <input name="product_size" id="id_product_size" style="border: none; display:none;" required>
                                 </div>
                             {% endif %}
                         {% endif %}
@@ -63,13 +63,13 @@
                             {% if product.name == "Illustration design" %}
                                 <div class="col-12">
                                     <p><strong>Types:</strong></p>
-                                    <div class="btn-group" role="group" aria-label="Product Sizes" style="white-space: nowrap;">
+                                    <div class="btn-group" style="display: block;" role="group" aria-label="Product Sizes" style="white-space: nowrap;">
                                         <button type="button" class="btn btn-secondary rounded-0" value="magazine" style="margin-right: 10px;" onclick="document.getElementById('id_product_size').value='magazine';">Magazine</button>
                                         <button type="button" class="btn btn-secondary rounded-0" value="non-fiction" style="margin-right: 10px;" onclick="document.getElementById('id_product_size').value='non-fiction';">Non-fiction</button>
                                         <button type="button" class="btn btn-secondary rounded-0" value="album-book" style="margin-right: 10px;" onclick="document.getElementById('id_product_size').value='album-book';">Album/Book cover</button>
                                         <button type="button" class="btn btn-secondary rounded-0" value="storybook-comic" onclick="document.getElementById('id_product_size').value='storybook-comic';">Storybook/comic</button>
                                     </div>
-                                    <input name="product_size" id="id_product_size" style="max-height: 0; border: none;" required>
+                                    <input name="product_size" id="id_product_size" style="border: none; display:none;" required>
                                 </div>
                             {% endif %}
                         {% endif %}
