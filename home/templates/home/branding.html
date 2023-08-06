@@ -18,7 +18,7 @@
   }
   
   .carousel-item {
-    position: absolute !important; /* Bootstrap is insistent */
+    position: absolute !important;
     top: 0;
     right: 0;
     bottom: 0;
@@ -26,8 +26,8 @@
   }
   
   .carousel-item img {
-    height: 100%; /* Bootstrap handles width already */
-    object-fit: cover; /* or 'contain' if you want stretch instead of crop */
+    height: 100%;
+    object-fit: contain !important;
   }
 
   .project-button-white {
@@ -90,16 +90,16 @@
                     <img src="{% static 'media/zest-cup.jpg' %}" class="d-block w-100" alt="cup-design">
                   </div>
                   <div class="carousel-item">
-                    <img src="{{MEDIA_URL}}zest-cards.jpg" class="d-block w-100" alt="cards-design">
+                    <img src="{% static 'media/zest-cards.jpg' %}" class="d-block w-100" alt="cards-design">
                   </div>
                   <div class="carousel-item">
-                    <img src="{{MEDIA_URL}}zest-window.jpg" class="d-block w-100" alt="window-design">
+                    <img src="{% static 'media/zest-window.jpg' %}" class="d-block w-100" alt="window-design">
                   </div>
                   <div class="carousel-item">
-                    <img src="{{MEDIA_URL}}zest-bag.jpg" class="d-block w-100" alt="bag-design">
+                    <img src="{% static 'media/zest-bag.jpg' %}" class="d-block w-100" alt="bag-design">
                   </div>
                   <div class="carousel-item">
-                    <img src="{{MEDIA_URL}}zest-menu.jpg" class="d-block w-100" alt="menu-design">
+                    <img src="{% static 'media/zest-menu.jpg' %}" class="d-block w-100" alt="menu-design">
                   </div>
                 </div>
 
@@ -133,13 +133,13 @@
         <div id="productCarousel2" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="{{MEDIA_URL}}nostalgia-1.jpg" class="d-block w-100" alt="album-design">
+            <img src="{% static 'media/nostalgia-1.jpg' %}" class="d-block w-100" alt="album-design">
           </div>
           <div class="carousel-item">
-            <img src="{{MEDIA_URL}}nostalgia-2.jpg" class="d-block w-100" alt="album-design">
+            <img src="{% static 'media/nostalgia-2.jpg' %}" class="d-block w-100" alt="album-design">
           </div>
           <div class="carousel-item">
-            <img src="{{MEDIA_URL}}nostalgia-3.jpg" class="d-block w-100" alt="album-design">
+            <img src="{% static 'media/nostalgia-3.jpg' %}" class="d-block w-100" alt="album-design">
           </div>
           </div>
           <a class="carousel-control-prev" href="#productCarousel2" role="button" data-slide="prev">
@@ -173,13 +173,13 @@
       <div id="productCarousel3" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="{{MEDIA_URL}}clochard-mockup-blue.jpg" class="d-block w-100" alt="album-design">
+          <img src="{% static 'media/clochard-mockup-blue.jpg' %}" class="d-block w-100" alt="album-design">
         </div>
         <div class="carousel-item">
-          <img src="{{MEDIA_URL}}clochard-mockup-green.jpg" class="d-block w-100" alt="album-design">
+          <img src="{% static 'media/clochard-mockup-green.jpg' %}" class="d-block w-100" alt="album-design">
         </div>
         <div class="carousel-item">
-          <img src="{{MEDIA_URL}}clochard-mockup-label.jpg" class="d-block w-100" alt="album-design">
+          <img src="{% static 'media/clochard-mockup-label.jpg' %}" class="d-block w-100" alt="album-design">
         </div>
         </div>
         <a class="carousel-control-prev" href="#productCarousel3" role="button" data-slide="prev">
