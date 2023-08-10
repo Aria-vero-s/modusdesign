@@ -9,7 +9,7 @@ html {
 body {
     color: black;
     font-family: 'Lato';
-}
+} 
 
 #background-image {
     position: fixed;
@@ -141,6 +141,18 @@ a:focus {
 .btn-black {
     background: black;
     color: white;
+    padding: 10px 25px;
+    border-radius: 100px;
+    text-transform: uppercase;
+    font-size: smaller;
+    transition: .3s ease-in-out;
+}
+
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: lightgray;
+    color: white !important;
 }
 
 .centered-button {
@@ -153,7 +165,7 @@ a:focus {
 
 .btn-outline-black {
     background: white;
-    color: black !important; /* use important to override link colors for <a> elements */
+    color: black !important;
     border: 1px solid black;
     border-radius: 0%;
     min-width:100px;
@@ -175,13 +187,23 @@ a:focus {
 
 .quote-button:hover,
 .quote-button:active,
-.quote-button:focus,
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
+.quote-button:focus {
     background: #222;
     color: white;
 }
+
+.yellow-purple-button {
+    background: #688dee;
+    color: #f6f59a!important;
+    border: 1px solid #f6f59a;
+    border-radius: 0%;
+    min-width:160px;
+    padding:10px;
+    transition: .3s ease-in-out;
+    margin: 0 auto;
+    display: block;
+}
+
 
 .btt-button {
     height: 42px;

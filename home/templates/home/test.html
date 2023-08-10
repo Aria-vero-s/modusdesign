@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container" style="height:50px !important;">
+        <div class="row"></div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+  }
+  
+  .hero-container {
+    display: flex;
+    flex-direction: row;
+    width: 100vw; /* Width to accommodate three sections side by side */
+    overflow-x: scroll; /* Enable horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Snap scrolling to each section */
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .hero-section {
+    flex: 1;
+    height: 100vh;
+    scroll-snap-align: start; /* Align each section to the start of the viewport */
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  #section-1 {
+    background-color: white;
+    min-width:50%;
+  }
+
+  #section-2 {
+    min-width: 100vw;
+  }
+
+  #section-2 img{
+    width:100%;
+    object-fit: contain;
+    background-color: white !important;
+  }
+
+  #section-3 {
+    min-width: 50vw;
+  }
+  #section-4 {
+    min-width: 100vw;
+  }
+
+  #section-4 img{
+    width:100%;
+    object-fit: contain;
+    background-color: white !important;
+  }
+
+  .vertical-section {
+    padding: 40px;
+    background-color: #fff;
+  }
+</style>
+<div class="container-fluid" style="padding:0; margin:0;">
+  <div class="hero-container">
+    <div class="hero-section" id="section-1">
+            <div class="col">
+                <div class="row"><h1 style="text-transform: uppercase; margin-left:40px;">From <b><i>custom designs</i></b> to
+                    <br>ready-made <b><i>web templates</i></b></h1>
+                </div>
+                <div class="row"><a href="{% url 'products' %}" class="button btn-black" style="margin-left:40px;">Get a quote</a></div>
+            </div>
+        </div>
+    <div class="hero-section" id="section-2"><img src="{{ MEDIA_URL}}relaxation.png"></div>
+    <div class="hero-section" id="section-3">
+        <div class="col">
+            <div class="row">
+                <p>Derived from the Latin term meaning "a mode of procedure," represents <b>designing as a process.</b></p>
+            </div>
+            <div class="row">
+                <p>Derived from the Latin term meaning "a mode of procedure," represents <b>designing as a process.</b></p>
+            </div>
+            <div class="row">
+                <p>Derived from the Latin term meaning "a mode of procedure," represents <b>designing as a process.</b></p>
+            </div>
+        </div>
+    </div>
+    <div class="hero-section" id="section-4"><img src="{{ MEDIA_URL}}modus-design.png"></div>
+  </div>
+  <div class="vertical-section">
+    <h2>Vertical Content Section</h2>
+    <p>This is the vertical scrolling content section below the hero section.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis leo et massa malesuada semper vel vel justo.</p>
+  </div>
+</div>
+
+{% endblock %}

@@ -21,13 +21,16 @@ Site owners may use Modus Design to sell their work and offer graphic design ser
 
     -   #### Site Owner Goals
 
-        1. As a site owner I can see a list of all orders so that I can create and deliver the product to my client.
-        2. As a site owner I can showcase my work so that I can help the clients visualize what I do.
+        1. As a site owner, I can see a list of all orders so that I can create and deliver the product to my client.
+        2. As a site owner, I can showcase my work so that I can help the clients visualize what I do.
+        3. As a site owner, I can use C.R.U.D functionality to add new templates through the product manager link in the My account dropdown menu. I can also edit or delete them once selected.
 
 
 -   ### Design
     -   #### Colour Scheme
-        -   The two main colours used are white and black
+        -   The two main colours used are white and black #f6f59a
+        #4a5399
+
     -   #### Typography
         -   The Lato font is the main font used throughout the whole website. The lato font is a sans serif typeface family paired with Merriwheater to create the logo. Both fonts are from google fonts.
 
@@ -105,10 +108,99 @@ The navigation bar plays a vital role in facilitating user navigation and provid
 
 ## Testing
 
-The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
+### Validator Testing
+#### HTML
+I checked all of the HTML pages using [W3C Markup Validation Service](https://validator.w3.org/)
 
--   [W3C Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
--   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
+Errors found & fixed:
+
+- Base Tamplate:
+    - duplicate ID's
+
+- Home Page:
+    - Alt tags on images
+
+- Artists Page:
+    - No space between attributes
+
+- Add Artist Page:
+    - Element p not allowed as child of element strong
+
+- Edit Artist Page:
+    - Alt tag on image
+
+- Bag Page:
+    - The type attribute is unnecessary for JavaScript resources.(keeping this)
+
+- Add Class Page:
+    - Element p not allowed as child of element strong
+
+- Edit Class Page:
+    - Alt tag on image
+
+- Add Product Page
+    - Element p not allowed as child of element strong
+
+- Edit Product Page:
+    - Alt tag on image
+
+- Sign Out Page:
+    - Stray div tag
+
+- Password Reset Page:
+    - Stray div tag
+
+While some of the errors were simple fixes, other were a lot harder to understand how to fix:
+
+<b>Error: Duplicate attribute id</b>
+
+This error was noted on the following pages:
+
+- Add Artist Page
+- Edit Artist Page
+- Add Class Page
+- Edit Class Page
+- Add Product Page
+- Edit Product Page
+
+In the `custom_clearable_file_input.html` file in each of the 3 apps, the image input field has an id="new-image" attribute added. But there seems to be another one generated in the form: id="id_image".
+
+If I remove the id from the widget, the file name won't display when uploaded to the form.
+
+I can't find where the second id is being generated to be able to remove it or add id_image to the widget id.
+
+<b>The value of the for attribute of the label element must be the ID of a non-hidden form control.</b>
+
+This error was noted on the following pages:
+
+- Add Class Page
+- Edit Class Page
+
+This was a lot harder to figure out as none of the form elements are hidden.
+
+If I had more time I would work on resolving these issue but at this point it's a matter of a deadline, but they're something that I will definitely be going back over.
+
+#### CSS
+
+I had three CSS files that were checked using [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
+
+#### JavaScript
+I checked the all the JavaScript files using [JS Hint](https://jshint.com/)
+
+There were a few missing semicolons and ES6 version issues but they were easy fixes.
+
+One error that I found that I was in the checkout javascript file:
+
+<b>JS valiadation error</b>
+
+Because the code comes from Strip itself, I don't want to touch this and am happy to leave it alone.
+
+#### Python
+
+I checked the Py files using [PythonChecker](https://www.pythonchecker.com/)
+
+The code passed all checks.
+
 
 ### Testing User Stories from User Experience (UX) Section
 
@@ -157,27 +249,6 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 ## Deployment
 
-### Heroku
-
-The project was deployed to Heroku. The live version can be found [here](https://modusdesign.herokuapp.com/).
-
-1. Create a requirements.txt file that lists all the Python packages required for the project. Run the following command in your terminal:
-```
-$ pip3 freeze --local > requirements.txt
-```
-2. Create a Procfile in the project's root directory and add the following line:
-```
-web: gunicorn ARTstop.wsgi:application
-```
-3. Push the requirements.txt and Procfile to your repository.
-4. Log in to Heroku (https://www.heroku.com/) and navigate to the dashboard.
-5. Click on "Create New App" and choose a unique name for your app.
-6. Select the appropriate region based on your location.
-7. Click "Create App" to create the Heroku app.
-8. In the Heroku dashboard, navigate to the "Deploy" tab.
-9. Under the "Deployment Method" section, select "GitHub".
-10. Search for your repository by name and click "Connect" to connect Heroku to your GitHub repository.
-
 ### Making a Local Clone
 
 1. Log in to GitHub and locate the [GitHub Repository](https://github.com/)
@@ -203,6 +274,30 @@ $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
 ```
 
 Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.
+
+
+8. Run the development server using `python manage.py runserver`.
+
+### Deploying to Heroku
+
+The project was deployed to Heroku. The live version can be found [here](https://modusdesign.herokuapp.com/).
+
+1. Create a requirements.txt file that lists all the Python packages required for the project. Run the following command in your terminal:
+```
+$ pip3 freeze --local > requirements.txt
+```
+2. Create a Procfile in the project's root directory and add the following line:
+```
+web: gunicorn ARTstop.wsgi:application
+```
+3. Push the requirements.txt and Procfile to your repository.
+4. Log in to Heroku (https://www.heroku.com/) and navigate to the dashboard.
+5. Click on "Create New App" and choose a unique name for your app.
+6. Select the appropriate region based on your location.
+7. Click "Create App" to create the Heroku app.
+8. In the Heroku dashboard, navigate to the "Deploy" tab.
+9. Under the "Deployment Method" section, select "GitHub".
+10. Search for your repository by name and click "Connect" to connect Heroku to your GitHub repository.
 
 ## Credits
 
