@@ -66,6 +66,32 @@
     background-color: white !important;
   }
 
+  #section-5 {
+    min-width: 100vw;
+  }
+
+  #section-5 img{
+    width:100%;
+    object-fit: contain;
+    background-color: white !important;
+  }
+
+  .image-container {
+  position: relative;
+}
+
+
+.center-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  border:0;
+  padding: 10px 60px;
+  text-align: center;
+}
+
   .vertical-section {
     padding: 40px;
     background-color: #fff;
@@ -83,19 +109,25 @@
         </div>
     <div class="hero-section" id="section-2"><img src="{{ MEDIA_URL}}relaxation.png"></div>
     <div class="hero-section" id="section-3">
-        <div class="col">
-            <div class="row">
+        <div class="col ethos">
+            <div class="row animation mb-3">
                 <p>Derived from the Latin term meaning "a mode of procedure," represents <b>designing as a process.</b></p>
             </div>
-            <div class="row">
-                <p>Derived from the Latin term meaning "a mode of procedure," represents <b>designing as a process.</b></p>
+            <div class="row animation mb-3">
+                <p>Choose <b>ModusDesign</b> for a collaborative environment where designer and client work hand in hand towards shared goals.</p>
             </div>
-            <div class="row">
-                <p>Derived from the Latin term meaning "a mode of procedure," represents <b>designing as a process.</b></p>
+            <div class="row animation">
+                <p>Services offered include branding or illustration, and website design. Create a <b>cohesive visual identity</b> for your business or project.</p>
             </div>
         </div>
     </div>
-    <div class="hero-section" id="section-4"><img src="{{ MEDIA_URL}}modus-design.png"></div>
+    <div class="hero-section" id="section-4"><img src="{{ MEDIA_URL}}modus-work.png"></div>
+    <div class="hero-section" id="section-5">
+        <div class="image-container">
+            <img src="{{ MEDIA_URL}}zest-cards.jpg">
+            <a href="{% url 'branding' %}" class="center-button btn-black">View Full<br>Project</a>
+        </div>
+    </div>
   </div>
   <div class="vertical-section">
     <h2>Vertical Content Section</h2>
