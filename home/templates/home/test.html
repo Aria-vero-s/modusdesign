@@ -13,7 +13,6 @@
   body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
     overflow-x: hidden; /* Hide horizontal scrollbar */
   }
   
@@ -56,6 +55,7 @@
   #section-3 {
     min-width: 50vw;
   }
+
   #section-4 {
     min-width: 100vw;
   }
@@ -74,6 +74,10 @@
     width:100%;
     object-fit: contain;
     background-color: white !important;
+  }
+
+  #section-6 {
+    min-width: 100vw;
   }
 
   .image-container {
@@ -110,13 +114,13 @@
     <div class="hero-section" id="section-2"><img src="{{ MEDIA_URL}}relaxation.png"></div>
     <div class="hero-section" id="section-3">
         <div class="col ethos">
-            <div class="row animation mb-3">
+            <div class="row animation mb-3 lead">
                 <p>Derived from the Latin term meaning "a mode of procedure," represents <b>designing as a process.</b></p>
             </div>
-            <div class="row animation mb-3">
+            <div class="row animation mb-3 lead">
                 <p>Choose <b>ModusDesign</b> for a collaborative environment where designer and client work hand in hand towards shared goals.</p>
             </div>
-            <div class="row animation">
+            <div class="row animation lead">
                 <p>Services offered include branding or illustration, and website design. Create a <b>cohesive visual identity</b> for your business or project.</p>
             </div>
         </div>
@@ -127,6 +131,15 @@
             <img src="{{ MEDIA_URL}}zest-cards.jpg">
             <a href="{% url 'branding' %}" class="center-button btn-black">View Full<br>Project</a>
         </div>
+    </div>
+    <div class="hero-section" id="section-6">
+        <div class="col">
+            <div class="row">
+                <h1 style="text-transform: uppercase; margin-left:40px;">Start <b><i>today</i></b> and bring your vision to life</h1>
+            </div>
+            <div class="row"><a href="{% url 'products' %}" class="button btn-black" style="margin-left:40px;">Get a quote</a></div>
+        </div>
+    </div>
     </div>
   </div>
   <div class="vertical-section">
