@@ -31,7 +31,7 @@
                               </a>   
                               <span class="text-muted" style="font-style: oblique;">Price: </span><span class="card-text" style="font-style: oblique;">${{ product.price }}</span>
                               <p class="card-text mt-3 flex-grow-1">{{ product.description }}</p>   
-                              <a class="btn btn-black rounded-0" href="{% url 'template_detail' product.id %}">View</a>                        
+                              <a class="btn btn-black " href="{% url 'template_detail' product.id %}">View</a>                        
                         </div>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
             <small class="row justify-content-center align-items-center">
                 <div class="text-center" style="margin-bottom:100px;" >
                     <p style="margin-top:50px;" >You are seeing this because you are logged in as admin:</p>
-                    <a class="btn btn-black rounded-0" href="{% url 'add_product'%}">Add a template</a>
+                    <a class="btn btn-black " href="{% url 'add_product'%}">Add a template</a>
                 </div>
             </small>
         {% endif %}

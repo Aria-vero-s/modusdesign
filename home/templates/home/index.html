@@ -3,13 +3,6 @@
 
 {% block content %}
 <style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'lato';
-    overflow-x: hidden;
-  }
-  
   .hero-container {
     display: flex;
     flex-direction: row;
@@ -122,21 +115,27 @@
   position: relative;
 }
 
-  .vertical-section {
-    padding: 40px;
-    background-color: #fff;
-  }
 </style>
 <div class="container-fluid vh-100 p-0">
   <div class="container-fluid" style="padding:0; margin:0;">
     <div class="hero-container">
       <div class="hero-section" id="section-1">
               <div class="col">
-                  <div class="row"><h1 style="text-transform: uppercase; margin-left:40px;">From <b><i>custom designs</i></b> to
-                      <br>ready-made <b><i>web templates</i></b></h1>
+                  <div class="row">
+                    <h1 style="text-transform: uppercase; margin-left:40px;">
+                      From <b><i>custom designs</i>
+                      </b> to ready-made <b><i>web templates</i></b>
+                    </h1>
                   </div>
-                  <div class="row"><a href="{% url 'products' %}" class="button btn-black" style="margin-left:40px;">Get a quote</a></div>
-              </div>
+                  <div class="row">
+                    <a href="{% url 'products' %}" class="btn btn-black" style="margin-left:40px;">Get a quote</a>
+                  </div>
+                  <div class="row mt-5">
+                    <i class="fa-solid fa-angles-right fa-beat fa-lg" style="margin-left:40px;"></i>
+                    <i class="fa-solid fa-angles-right fa-beat fa-lg" style="margin-left:0px;"></i>
+                    <i class="fa-solid fa-angles-right fa-beat fa-lg" style="margin-left:0px;"></i>
+                  </div>
+                </div>
           </div>
       <div class="hero-section" id="section-2"><img src="{{ MEDIA_URL}}relaxation.png"></div>
       <div class="hero-section" id="section-3">
@@ -164,7 +163,7 @@
               <div class="row">
                   <h1 style="text-transform: uppercase; margin-left:40px;">Start <b><i>today</i></b> and bring your vision to life</h1>
               </div>
-              <div class="row"><a href="{% url 'products' %}" class="button btn-black" style="margin-left:40px;">Get a quote</a></div>
+              <div class="row"><a href="{% url 'products' %}" class="btn btn-black" style="margin-left:40px;">Get a quote</a></div>
           </div>
       </div>
       </div>
@@ -181,7 +180,7 @@
             </div>
             <ul class="list-unstyled">
               <li class="nav-item dropdown">
-                <a class="btn btn-black btn-lg rounded-0 text-uppercase nav-link" href="#" id="design-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="btn portfolio-button text-uppercase nav-link" style="margin:0 auto; max-width:200px;" href="#" id="design-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Portfolio
                 </a>
                 <div class="dropdown-menu border-0" aria-labelledby="design-link">
@@ -191,10 +190,10 @@
               </li>
             </ul>
             <div class="text-center">
-                <a href="https://uk.linkedin.com/in/ariane-saulnier" target="_blank" class="custom-button text-uppercase">Linkedin</a>
-                <a href="https://www.behance.net/arianesaulnier" target="_blank" class="custom-button text-uppercase">Behance</a>
-                <a href="{{ MEDIA_URL }}Ariane_Saulnier_CV.docx" download class="custom-button text-uppercase">Resume</a>
-              </div>
+              <a href="https://uk.linkedin.com/in/ariane-saulnier" target="_blank" class="custom-button text-uppercase">Linkedin</a>
+              <a href="https://www.behance.net/arianesaulnier" target="_blank" class="custom-button text-uppercase">Behance</a>
+              <a href="{{ MEDIA_URL }}Ariane_Saulnier_CV.docx" download class="custom-button text-uppercase">Resume</a>
+            </div>
           </div>
         </div>
       </div>
@@ -228,7 +227,7 @@
                         {{ form.comment }}
                     </div>
 
-                    <p><input class="btn btn-black rounded-0" type="submit" value="submit"></p>
+                    <p><input class="btn btn-black" type="submit" value="submit"></p>
                 </form>
             </div>
         </div>
@@ -248,7 +247,7 @@
                         - Jaeyoung Chong
                         <br>
                         <br>
-                        <a href="{% url 'illustration' %}#nostalgia" class="btn btn-outline-black btn-lg rounded-0 text-uppercase py-3">View project</a>
+                        <a href="{% url 'illustration' %}#nostalgia" class="btn btn-outline-black text-uppercase py-3">View project</a>
                     </p>
                 </div>
             </div>
