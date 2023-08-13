@@ -170,7 +170,7 @@ a:focus {
     color: black !important;
     border: 1px solid black;
     padding: 10px 25px;
-    border-radius: 100px;
+    border-radius: 100px !important;
     min-width:100px;
     text-transform: uppercase;
     transition: .3s ease-in-out;
