@@ -28,8 +28,7 @@ Site owners may use Modus Design to sell their work and offer graphic design ser
 
 -   ### Design
     -   #### Colour Scheme
-        -   The two main colours used are white and black #f6f59a
-        #4a5399
+        -   The two main colours used are white and black
 
     -   #### Typography
         -   The Lato font is the main font used throughout the whole website. The lato font is a sans serif typeface family paired with Merriwheater to create the logo. Both fonts are from google fonts.
@@ -182,7 +181,7 @@ If I had more time I would work on resolving these issue but at this point it's 
 
 #### CSS
 
-I had three CSS files that were checked using [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
+The CSS file was checked using [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
 
 #### JavaScript
 I checked the all the JavaScript files using [JS Hint](https://jshint.com/)
@@ -199,7 +198,15 @@ Because the code comes from Strip itself, I don't want to touch this and am happ
 
 I checked the Py files using [PythonChecker](https://www.pythonchecker.com/)
 
-The code passed all checks.
+I used unittest to test the core functionalities of each app.
+
+|Test Name               |Description               |Pass/Fail|
+|:-------------         |:----------------------------------|:---|
+| **Bag**            |                                         |    
+|TestAddToBagFunction  |This test case checks whether the `add_to_bag` function successfully adds a specified quantity of a product to the shopping bag. It validates that the response status code is as expected. It ensures that the bag contents are updated accurately and that appropriate success messages are generated.                   |Pass|
+**Checkout**            |                                         |    
+|TestAddToBagFunction  |This test case checks whether the `add_to_bag` function successfully adds a specified quantity of a product to the shopping bag. It validates that the response status code is as expected. It ensures that the bag contents are updated accurately and that appropriate success messages are generated.                   |Pass|
+|
 
 
 ### Testing User Stories from User Experience (UX) Section
@@ -245,7 +252,7 @@ The code passed all checks.
 
 ### Known Bugs
 
--   In the edit_product page while logged in as admin, the images are not editable.
+-   None
 
 ## Deployment
 
