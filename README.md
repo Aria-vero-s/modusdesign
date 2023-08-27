@@ -2,9 +2,13 @@
 
 [View the live project here.](https://modusdesign.herokuapp.com/)
 
-Site owners may use Modus Design to sell their work and offer graphic design services. The website is designed to be responsive and accessible on a range of devices, making it easy to navigate for potential customers and employers as a B2B.
+Site users may use ModusDesign to purchase pre-made web templates or custom design services. The website is designed to be responsive and accessible on all devices. This e-commerce platform provides a wide range of choices for its users. This README provides an overview of the purpose, features, testing, and the security measures in place.
 
 ![mockup](media/modus-mockup.png?raw=true)
+
+## Intent and Purpose
+
+At its core, ModusDesign aims to offer a user-friendly platform for both users and administrators to engage with web templates and design services effectively. The primary goal is to provide a centralized hub for creating, managing, and sharing design assets.
 
 ## User Experience (UX)
 
@@ -32,6 +36,10 @@ Site owners may use Modus Design to sell their work and offer graphic design ser
 
     -   #### Typography
         -   The Lato font is the main font used throughout the whole website. The lato font is a sans serif typeface family paired with Merriwheater to create the logo. Both fonts are from google fonts.
+    
+    - #### Wireframe
+        - I created the wireframe with Figma. The link can be found here:
+        [ModusDesign Figma](https://www.figma.com/file/oaLvCGHA1YyYgmSKfzmzog/Modus-Design?type=design&node-id=0%3A1&mode=design&t=RfrP8RmXt5egmIum-1)
 
 ## Features
 
@@ -69,6 +77,14 @@ The navigation bar plays a vital role in facilitating user navigation and provid
 
         Delete(Delete) From the item detail page, the admin has a delete button that will trigger a confirmation modal. Once the admin confirms deletion, the Template will be removed from the database
 
+# Products and Services:
+
+ModusDesign offers a product catalog featuring diverse design templates, each tailored to different design needs. Our catalog includes:
+
+<b>Website Design</b>: Templates for creating captivating and functional websites across various industries.
+
+<b>Graphic Design</b>: Designs to craft compelling branding materials, including logos, promotional items, stationary, and packaging, from brand identities to album covers.
+
 # Footer:
 
 -   All pages include a footer section located at the bottom, which contains social media links and a newsletter subscription form. The footer provides easy access to the project's social media profiles and allows users to stay updated by subscribing to the newsletter.
@@ -105,49 +121,45 @@ The navigation bar plays a vital role in facilitating user navigation and provid
 -   [VisualStudio](https://code.visualstudio.com/) was used to develop project and organise version control.
 -   [RandomKeygen](https://randomkeygen.com/) used to create a strong password for required <SECRET_KEY>.
 
+## Security Measures
+
+These are the measures taken to safeguard user data and application integrity:
+
+<b>User Authentication</b>: Passwords are securely stored, ensuring user accounts are protected using Django authentication mechanism.
+
+<b>Role-Based Access</b>: The application distinguishes between regular users and administrators. Admins are granted elevated privileges to manage products, while users access design templates and place orders.
+
+<b>Data Validation</b>: Data submitted through forms is thoroughly validated and sanitized to prevent common security vulnerabilities.
+
+<b>Secure Transactions</b>:
+Using Stripe's secure payment gateways to facilitate transactions, users can confidently make payments for their selected design templates using credit cards.
+
+
 ## Testing
 
 ### Validator Testing
 #### HTML
 I checked all of the HTML pages using [W3C Markup Validation Service](https://validator.w3.org/)
 
+> **Note**
+> There was a few warnings and errors I left untouched. For example, {% extends "base.html" %} provides consistent layouts across pages, though the validator might not be aware of DOCTYPE and lang attributes in the base template when validating individual files. Also, it is not recognizing the {% url '' %} template tag, which is due to the way the URLs are imported. I found it more important to ensure that my web application works properly and renders correctly for users, rather than solely focusing on eliminating these validator warnings.
+
 Errors found & fixed:
 
-- Base Tamplate:
-    - duplicate ID's
+- Bag:
+    - removed stray `</div>` tag in bag.html
+    - I decided to not omit the type attribute in the `<script>` tag since it is not causing any issues but I will take that into consideration in future projects in order to keep my code up-to-date.
+    - I made no change to quantity-form.html as item.item_id and item.quantity will always be numeric. In that case, the error message should not be a problem.
 
-- Home Page:
-    - Alt tags on images
+- Checkout:
+    - removed stray `</div>` tag in checkout.html
+    - removed empty `<h1>` heading with nested icon and moved the icon to a div
 
-- Artists Page:
-    - No space between attributes
+- Home:
+    - No
 
-- Add Artist Page:
-    - Element p not allowed as child of element strong
-
-- Edit Artist Page:
-    - Alt tag on image
-
-- Bag Page:
-    - The type attribute is unnecessary for JavaScript resources.(keeping this)
-
-- Add Class Page:
-    - Element p not allowed as child of element strong
-
-- Edit Class Page:
-    - Alt tag on image
-
-- Add Product Page
-    - Element p not allowed as child of element strong
-
-- Edit Product Page:
-    - Alt tag on image
-
-- Sign Out Page:
-    - Stray div tag
-
-- Password Reset Page:
-    - Stray div tag
+- Media:
+    - No
 
 While some of the errors were simple fixes, other were a lot harder to understand how to fix:
 
@@ -314,13 +326,10 @@ web: gunicorn ARTstop.wsgi:application
 
 -   [Stripe](https://stripe.com/en-gb-ca) : Stripe software and APIs to accept payments, send payouts, and manage orders online.
 
-### Content
+### Content & Media
 
--   All content was written by the developer.
+-   All images and content was created and written by the developer.
 
-### Media
-
--   All Portfolio images were created by the developer.
 
 ### Acknowledgements
 

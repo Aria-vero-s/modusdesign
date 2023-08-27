@@ -23,15 +23,15 @@
             {% endfor %}
             <hr>
             <p class="my-3">Total: ${{ grand_total|floatformat:2 }}</p>
-            <a href="{% url 'checkout' %}" class="btn btn-outline-black text-uppercase">Go to checkout</span></a>
+            <a href="{% url 'checkout' %}" class="btn btn-outline-black text-uppercase">Go to checkout</a>
             <a href="{% url 'home' %}" class="btn btn-outline-black text-uppercase">No, start over</a>
 
         {% else %}
             <p class="lead mb-5">Your bag is empty.</p>
-            <a href="{% url 'products' %}" class="btn btn-outline-black text-uppercase">Go back</span></a>
+            <a href="{% url 'products' %}" class="btn btn-outline-black text-uppercase">Go back</a>
         {% endif %}
-        </div>
     </div>
+    
 <div class="container header-container">
     <div class="row">
         <div class="col"></div>

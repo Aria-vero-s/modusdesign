@@ -12,10 +12,12 @@
     <div class="toast-body bg-white justify-content-center">
         <div class="col">
             <div class="row">
-                {% if product.image_home.url %}
-                    <h1>Your total is: ${{ total|floatformat:2 }}</h1><br>
-                {% else %}
-                    <h1>Your quote is: ${{ total|floatformat:2 }}</h1><br>
+                {% if product.image_home %}
+                    {% if product.image_home.url %}
+                        <h1>Your total is: ${{ total|floatformat:2 }}</h1><br>
+                    {% else %}
+                        <h1>Your quote is: ${{ total|floatformat:2 }}</h1><br>
+                    {% endif %}
                 {% endif %}
                 <p>{{ message }}</p>
                 <hr class="mt-1 mb-3">
