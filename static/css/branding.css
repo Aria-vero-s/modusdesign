@@ -1,0 +1,93 @@
+
+.carousel {
+    height: 300px !important;
+  }
+
+  .carousel-inner {
+    height: 300px;
+    padding-bottom: 100%;
+  }
+
+  .carousel-inner img {
+    max-height: 300px;
+    object-fit: cover;
+    overflow: hidden;
+  }
+
+@media (max-width:899px) {
+    .carousel {
+    height: 300px !important;
+  }
+    .carousel-inner {
+    height: 300px !important;
+  }
+
+  .carousel-inner img {
+    max-height: 300px;
+    object-fit: cover;
+    overflow: hidden;
+  }
+}
+
+@media (min-width:900px) {
+  .carousel {
+    height: 400px !important;
+  }
+
+  .carousel-inner {
+    height: 400px !important;
+  }
+
+  .carousel-inner img {
+    max-height: 400px;
+    object-fit: cover;
+    overflow: hidden;
+  }
+}
+
+@media (min-width:1200px) {
+  .carousel {
+    height: 500px !important;
+  }
+
+  .carousel-inner {
+    height: 500px !important;
+  }
+
+  .carousel-inner img {
+    max-height: 500px;
+    object-fit: cover;
+    overflow: hidden;
+  }
+}
+
+  .project-button-white {
+    background: white;
+    color: black !important;
+    text-transform: uppercase;
+    font-size: medium;
+    text-align: left;
+    border:grey 1px solid;
+    padding:30px;
+}
+
+.project-button-white:hover {
+    color: grey !important;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.project-button-black {
+    background: black;
+    color: white !important;
+    text-transform: uppercase;
+    font-size: medium;
+    text-align: left;
+    border:grey 1px solid;
+    padding:30px;
+}
+.project-button-black:hover {
+    color: grey !important;
+    text-decoration: none;
+    transition: 0.3s;
+}

@@ -142,13 +142,13 @@
         </div>
     </form>
     {% if request.user.is_superuser %}
-        <small class="row justify-content-center align-items-center">
-            <div class="text-center" style="margin-bottom:100px;">
+        <div class="row justify-content-center align-items-center">
+            <small class="text-center" style="margin-bottom:100px;">
                 <p>You are seeing this because you are logged in as admin:</p>
                 <a class="btn" href="{% url 'edit_product' product.id %}">Edit</a> | 
                 <a class="btn text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
-            </div>
-        </small>
+            </small>
+        </div>
     {% endif %}
 </div>
     

@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block page_header %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/branding.css' %}">
     <div class="container header-container">
         <div class="row">
             <div class="col"></div>
@@ -10,78 +11,6 @@
 {% endblock %}
 
 {% block content %}
-<style>
-    /* portfolio */
-
-#project-right img {
-    float: right;
-    width: 60%;
-    height:auto;
-    margin-left:30px; 
-    margin-bottom: 30px;
-  }
-
-#project-left img {
-    float: left;
-    width: 60%;
-    height:auto;
-    margin-right:30px; 
-    margin-bottom: 30px;
-  }
-
-@media (max-width: 412px) {
-    #project-right img {
-        margin-left:10px; 
-        margin-bottom:10px;
-    }
-}
-
-@media (max-width: 412px) {
-    #project-left img {
-        margin-right:10px; 
-        margin-bottom:10px;
-    }
-}
-
-@media (max-width: 412px) {
-    #project img {
-        width: 100%;
-        height: auto;
-    }
-  }
-
-.project-button-white {
-    background: white;
-    color: black !important;
-    text-transform: uppercase;
-    font-size: medium;
-    text-align: left;
-    border:grey 1px solid;
-    padding:30px;
-}
-
-.project-button-white:hover {
-    color: grey !important;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.project-button-black {
-    background: black;
-    color: white !important;
-    text-transform: uppercase;
-    font-size: medium;
-    text-align: left;
-    border:grey 1px solid;
-    padding:30px;
-}
-.project-button-black:hover {
-    color: grey !important;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-</style>
     <div class="overlay"></div>
     <div class="container mb-2">
         <div class="row">

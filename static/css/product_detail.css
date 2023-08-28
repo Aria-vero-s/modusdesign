@@ -1,0 +1,8 @@
+
+.btn-group .btn.active {
+    background-color: lightgray !important;
+    color: black !important;
+}
+input:focus {
+    outline: none;
+}

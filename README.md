@@ -156,55 +156,42 @@ Errors found & fixed:
     - removed empty `<h1>` heading with nested icon and moved the icon to a div
 
 - Home:
-    - No
+    - Removed unneccessary name attribute in branding.html
+    - The duplicate ID is not problematic as they are not duplicated within the same context.
+    - Moved all inline CSS to static folder.
+    - Added missing alt attributes to images.
+    - In index.html, I decided to keep the inline style for the background-image to keep the media url path the same.
 
-- Media:
-    - No
+- Products:
+    - Moved all inline CSS to static folder.
+    - Removed whitespace
+    - Moved `</div>` to ensure all elements were properly closed.
+    - I nested the `<small>` inside the `<div>` rather than the other way around.
+    - Removed stray `<a>` tag
 
-While some of the errors were simple fixes, other were a lot harder to understand how to fix:
+- Profile:
+    - Fixed indentation
 
-<b>Error: Duplicate attribute id</b>
-
-This error was noted on the following pages:
-
-- Add Artist Page
-- Edit Artist Page
-- Add Class Page
-- Edit Class Page
-- Add Product Page
-- Edit Product Page
-
-In the `custom_clearable_file_input.html` file in each of the 3 apps, the image input field has an id="new-image" attribute added. But there seems to be another one generated in the form: id="id_image".
-
-If I remove the id from the widget, the file name won't display when uploaded to the form.
-
-I can't find where the second id is being generated to be able to remove it or add id_image to the widget id.
-
-<b>The value of the for attribute of the label element must be the ID of a non-hidden form control.</b>
-
-This error was noted on the following pages:
-
-- Add Class Page
-- Edit Class Page
-
-This was a lot harder to figure out as none of the form elements are hidden.
-
-If I had more time I would work on resolving these issue but at this point it's a matter of a deadline, but they're something that I will definitely be going back over.
 
 #### CSS
 
-The CSS file was checked using [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
+The CSS files was checked using [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
+
+- base.css:
+    - Fixed border style
+
+There were no error found in the other CSS files.
 
 #### JavaScript
 I checked the all the JavaScript files using [JS Hint](https://jshint.com/)
 
-There were a few missing semicolons and ES6 version issues but they were easy fixes.
+- stripe_elements.js:
+    Added missing semi-colon
 
-One error that I found that I was in the checkout javascript file:
+- stripe.js:
+    Added missing semi-colon
 
-<b>JS valiadation error</b>
-
-Because the code comes from Strip itself, I don't want to touch this and am happy to leave it alone.
+I couldn't fix the 	```'template literal syntax' is only available in ES6 (use 'esversion: 6').``` However, as this didn't affect my code, I am happy to leave it alone.
 
 #### Python
 
@@ -217,7 +204,7 @@ I used unittest to test the core functionalities of each app.
 | **Bag**            |                                         |    
 |TestAddToBagFunction  |This test case checks whether the `add_to_bag` function successfully adds a specified quantity of a product to the shopping bag. It validates that the response status code is as expected. It ensures that the bag contents are updated accurately and that appropriate success messages are generated.                   |Pass|
 **Checkout**            |                                         |    
-|TestAddToBagFunction  |This test case checks whether the `add_to_bag` function successfully adds a specified quantity of a product to the shopping bag. It validates that the response status code is as expected. It ensures that the bag contents are updated accurately and that appropriate success messages are generated.                   |Pass|
+|TestAddToBagFunction  |This test case checks whether the `add_to_bag` function successfully adds a specified quantity of a product to the shopping bag. It validates that the response status code is as expected. It ensures that the bag contents are updated accurately and that appropriate success messages are generated.                   |Unknown. The test itself never worked. I searched on StackOverflow and asked a tutor for help. However, the test is very complex to build as it requires the creation of a new bag session and adding items to it for the separate database. As it is not causing any issues, I am happy to leave it alone. |
 |
 
 

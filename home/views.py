@@ -30,6 +30,3 @@ def illustration(request):
 
 def terms(request):
     return render(request, "home/terms.html", {})
-
-def test(request):
-    return render(request, "home/test.html", {})

@@ -1,37 +1,42 @@
 
-.carousel {
-    height: 300px !important;
+#project-right img {
+    float: right;
+    width: 60%;
+    height:auto;
+    margin-left:30px; 
+    margin-bottom: 30px;
   }
 
-  .carousel-inner {
-    height: 300px;
-    padding-bottom: 100%;
+#project-left img {
+    float: left;
+    width: 60%;
+    height:auto;
+    margin-right:30px; 
+    margin-bottom: 30px;
   }
 
-  .carousel-inner img {
-    max-height: 300px;
-    object-fit: cover;
-    overflow: hidden;
-  }
+@media (max-width: 412px) {
+    #project-right img {
+        margin-left:10px; 
+        margin-bottom:10px;
+    }
+}
 
-  @media (min-width:900px) {
-      .carousel {
-      height: 500px !important;
+@media (max-width: 412px) {
+    #project-left img {
+        margin-right:10px; 
+        margin-bottom:10px;
+    }
+}
+
+@media (max-width: 412px) {
+    #project img {
+        width: 100%;
+        height: auto;
     }
   }
 
-  .carousel-inner {
-    height: 500px;
-    padding-bottom: 100%;
-  }
-
-  .carousel-inner img {
-    max-height: 500px;
-    object-fit: cover;
-    overflow: hidden;
-  }
-
-  .project-button-white {
+.project-button-white {
     background: white;
     color: black !important;
     text-transform: uppercase;

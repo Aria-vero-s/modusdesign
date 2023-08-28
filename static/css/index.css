@@ -1,0 +1,119 @@
+
+  .hero-container {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory; /* Snap scrolling to each section */
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .hero-section {
+    flex: 1;
+    height: 100vh;
+    scroll-snap-align: start; /* Align each section to the start of the viewport */
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+@media (max-width: 500px){
+    .hero-section h1{
+        font-size:1rem;
+        width:100px;
+      }
+}
+
+  #section-1 {
+    background-color: white;
+    min-width:50%;
+  }
+
+  #section-2 {
+    min-width: 100vw;
+  }
+
+  #section-2 img{
+    width:100%;
+    max-height:80%;
+    object-fit: contain;
+    background-color: white !important;
+  }
+
+  #section-3 {
+    min-width: 60vw;
+  }
+
+@media (max-width: 600px){
+#section-3 {
+    min-width: 100vw;
+  }
+}
+
+@media (min-width: 900px){
+#section-3 {
+    min-width: 40vw;
+    max-width: 40vw;
+  }
+}
+
+  #section-4 {
+    max-height:70%;
+  }
+
+  #section-4 img {
+    max-height:70%;
+    object-fit: contain;
+    background-color: white !important;
+  }
+
+  #section-5 {
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+#section-5 .image-container {
+    min-width: 100vw;
+    height:100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#section-5 .image-container img {
+    width:auto;
+    height:100%;
+    object-fit: contain;
+}
+
+#section-5 .center-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    border: 0;
+    padding: 10px 60px;
+    text-align: center;
+}
+
+  #section-6 {
+    min-width: 60vw;
+  }
+
+  #section-6 div {
+    padding-right:20%;
+  }
+
+  .image-container {
+  position: relative;
+}

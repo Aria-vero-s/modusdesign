@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block page_header %}
+    <link rel="stylesheet" href="{% static 'css/product_detail.css' %}">
     <div class="container header-container">
         <div class="row">
             <div class="col"></div>
@@ -10,6 +11,7 @@
 {% endblock %}
 
 {% block content %}
+ 
     <div class="overlay"></div>
     <div class="container">
         <div class="row justify-content-center align-items-center">
@@ -22,15 +24,7 @@
                     {% csrf_token %}
                     <div class="form-row">
                     {% with product.has_sizes as s %}
-                    <style>
-                        .btn-group .btn.active {
-                            background-color: lightgray !important;
-                            color: black !important;
-                        }
-                        input:focus {
-                            outline: none;
-                        }
-                    </style>       
+    
                         {% if s %}
                             {% if product.name == "Website design" %}
                                 <div class="col-12">
@@ -84,7 +78,7 @@
                             <div class="form-group w-50" style="display: none;">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <button class="decrement-qty btn btn-black " 
+                                        <button class="decrement-qty btn btn-black" 
                                             data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
                                             <span class="icon">
                                                 <i class="fas fa-minus"></i>
@@ -96,7 +90,7 @@
                                         data-item_id="{{ product.id }}"
                                         id="id_qty_{{ product.id }}">
                                     <div class="input-group-append">
-                                        <button class="increment-qty btn btn-black "
+                                        <button class="increment-qty btn btn-black"
                                             data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
                                             <span class="icon">
                                                 <i class="fas fa-plus"></i>
@@ -115,10 +109,10 @@
                                 <input type="submit" class="btn btn-black  text-uppercase mt-5" value="Get a quote">
                             </div>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                            {% endwith %}
                         </div>
-                    </form>
-                </div>
+                    {% endwith %}
+                    </div>
+                </form>
             </div>
         </div>
     </div>

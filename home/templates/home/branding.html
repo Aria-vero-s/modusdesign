@@ -1,11 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block page_specific_css %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
-{% endblock %}
-
 {% block page_header %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/branding.css' %}">
     <div class="container header-container">
         <div class="row">
             <div class="col"></div>
@@ -71,7 +68,7 @@
             
             <div style="margin-top:50px;"></div>
 
-            <div class="container-fluid col-12 bg-black" id="nostalgia" name="nostalgia">
+            <div class="container-fluid col-12 bg-black" id="nostalgia">
               <div class="row w-100" id="project-right">
                   <div class="container text-white mt-5 py-5">
                     <div class="row">
