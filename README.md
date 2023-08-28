@@ -121,6 +121,29 @@ ModusDesign offers a product catalog featuring diverse design templates, each ta
 -   [VisualStudio](https://code.visualstudio.com/) was used to develop project and organise version control.
 -   [RandomKeygen](https://randomkeygen.com/) used to create a strong password for required <SECRET_KEY>.
 
+## B2B model and Marketing Strategies:
+
+### B2B Business Model:
+Modus Design operates as an e-commerce website, offering a wide range of website templates targeted towards freelancers and small business owners. The platform enables clients to conveniently purchase templates that align with their branding identity, facilitating the creation of professional websites.
+
+### Target Audience:
+The primary target audience consists of freelancers and small business owners seeking to establish an online presence.
+
+### Marketing Strategies:
+
+1. <b>Detailed Product Descriptions</b>: Each template has a detailed description that explains its features and how it addresses specific business needs.
+
+2. <b>Visual Showcase</b>: Provides high-quality images and demonstrations of the templates, showcasing their visual appeal and potential applications.
+
+3. <b>Social Media Engagement</b>: Uses Facebook and Instagram accounts to promote the website. Regularly engage with the audience by responding to comments and messages.
+    - Facebook: ![Facebook](media/facebook.png?raw=true)
+    - Instagram: ![Instagram](media/insta.png?raw=true)
+
+4. <b>Newsletter Campaigns</b>: The newsletter system sens out informative content, special offers, and updates about new template releases. (Of course, for the sake of the project, no newsletter has been sent.)
+
+5. <b>Customer Testimonials</b>: Uses a testimonial to enhance trust between Modus Design and poterntial clients.
+
+
 ## Security Measures
 
 These are the measures taken to safeguard user data and application integrity:
@@ -195,17 +218,18 @@ I couldn't fix the 	```'template literal syntax' is only available in ES6 (use '
 
 #### Python
 
-I checked the Py files using [PythonChecker](https://www.pythonchecker.com/)
-
-I used unittest to test the core functionalities of each app.
+I checked the Py files using [PythonChecker](https://www.pythonchecker.com/) Additionally, I used unittest to test the core functionalities of each app. Please look at the following table for more details.
 
 |Test Name               |Description               |Pass/Fail|
 |:-------------         |:----------------------------------|:---|
 | **Bag**            |                                         |    
 |TestAddToBagFunction  |This test case checks whether the `add_to_bag` function successfully adds a specified quantity of a product to the shopping bag. It validates that the response status code is as expected. It ensures that the bag contents are updated accurately and that appropriate success messages are generated.                   |Pass|
 **Checkout**            |                                         |    
-|TestAddToBagFunction  |This test case checks whether the `add_to_bag` function successfully adds a specified quantity of a product to the shopping bag. It validates that the response status code is as expected. It ensures that the bag contents are updated accurately and that appropriate success messages are generated.                   |Unknown. The test itself never worked. I searched on StackOverflow and asked a tutor for help. However, the test is very complex to build as it requires the creation of a new bag session and adding items to it for the separate database. As it is not causing any issues, I am happy to leave it alone. |
-|
+|TestAddToBagFunction  |This test case checks whether the `add_to_bag` function successfully adds a specified quantity of a product to the shopping bag. It validates that the response status code is as expected. It ensures that the bag contents are updated accurately and that appropriate success messages are generated.                   |Unknown. The test itself won't work. I searched on StackOverflow and asked a tutor for help. However, the test requires the creation of a new bag session and adding items to it for the separate database. As it is not causing any issues, I am happy to leave it alone. |
+**Home**            |                                         |    
+|test_index_view_POST_valid_form  |This test is checking whether a valid form submission on the index view of the home app results in the expected behavior. It simulates a form submission with valid data, expecting the form to be processed successfully, a specific message to be generated and displayed, and the view template to be rendered. |Fail. However, I have done manual testing and the form works so I am happy to leave this untouched. |
+**Products**            |                                         |    
+|ProductViewsTestCase  |This test verifies the functionality of views related to product management responsible for rendering the appropriate templates, and displaying details of individual products and templates.         |Fail. The issue is the same as earlier |
 
 
 ### Testing User Stories from User Experience (UX) Section
@@ -294,7 +318,7 @@ $ pip3 freeze --local > requirements.txt
 ```
 2. Create a Procfile in the project's root directory and add the following line:
 ```
-web: gunicorn ARTstop.wsgi:application
+web: gunicorn modusdesign.wsgi:application
 ```
 3. Push the requirements.txt and Procfile to your repository.
 4. Log in to Heroku (https://www.heroku.com/) and navigate to the dashboard.
@@ -316,7 +340,10 @@ web: gunicorn ARTstop.wsgi:application
 ### Content & Media
 
 -   All images and content was created and written by the developer.
-
+- Stock photos from Unsplash:
+    - https://unsplash.com/fr/photos/Hcfwew744z4
+    - https://unsplash.com/fr/photos/SYTO3xs06fU
+    - https://unsplash.com/fr/photos/L58uwc_d9zY
 
 ### Acknowledgements
 
