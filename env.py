@@ -4,5 +4,3 @@ os.environ["SECRET_KEY"] = "django-insecure-dnjkt0hvid688d(+t)+(t#+k8m3klxfb7bcc
 os.environ["STRIPE_PUBLIC_KEY"] = "pk_test_51MeI8oHHiHxZZeisfyaj0ve6hLLGFoghsOmi6pcRBeSA1lQudiffUSaCTscONmaUBwj6c6ld1KOHLSB62CY4hFKo00jiQ3Eh00"
 os.environ["STRIPE_SECRET_KEY"] = "sk_test_51MeI8oHHiHxZZeis7z4hd4M0jK9IxF9Oy5sDX1je4x5v7VqVaT71iJdqnsc1uOm1Bqq56kiQACvnZDJInDca5gH400CLD1SgS3"
 os.environ["STRIPE_WH_SECRET"] = "whsec_kMiZ9npT1LYtmNf6i10t6fW716UrpnOD"
-os.environ["AWS_ACCESS_KEY_ID"] = "AKIA2V6J5E7DPDX3WFBO"
-os.environ["AWS_SECRET_ACCESS_KEY"] = "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"
